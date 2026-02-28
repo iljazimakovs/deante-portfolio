@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Volume2, VolumeX } from "lucide-react";
+import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
@@ -96,7 +96,48 @@ const projects: Project[] = [
     image: "/images/project-motor-control.png",
     deliverables: ["Altium PCB Layout", "FOC Firmware", "CAN Protocol Spec", "Thermal Analysis Report"],
   },
+  {
+    title: "LoRa Environmental Sensor Network",
+    category: "IoT / Wireless Sensing",
+    description:
+      "Solar-powered LoRa sensor nodes for long-range environmental monitoring. Custom low-power firmware with mesh networking, deployed across 5km agricultural sites.",
+    longDescription:
+      "Designed and deployed a network of solar-powered LoRa sensor nodes for precision agriculture environmental monitoring. Each node features a custom PCB with temperature, humidity, soil moisture, and light sensors, powered by a small solar panel with LiPo backup. The ultra-low-power firmware on an STM32L4 achieves years of operation with minimal maintenance. Nodes communicate over LoRaWAN to a central gateway with 5km+ range, and data is pushed to a cloud dashboard for real-time monitoring and alerting. The system supports over-the-air configuration updates and automatic mesh rerouting.",
+    tags: ["LoRa", "STM32", "Low Power", "Solar", "Mesh Network", "C"],
+    icon: Antenna,
+    highlight: "5km+ range",
+    image: "/images/project-lora-sensor.png",
+    deliverables: ["Node Firmware", "Gateway Software", "PCB Design Files", "Deployment Guide"],
+  },
+  {
+    title: "Automotive CAN Bus Diagnostic Tool",
+    category: "Automotive / Diagnostics",
+    description:
+      "Handheld CAN bus analyzer with OLED display, OBD-II interface, and real-time packet decoding. Supports standard and extended CAN frames with DBC file parsing.",
+    longDescription:
+      "Built a portable CAN bus diagnostic tool for automotive and industrial use. The handheld device features a Cortex-M4 MCU with dual CAN transceivers, an OLED display for real-time packet visualization, and USB connectivity for PC-based analysis. The firmware supports standard (11-bit) and extended (29-bit) CAN frames, OBD-II PID decoding, DBC file import for signal-level interpretation, and data logging to SD card. A companion desktop application provides advanced filtering, graphing, and export capabilities. Used by field engineers for vehicle ECU diagnostics and industrial CAN network troubleshooting.",
+    tags: ["CAN Bus", "OBD-II", "Cortex-M4", "USB", "OLED", "Embedded C"],
+    icon: MonitorSmartphone,
+    highlight: "Dual CAN channels",
+    image: "/images/project-can-diagnostic.png",
+    deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    title: "Custom Embedded Linux SBC",
+    category: "Embedded Linux / Hardware",
+    description:
+      "Custom single-board computer built around an i.MX6 SoC with Yocto Linux BSP. Designed for edge computing applications with industrial-grade reliability and extended temperature range.",
+    longDescription:
+      "Engineered a custom single-board computer for edge computing applications requiring industrial reliability. The board is built around an NXP i.MX6 SoC with 1GB DDR3 RAM, eMMC storage, Gigabit Ethernet, USB, and a 40-pin GPIO header for expansion. The custom Yocto Linux BSP includes a hardened kernel, secure boot via HABv4, and application containerization via Docker. Designed for -40 to +85C operation with conformal coating support. The 6-layer PCB was optimized for EMI compliance and passed FCC/CE certification. Used as the compute platform for multiple industrial IoT deployments.",
+    tags: ["i.MX6", "Yocto", "DDR3", "Secure Boot", "PCB Design", "Linux"],
+    icon: Cpu,
+    highlight: "Industrial -40 to 85C",
+    image: "/images/project-custom-sbc.png",
+    deliverables: ["Yocto BSP Image", "6-Layer PCB Files", "Hardware Test Report", "FCC/CE Certification Docs"],
+  },
 ];
+
+const INITIAL_COUNT = 6;
 
 function ProjectModal({ project, onClose, onPrev, onNext }: {
   project: Project;
@@ -107,6 +148,19 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
   const Icon = project.icon;
   const modalVideoRef = useRef<HTMLVideoElement>(null);
   const [modalMuted, setModalMuted] = useState(true);
+  const [modalPlaying, setModalPlaying] = useState(false);
+
+  const toggleModalPlay = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (modalVideoRef.current) {
+      if (modalPlaying) {
+        modalVideoRef.current.pause();
+      } else {
+        modalVideoRef.current.play();
+      }
+      setModalPlaying(!modalPlaying);
+    }
+  };
 
   const toggleModalMute = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -130,17 +184,35 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
       >
         <div className="relative h-56 md:h-80 overflow-hidden rounded-t-xl">
           {project.video ? (
-            <video
-              ref={modalVideoRef}
-              src={project.video}
-              poster={project.image}
-              className="w-full h-full object-cover"
-              autoPlay
-              loop
-              muted
-              playsInline
-              data-testid="video-modal-player"
-            />
+            <>
+              <video
+                ref={modalVideoRef}
+                poster={project.image}
+                className="w-full h-full object-cover"
+                loop
+                muted
+                playsInline
+                preload="auto"
+                data-testid="video-modal-player"
+              >
+                <source src={project.video} type="video/mp4" />
+              </video>
+              {!modalPlaying && (
+                <div
+                  className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleModalPlay(e);
+                  }}
+                  data-testid="button-play-video"
+                >
+                  <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 transition-transform hover:scale-110">
+                    <Play className="w-7 h-7 text-primary-foreground ml-1" />
+                  </div>
+                </div>
+              )}
+            </>
           ) : (
             <img
               src={project.image}
@@ -148,34 +220,45 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
               className="w-full h-full object-cover"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
 
           <Button
             size="icon"
             variant="ghost"
-            className="absolute top-4 right-4 bg-background/50 backdrop-blur-sm text-foreground"
+            className="absolute top-4 right-4 bg-background/50 backdrop-blur-sm text-foreground z-20"
             onClick={onClose}
             data-testid="button-close-modal"
           >
             <X className="w-5 h-5" />
           </Button>
 
-          {project.video && (
-            <Button
-              size="icon"
-              variant="ghost"
-              className="absolute top-4 right-16 bg-background/50 backdrop-blur-sm text-foreground"
-              onClick={toggleModalMute}
-              data-testid="button-toggle-mute"
-            >
-              {modalMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-            </Button>
+          {project.video && modalPlaying && (
+            <div className="absolute top-4 right-16 flex items-center gap-1 z-20">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="bg-background/50 backdrop-blur-sm text-foreground"
+                onClick={toggleModalMute}
+                data-testid="button-toggle-mute"
+              >
+                {modalMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </Button>
+              <Button
+                size="icon"
+                variant="ghost"
+                className="bg-background/50 backdrop-blur-sm text-foreground"
+                onClick={toggleModalPlay}
+                data-testid="button-toggle-play"
+              >
+                <Pause className="w-5 h-5" />
+              </Button>
+            </div>
           )}
 
           <Button
             size="icon"
             variant="ghost"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-20"
             onClick={onPrev}
             data-testid="button-prev-project"
           >
@@ -185,14 +268,14 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
           <Button
             size="icon"
             variant="ghost"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-20"
             onClick={onNext}
             data-testid="button-next-project"
           >
             <ChevronRight className="w-5 h-5" />
           </Button>
 
-          <div className="absolute bottom-4 left-6 right-6">
+          <div className="absolute bottom-4 left-6 right-6 z-20 pointer-events-none">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center border border-primary/30">
                 <Icon className="w-5 h-5 text-primary" />
@@ -249,6 +332,11 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
 
 export function Portfolio() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+
+  const visibleProjects = projects.slice(0, visibleCount);
+  const hasMore = visibleCount < projects.length;
+  const remaining = projects.length - visibleCount;
 
   const handlePrev = () => {
     if (selectedIndex !== null) {
@@ -268,16 +356,23 @@ export function Portfolio() {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="mb-16">
-          <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
-            Featured <span className="text-primary">Projects</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl text-lg">
-            A selection of production-grade embedded systems delivered end-to-end — from architecture through manufacturing.
-          </p>
+          <div className="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
+                Featured <span className="text-primary">Projects</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl text-lg">
+                A selection of production-grade embedded systems delivered end-to-end — from architecture through manufacturing.
+              </p>
+            </div>
+            <p className="text-sm font-mono text-muted-foreground">
+              {visibleCount} of {projects.length} projects
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project, idx) => {
+          {visibleProjects.map((project, idx) => {
             const Icon = project.icon;
             return (
               <div
@@ -287,26 +382,21 @@ export function Portfolio() {
                 onClick={() => setSelectedIndex(idx)}
               >
                 <div className="relative h-44 overflow-hidden rounded-t-xl">
-                  {project.video ? (
-                    <video
-                      src={project.video}
-                      poster={project.image}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      data-testid={`video-card-${idx}`}
-                    />
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  )}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+
+                  {project.video && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-12 h-12 rounded-full bg-background/70 backdrop-blur-sm flex items-center justify-center border border-border/50 group-hover:border-primary/50 group-hover:bg-primary/20 transition-all">
+                        <Play className="w-5 h-5 text-foreground group-hover:text-primary transition-colors ml-0.5" />
+                      </div>
+                    </div>
+                  )}
 
                   <div className="absolute top-3 right-3 flex items-center gap-2">
                     {project.video && (
@@ -372,6 +462,20 @@ export function Portfolio() {
             );
           })}
         </div>
+
+        {hasMore && (
+          <div className="flex justify-center mt-12">
+            <Button
+              variant="outline"
+              className="font-mono text-sm border-primary/40 text-primary gap-2"
+              onClick={() => setVisibleCount(projects.length)}
+              data-testid="button-load-more"
+            >
+              <ChevronDown className="w-4 h-4" />
+              Load More Projects ({remaining} more)
+            </Button>
+          </div>
+        )}
       </div>
 
       {selectedIndex !== null && (
