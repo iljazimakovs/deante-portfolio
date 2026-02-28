@@ -1,4 +1,4 @@
-import { ArrowRight, Cpu, CircuitBoard, Server } from "lucide-react";
+import { ArrowRight, Cpu, CircuitBoard, Server, Wifi, Shield, Zap, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -44,7 +44,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <div className="mt-20 pt-10 border-t border-border/50 w-full flex flex-wrap gap-8 items-center text-muted-foreground animate-in fade-in duration-1000 delay-700">
+        <div className="mt-20 pt-10 border-t border-border/50 w-full flex flex-wrap gap-x-8 gap-y-4 items-center text-muted-foreground animate-in fade-in duration-1000 delay-700">
           <div className="flex items-center gap-2 font-mono text-sm">
             <Cpu className="w-5 h-5 text-primary/70" />
             <span>Firmware/RTOS</span>
@@ -54,8 +54,24 @@ export function Hero() {
             <span>Embedded Linux</span>
           </div>
           <div className="flex items-center gap-2 font-mono text-sm">
+            <Wifi className="w-5 h-5 text-primary/70" />
+            <span>IoT & Edge AI</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-sm">
+            <Car className="w-5 h-5 text-primary/70" />
+            <span>Automotive/EV</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-sm">
             <CircuitBoard className="w-5 h-5 text-primary/70" />
             <span>PCB Design</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-sm">
+            <Shield className="w-5 h-5 text-primary/70" />
+            <span>Secure Boot/OTA</span>
+          </div>
+          <div className="flex items-center gap-2 font-mono text-sm">
+            <Zap className="w-5 h-5 text-primary/70" />
+            <span>Power Electronics</span>
           </div>
         </div>
       </div>
