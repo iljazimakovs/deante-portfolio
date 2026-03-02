@@ -1,7 +1,13 @@
-import { useState, useRef } from "react";
-import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone } from "lucide-react";
+import { useState, useRef, useCallback } from "react";
+import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone, ImageIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+
+interface MediaItem {
+  type: "image" | "video";
+  src: string;
+  poster?: string;
+}
 
 interface Project {
   title: string;
@@ -11,8 +17,7 @@ interface Project {
   tags: string[];
   icon: typeof Server;
   highlight: string;
-  image: string;
-  video?: string;
+  media: MediaItem[];
   deliverables: string[];
 }
 
@@ -27,7 +32,9 @@ const projects: Project[] = [
     tags: ["Yocto", "MQTT", "TLS", "Device Tree", "Python", "C"],
     icon: Server,
     highlight: "200+ devices managed",
-    image: "/images/project-iot-gateway.png",
+    media: [
+      { type: "image", src: "/images/project-iot-gateway.png" },
+    ],
     deliverables: ["Custom Yocto BSP Image", "OTA Update Server", "MQTT Broker Config", "Production Deployment Guide"],
   },
   {
@@ -40,7 +47,9 @@ const projects: Project[] = [
     tags: ["Zephyr RTOS", "BLE", "Cortex-M4", "OTA", "KiCad"],
     icon: Radio,
     highlight: "18-month battery life",
-    image: "/images/project-ble-wearable.png",
+    media: [
+      { type: "image", src: "/images/project-ble-wearable.png" },
+    ],
     deliverables: ["Zephyr Firmware", "BLE Profile Spec", "KiCad PCB Files", "Power Analysis Report"],
   },
   {
@@ -53,7 +62,9 @@ const projects: Project[] = [
     tags: ["Embedded C", "CAN Bus", "Altium", "BMS", "FreeRTOS"],
     icon: Battery,
     highlight: "48V / 100A rated",
-    image: "/images/project-bms-controller.png",
+    media: [
+      { type: "image", src: "/images/project-bms-controller.png" },
+    ],
     deliverables: ["Altium PCB + Schematic", "BMS Firmware", "Gerber/BOM/PnP Files", "Safety Test Report"],
   },
   {
@@ -66,8 +77,10 @@ const projects: Project[] = [
     tags: ["JTAG", "SWD", "Python", "Test Automation", "Fixture Design"],
     icon: Cpu,
     highlight: "60% faster test cycle",
-    image: "/images/project-test-station.png",
-    video: "/images/project-test-station.mp4",
+    media: [
+      { type: "video", src: "/images/project-test-station.mp4", poster: "/images/project-test-station.png" },
+      { type: "image", src: "/images/project-test-station.png" },
+    ],
     deliverables: ["Test Fixture Design", "Flash Programming Scripts", "Test Orchestrator Software", "Validation Report"],
   },
   {
@@ -80,7 +93,9 @@ const projects: Project[] = [
     tags: ["ESP32", "FreeRTOS", "MQTT", "REST", "Secure Boot"],
     icon: Wifi,
     highlight: "Cloud-connected OTA",
-    image: "/images/project-thermostat.png",
+    media: [
+      { type: "image", src: "/images/project-thermostat.png" },
+    ],
     deliverables: ["ESP32 Firmware", "Cloud Backend Config", "PCB Production Files", "UL Compliance Docs"],
   },
   {
@@ -93,7 +108,9 @@ const projects: Project[] = [
     tags: ["FOC", "BLDC", "Altium", "CAN Bus", "Cortex-M7", "C++"],
     icon: CircuitBoard,
     highlight: "Sub-ms control loop",
-    image: "/images/project-motor-control.png",
+    media: [
+      { type: "image", src: "/images/project-motor-control.png" },
+    ],
     deliverables: ["Altium PCB Layout", "FOC Firmware", "CAN Protocol Spec", "Thermal Analysis Report"],
   },
   {
@@ -106,7 +123,9 @@ const projects: Project[] = [
     tags: ["LoRa", "STM32", "Low Power", "Solar", "Mesh Network", "C"],
     icon: Antenna,
     highlight: "5km+ range",
-    image: "/images/project-lora-sensor.png",
+    media: [
+      { type: "image", src: "/images/project-lora-sensor.png" },
+    ],
     deliverables: ["Node Firmware", "Gateway Software", "PCB Design Files", "Deployment Guide"],
   },
   {
@@ -119,7 +138,9 @@ const projects: Project[] = [
     tags: ["CAN Bus", "OBD-II", "Cortex-M4", "USB", "OLED", "Embedded C"],
     icon: MonitorSmartphone,
     highlight: "Dual CAN channels",
-    image: "/images/project-can-diagnostic.png",
+    media: [
+      { type: "image", src: "/images/project-can-diagnostic.png" },
+    ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
   },
   {
@@ -132,12 +153,172 @@ const projects: Project[] = [
     tags: ["i.MX6", "Yocto", "DDR3", "Secure Boot", "PCB Design", "Linux"],
     icon: Cpu,
     highlight: "Industrial -40 to 85C",
-    image: "/images/project-custom-sbc.png",
+    media: [
+      { type: "image", src: "/images/project-custom-sbc.png" },
+    ],
     deliverables: ["Yocto BSP Image", "6-Layer PCB Files", "Hardware Test Report", "FCC/CE Certification Docs"],
   },
 ];
 
 const INITIAL_COUNT = 6;
+
+function MediaSlider({ media, className, isModal }: { media: MediaItem[]; className?: string; isModal?: boolean }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const current = media[currentIndex];
+  const hasMultiple = media.length > 1;
+
+  const goTo = useCallback((index: number, e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+    setCurrentIndex(index);
+  }, []);
+
+  const goPrev = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    goTo(currentIndex === 0 ? media.length - 1 : currentIndex - 1);
+  }, [currentIndex, media.length, goTo]);
+
+  const goNext = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    goTo(currentIndex === media.length - 1 ? 0 : currentIndex + 1);
+  }, [currentIndex, media.length, goTo]);
+
+  const togglePlay = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  }, [isPlaying]);
+
+  const toggleMute = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(!isMuted);
+  }, [isMuted]);
+
+  return (
+    <div className={`relative overflow-hidden ${className || ""}`}>
+      {current.type === "video" ? (
+        <>
+          <video
+            ref={videoRef}
+            poster={current.poster}
+            className="w-full h-full object-cover"
+            loop
+            muted
+            playsInline
+            preload="auto"
+            data-testid="video-media-player"
+          >
+            <source src={current.src} type="video/mp4" />
+          </video>
+          {!isPlaying && (
+            <div
+              className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
+              onClick={togglePlay}
+              data-testid="button-play-video"
+            >
+              <div className={`rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 transition-transform hover:scale-110 ${isModal ? "w-16 h-16" : "w-12 h-12"}`}>
+                <Play className={`text-primary-foreground ml-0.5 ${isModal ? "w-7 h-7" : "w-5 h-5"}`} />
+              </div>
+            </div>
+          )}
+          {isPlaying && isModal && (
+            <div className="absolute top-4 right-4 flex items-center gap-1 z-20">
+              <Button
+                size="icon"
+                variant="ghost"
+                className="bg-background/50 backdrop-blur-sm text-foreground"
+                onClick={toggleMute}
+                data-testid="button-toggle-mute"
+              >
+                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+              </Button>
+              <Button
+                size="icon"
+                variant="ghost"
+                className="bg-background/50 backdrop-blur-sm text-foreground"
+                onClick={togglePlay}
+                data-testid="button-toggle-play"
+              >
+                <Pause className="w-5 h-5" />
+              </Button>
+            </div>
+          )}
+        </>
+      ) : (
+        <img
+          src={current.src}
+          alt=""
+          className="w-full h-full object-cover"
+          loading="lazy"
+        />
+      )}
+
+      {hasMultiple && (
+        <>
+          <button
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"}`}
+            onClick={goPrev}
+            data-testid="button-media-prev"
+          >
+            <ChevronLeft className={isModal ? "w-5 h-5" : "w-4 h-4"} />
+          </button>
+          <button
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"}`}
+            onClick={goNext}
+            data-testid="button-media-next"
+          >
+            <ChevronRight className={isModal ? "w-5 h-5" : "w-4 h-4"} />
+          </button>
+
+          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5">
+            {media.map((item, i) => (
+              <button
+                key={i}
+                className={`rounded-full transition-all ${
+                  i === currentIndex
+                    ? "w-5 h-1.5 bg-primary"
+                    : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
+                }`}
+                onClick={(e) => goTo(i, e)}
+                data-testid={`button-media-dot-${i}`}
+              />
+            ))}
+          </div>
+
+          <div className="absolute top-2 left-2 z-20">
+            <span className="flex items-center gap-1 text-[10px] font-mono text-foreground/80 bg-background/60 backdrop-blur-sm border border-border/40 rounded-md px-1.5 py-0.5">
+              <ImageIcon className="w-3 h-3" />
+              {currentIndex + 1}/{media.length}
+            </span>
+          </div>
+        </>
+      )}
+
+      {current.type === "video" && !hasMultiple && (
+        <div className="absolute top-2 right-2 z-10">
+          <span className="flex items-center gap-1 text-[10px] font-mono text-foreground bg-background/80 backdrop-blur-sm border border-border/50 rounded-md px-2 py-1">
+            <Play className="w-3 h-3 fill-current" />
+            VIDEO
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
 
 function ProjectModal({ project, onClose, onPrev, onNext }: {
   project: Project;
@@ -146,29 +327,6 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
   onNext: () => void;
 }) {
   const Icon = project.icon;
-  const modalVideoRef = useRef<HTMLVideoElement>(null);
-  const [modalMuted, setModalMuted] = useState(true);
-  const [modalPlaying, setModalPlaying] = useState(false);
-
-  const toggleModalPlay = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (modalVideoRef.current) {
-      if (modalPlaying) {
-        modalVideoRef.current.pause();
-      } else {
-        modalVideoRef.current.play();
-      }
-      setModalPlaying(!modalPlaying);
-    }
-  };
-
-  const toggleModalMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (modalVideoRef.current) {
-      modalVideoRef.current.muted = !modalVideoRef.current.muted;
-      setModalMuted(!modalMuted);
-    }
-  };
 
   return (
     <div
@@ -183,82 +341,24 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative h-56 md:h-80 overflow-hidden rounded-t-xl">
-          {project.video ? (
-            <>
-              <video
-                ref={modalVideoRef}
-                poster={project.image}
-                className="w-full h-full object-cover"
-                loop
-                muted
-                playsInline
-                preload="auto"
-                data-testid="video-modal-player"
-              >
-                <source src={project.video} type="video/mp4" />
-              </video>
-              {!modalPlaying && (
-                <div
-                  className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    toggleModalPlay(e);
-                  }}
-                  data-testid="button-play-video"
-                >
-                  <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 transition-transform hover:scale-110">
-                    <Play className="w-7 h-7 text-primary-foreground ml-1" />
-                  </div>
-                </div>
-              )}
-            </>
-          ) : (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover"
-            />
-          )}
+          <MediaSlider media={project.media} className="w-full h-full" isModal />
+
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
 
           <Button
             size="icon"
             variant="ghost"
-            className="absolute top-4 right-4 bg-background/50 backdrop-blur-sm text-foreground z-20"
+            className="absolute top-4 right-4 bg-background/50 backdrop-blur-sm text-foreground z-30"
             onClick={onClose}
             data-testid="button-close-modal"
           >
             <X className="w-5 h-5" />
           </Button>
 
-          {project.video && modalPlaying && (
-            <div className="absolute top-4 right-16 flex items-center gap-1 z-20">
-              <Button
-                size="icon"
-                variant="ghost"
-                className="bg-background/50 backdrop-blur-sm text-foreground"
-                onClick={toggleModalMute}
-                data-testid="button-toggle-mute"
-              >
-                {modalMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
-              </Button>
-              <Button
-                size="icon"
-                variant="ghost"
-                className="bg-background/50 backdrop-blur-sm text-foreground"
-                onClick={toggleModalPlay}
-                data-testid="button-toggle-play"
-              >
-                <Pause className="w-5 h-5" />
-              </Button>
-            </div>
-          )}
-
           <Button
             size="icon"
             variant="ghost"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-20"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-30"
             onClick={onPrev}
             data-testid="button-prev-project"
           >
@@ -268,7 +368,7 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
           <Button
             size="icon"
             variant="ghost"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-20"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-30"
             onClick={onNext}
             data-testid="button-next-project"
           >
@@ -382,35 +482,16 @@ export function Portfolio() {
                 onClick={() => setSelectedIndex(idx)}
               >
                 <div className="relative h-44 overflow-hidden rounded-t-xl">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent" />
+                  <MediaSlider media={project.media} className="w-full h-full" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent pointer-events-none" />
 
-                  {project.video && (
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-12 h-12 rounded-full bg-background/70 backdrop-blur-sm flex items-center justify-center border border-border/50 group-hover:border-primary/50 group-hover:bg-primary/20 transition-all">
-                        <Play className="w-5 h-5 text-foreground group-hover:text-primary transition-colors ml-0.5" />
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="absolute top-3 right-3 flex items-center gap-2">
-                    {project.video && (
-                      <span className="flex items-center gap-1 text-[10px] font-mono text-foreground bg-background/80 backdrop-blur-sm border border-border/50 rounded-md px-2 py-1">
-                        <Play className="w-3 h-3 fill-current" />
-                        VIDEO
-                      </span>
-                    )}
+                  <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
                     <span className="text-[10px] font-mono text-primary bg-background/80 backdrop-blur-sm border border-primary/30 rounded-md px-2 py-1">
                       {project.highlight}
                     </span>
                   </div>
 
-                  <div className="absolute bottom-3 left-3">
+                  <div className="absolute bottom-3 left-3 z-10">
                     <div className="w-9 h-9 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center border border-border/50 group-hover:border-primary/50 transition-colors">
                       <Icon className="w-4 h-4 text-primary" />
                     </div>
