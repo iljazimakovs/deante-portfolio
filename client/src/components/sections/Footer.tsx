@@ -10,7 +10,7 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <Terminal className="w-6 h-6 text-primary" />
             <span className="font-display font-bold text-lg tracking-tight">
-              SYS_ENG<span className="text-primary">.</span>
+              D<span className="text-primary">.</span>CASON
             </span>
           </div>
 
@@ -23,7 +23,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/30 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground font-mono">
-          <p>&copy; {currentYear} Senior Embedded Systems Engineer. All rights reserved.</p>
+          <p>&copy; {currentYear} Deante Cason. All rights reserved.</p>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-green-500" />
             Available on Upwork

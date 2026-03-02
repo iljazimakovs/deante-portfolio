@@ -31,7 +31,7 @@ export function Navbar() {
         <a href="#" className="flex items-center gap-2 group">
           <Terminal className="w-6 h-6 text-primary group-hover:text-primary/80 transition-colors" />
           <span className="font-display font-bold text-lg tracking-tight group-hover:text-primary transition-colors">
-            SYS_ENG<span className="text-primary">.</span>
+            D<span className="text-primary">.</span>CASON
           </span>
         </a>
 

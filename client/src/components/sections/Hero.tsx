@@ -14,6 +14,9 @@ export function Hero() {
           Available for Hire on Upwork
         </div>
 
+        <p className="text-lg sm:text-xl font-display font-semibold text-primary/80 mb-2 animate-in fade-in slide-in-from-bottom-5 duration-700 delay-100 tracking-wide" data-testid="text-engineer-name">
+          Deante Cason
+        </p>
         <h1 className="text-5xl sm:text-6xl lg:text-8xl font-display font-extrabold text-foreground leading-[1.1] mb-6 max-w-4xl animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
           Senior Embedded <br className="hidden sm:block"/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500 text-glow">Systems Engineer</span>
