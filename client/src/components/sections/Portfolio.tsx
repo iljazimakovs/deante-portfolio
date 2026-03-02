@@ -1,4 +1,5 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone, ImageIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,7 @@ interface MediaItem {
 }
 
 interface Project {
+  slug: string;
   title: string;
   category: string;
   description: string;
@@ -23,6 +25,7 @@ interface Project {
 
 const projects: Project[] = [
   {
+    slug: "industrial-iot-gateway",
     title: "Industrial IoT Gateway",
     category: "Embedded Linux / IoT",
     description:
@@ -38,6 +41,7 @@ const projects: Project[] = [
     deliverables: ["Custom Yocto BSP Image", "OTA Update Server", "MQTT Broker Config", "Production Deployment Guide"],
   },
   {
+    slug: "ble-wearable-fitness-tracker",
     title: "BLE Wearable Fitness Tracker",
     category: "Consumer Electronics",
     description:
@@ -53,6 +57,7 @@ const projects: Project[] = [
     deliverables: ["Zephyr Firmware", "BLE Profile Spec", "KiCad PCB Files", "Power Analysis Report"],
   },
   {
+    slug: "smart-energy-bms-controller",
     title: "Smart Energy BMS Controller",
     category: "Power & Energy Systems",
     description:
@@ -68,6 +73,7 @@ const projects: Project[] = [
     deliverables: ["Altium PCB + Schematic", "BMS Firmware", "Gerber/BOM/PnP Files", "Safety Test Report"],
   },
   {
+    slug: "factory-test-flash-station",
     title: "Factory Test & Flash Station",
     category: "Manufacturing & Production",
     description:
@@ -84,6 +90,7 @@ const projects: Project[] = [
     deliverables: ["Test Fixture Design", "Flash Programming Scripts", "Test Orchestrator Software", "Validation Report"],
   },
   {
+    slug: "wifi-connected-thermostat",
     title: "Wi-Fi Connected Thermostat",
     category: "Smart Home / IoT",
     description:
@@ -99,6 +106,7 @@ const projects: Project[] = [
     deliverables: ["ESP32 Firmware", "Cloud Backend Config", "PCB Production Files", "UL Compliance Docs"],
   },
   {
+    slug: "motor-control-pcb-robotics",
     title: "Motor Control PCB for Robotics",
     category: "Industrial Automation",
     description:
@@ -114,6 +122,7 @@ const projects: Project[] = [
     deliverables: ["Altium PCB Layout", "FOC Firmware", "CAN Protocol Spec", "Thermal Analysis Report"],
   },
   {
+    slug: "lora-environmental-sensor-network",
     title: "LoRa Environmental Sensor Network",
     category: "IoT / Wireless Sensing",
     description:
@@ -129,6 +138,7 @@ const projects: Project[] = [
     deliverables: ["Node Firmware", "Gateway Software", "PCB Design Files", "Deployment Guide"],
   },
   {
+    slug: "automotive-can-bus-diagnostic-tool",
     title: "Automotive CAN Bus Diagnostic Tool",
     category: "Automotive / Diagnostics",
     description:
@@ -144,6 +154,7 @@ const projects: Project[] = [
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
   },
   {
+    slug: "custom-embedded-linux-sbc",
     title: "Custom Embedded Linux SBC",
     category: "Embedded Linux / Hardware",
     description:
@@ -159,6 +170,8 @@ const projects: Project[] = [
     deliverables: ["Yocto BSP Image", "6-Layer PCB Files", "Hardware Test Report", "FCC/CE Certification Docs"],
   },
 ];
+
+export { projects };
 
 const INITIAL_COUNT = 6;
 
@@ -432,23 +445,53 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
   );
 }
 
-export function Portfolio() {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+export function Portfolio({ initialSlug }: { initialSlug?: string } = {}) {
+  const [, setLocation] = useLocation();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(() => {
+    if (initialSlug) {
+      const idx = projects.findIndex((p) => p.slug === initialSlug);
+      return idx >= 0 ? idx : null;
+    }
+    return null;
+  });
   const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+
+  useEffect(() => {
+    if (initialSlug) {
+      const idx = projects.findIndex((p) => p.slug === initialSlug);
+      if (idx >= 0) {
+        setSelectedIndex(idx);
+      }
+    }
+  }, [initialSlug]);
 
   const visibleProjects = projects.slice(0, visibleCount);
   const hasMore = visibleCount < projects.length;
   const remaining = projects.length - visibleCount;
 
+  const openProject = (index: number) => {
+    setSelectedIndex(index);
+    setLocation(`/project/${projects[index].slug}`);
+  };
+
+  const closeProject = () => {
+    setSelectedIndex(null);
+    setLocation("/");
+  };
+
   const handlePrev = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex(selectedIndex === 0 ? projects.length - 1 : selectedIndex - 1);
+      const newIndex = selectedIndex === 0 ? projects.length - 1 : selectedIndex - 1;
+      setSelectedIndex(newIndex);
+      setLocation(`/project/${projects[newIndex].slug}`);
     }
   };
 
   const handleNext = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex(selectedIndex === projects.length - 1 ? 0 : selectedIndex + 1);
+      const newIndex = selectedIndex === projects.length - 1 ? 0 : selectedIndex + 1;
+      setSelectedIndex(newIndex);
+      setLocation(`/project/${projects[newIndex].slug}`);
     }
   };
 
@@ -481,7 +524,7 @@ export function Portfolio() {
                 key={idx}
                 data-testid={`card-project-${idx}`}
                 className="group cursor-pointer rounded-xl border border-border/50 bg-card hover:border-primary/40 transition-all duration-300 relative"
-                onClick={() => setSelectedIndex(idx)}
+                onClick={() => openProject(idx)}
               >
                 <div className="relative h-44 overflow-hidden rounded-t-xl">
                   <MediaSlider media={project.media} className="w-full h-full" />
@@ -564,7 +607,7 @@ export function Portfolio() {
       {selectedIndex !== null && (
         <ProjectModal
           project={projects[selectedIndex]}
-          onClose={() => setSelectedIndex(null)}
+          onClose={closeProject}
           onPrev={handlePrev}
           onNext={handleNext}
         />

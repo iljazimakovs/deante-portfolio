@@ -10,7 +10,9 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      {/* Fallback to 404 */}
+      <Route path="/project/:slug">
+        {(params) => <Home projectSlug={params.slug} />}
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );

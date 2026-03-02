@@ -7,7 +7,7 @@ import { Industries } from "@/components/sections/Industries";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 
-export default function Home() {
+export default function Home({ projectSlug }: { projectSlug?: string }) {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Navbar />
@@ -16,7 +16,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Skills />
-        <Portfolio />
+        <Portfolio initialSlug={projectSlug} />
         <Industries />
         <Contact />
       </main>

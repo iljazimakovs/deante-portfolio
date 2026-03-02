@@ -10,15 +10,20 @@ A modern, dark-themed portfolio website for a Senior Embedded Systems Engineer s
 - **Styling:** Dark mode tech-inspired aesthetic with custom CSS utilities (grid patterns, glow effects)
 
 ## Architecture
-Single-page portfolio with sections:
-- **Navbar** — Fixed top nav with smooth scroll anchors
-- **Hero** — Title, value proposition
+Single-page portfolio with sections (Upwork-compliant — no contact info or social links):
+- **Navbar** — Fixed top nav with smooth scroll anchors, "HIRE_ME()" CTA
+- **Hero** — Title, value proposition, tech highlights (7 fields)
 - **Services** — 6 core embedded engineering services
-- **Skills** — Categorized technical skills
-- **Portfolio** — 6 featured project cards with tech tags and highlights
+- **Skills** — 5 categorized skill cards with unified cyan theme
+- **Portfolio** — 9 projects (6 shown, Load More for rest), multi-media slider per card, click-to-expand modal with prev/next project navigation
 - **Industries** — Industry badges
-- **Contact** — Form submitting to `/api/messages` (stored in PostgreSQL)
-- **Footer**
+- **Hire CTA** — Upwork-friendly call-to-action (replaces contact form)
+- **Footer** — Navigation links, "Available on Upwork" status
+
+## Routing
+- `/` — Homepage with all sections
+- `/project/:slug` — Opens homepage with project modal pre-opened (shareable project links)
+- Project slugs: `industrial-iot-gateway`, `ble-wearable-fitness-tracker`, `smart-energy-bms-controller`, `factory-test-flash-station`, `wifi-connected-thermostat`, `motor-control-pcb-robotics`, `lora-environmental-sensor-network`, `automotive-can-bus-diagnostic-tool`, `custom-embedded-linux-sbc`
 
 ## Key Files
 - `client/src/pages/home.tsx` — Main page composing all sections
