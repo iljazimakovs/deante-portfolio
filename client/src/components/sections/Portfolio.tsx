@@ -336,32 +336,12 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
     >
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
 
-      <Button
-        size="icon"
-        variant="ghost"
-        className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 bg-background/70 backdrop-blur-sm text-foreground z-30 border border-border/50 rounded-full w-10 h-10"
-        onClick={(e) => { e.stopPropagation(); onPrev(); }}
-        data-testid="button-prev-project"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </Button>
-
-      <Button
-        size="icon"
-        variant="ghost"
-        className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 bg-background/70 backdrop-blur-sm text-foreground z-30 border border-border/50 rounded-full w-10 h-10"
-        onClick={(e) => { e.stopPropagation(); onNext(); }}
-        data-testid="button-next-project"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </Button>
-
       <div
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl bg-card border border-border/50 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative h-56 md:h-80 overflow-hidden rounded-t-xl">
-          <MediaSlider media={project.media} className="w-full h-full" isModal />
+          <MediaSlider key={project.title} media={project.media} className="w-full h-full" isModal />
 
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
 
@@ -388,9 +368,31 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
         </div>
 
         <div className="p-6 md:p-8 space-y-6">
-          <div>
-            <p className="text-xs font-mono text-primary/70 mb-1 tracking-wider uppercase">{project.category}</p>
-            <h3 className="text-2xl md:text-3xl font-display font-bold">{project.title}</h3>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-mono text-primary/70 mb-1 tracking-wider uppercase">{project.category}</p>
+              <h3 className="text-2xl md:text-3xl font-display font-bold">{project.title}</h3>
+            </div>
+            <div className="flex items-center gap-1 shrink-0 mt-1">
+              <Button
+                size="icon"
+                variant="outline"
+                className="w-8 h-8 border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50"
+                onClick={onPrev}
+                data-testid="button-prev-project"
+              >
+                <ChevronLeft className="w-4 h-4" />
+              </Button>
+              <Button
+                size="icon"
+                variant="outline"
+                className="w-8 h-8 border-border/50 text-muted-foreground hover:text-primary hover:border-primary/50"
+                onClick={onNext}
+                data-testid="button-next-project"
+              >
+                <ChevronRight className="w-4 h-4" />
+              </Button>
+            </div>
           </div>
 
           <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
