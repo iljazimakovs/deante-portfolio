@@ -336,6 +336,26 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
     >
       <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
 
+      <Button
+        size="icon"
+        variant="ghost"
+        className="absolute left-0 md:-left-14 top-1/2 -translate-y-1/2 bg-background/70 backdrop-blur-sm text-foreground z-30 border border-border/50 rounded-full w-10 h-10"
+        onClick={(e) => { e.stopPropagation(); onPrev(); }}
+        data-testid="button-prev-project"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </Button>
+
+      <Button
+        size="icon"
+        variant="ghost"
+        className="absolute right-0 md:-right-14 top-1/2 -translate-y-1/2 bg-background/70 backdrop-blur-sm text-foreground z-30 border border-border/50 rounded-full w-10 h-10"
+        onClick={(e) => { e.stopPropagation(); onNext(); }}
+        data-testid="button-next-project"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </Button>
+
       <div
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl bg-card border border-border/50 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
@@ -353,26 +373,6 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
             data-testid="button-close-modal"
           >
             <X className="w-5 h-5" />
-          </Button>
-
-          <Button
-            size="icon"
-            variant="ghost"
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-30"
-            onClick={onPrev}
-            data-testid="button-prev-project"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </Button>
-
-          <Button
-            size="icon"
-            variant="ghost"
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-sm text-foreground z-30"
-            onClick={onNext}
-            data-testid="button-next-project"
-          >
-            <ChevronRight className="w-5 h-5" />
           </Button>
 
           <div className="absolute bottom-4 left-6 right-6 z-20 pointer-events-none">
