@@ -718,7 +718,13 @@ const projects: Project[] = [
     tags: ["i.MX6", "Yocto", "DDR3", "Secure Boot", "PCB Design", "Linux"],
     icon: Cpu,
     highlight: "Industrial -40 to 85C",
-    media: [{ type: "image", src: "/images/project-custom-sbc.png" }],
+    media: [
+      { type: "image", src: cm4_5gImg1 },
+      { type: "image", src: cm4_5gImg2 },
+      { type: "image", src: cm4_5gImg3 },
+      { type: "image", src: cm4_5gImg4 },
+      { type: "image", src: cm4_5gImg5 },
+    ],
     deliverables: [
       "Yocto BSP Image",
       "6-Layer PCB Files",
