@@ -4,6 +4,9 @@ import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, Chevron
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import garbageSorterImg from "@assets/image_1772512279505.png";
+import smartAcImg1 from "@assets/image_1772513484469.png";
+import smartAcImg2 from "@assets/image_1772513491486.png";
+import smartAcImg3 from "@assets/image_1772513498323.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -176,6 +179,26 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "iot-smart-ac-controller",
+    title: "IoT-Based Smart AC Controller",
+    category: "Smart Home / IoT",
+    filterSlugs: ["iot-connected-devices", "embedded-firmware"],
+    description:
+      "ESP32-based IR AC controller enabling remote control and monitoring via smartphone and web dashboard. Supports 100+ AC brands with remote cloning, BLE provisioning, and secure OTA updates.",
+    longDescription:
+      "Designed and developed an ESP32-based IR AC controller enabling remote control and monitoring via smartphone and web dashboard. The system interfaces with IR transmitters and receivers, supporting over 100 AC brands with a remote cloning feature for unsupported models. It monitors temperature and humidity and sends data to AWS IoT Core. Features include BLE-based provisioning for easy setup and secure firmware OTA updates for continuous improvement.",
+    tags: ["ESP32", "C", "Arduino", "IR Communication", "AWS IoT Core", "Wi-Fi", "BLE", "I2C", "PCB Design", "IoT"],
+    icon: Wifi,
+    highlight: "100+ AC brands",
+    media: [
+      { type: "image", src: smartAcImg1 },
+      { type: "image", src: smartAcImg2 },
+      { type: "image", src: smartAcImg3 },
+      { type: "video", src: "/images/project-smart-ac-demo.mp4", poster: smartAcImg2 },
+    ],
+    deliverables: ["ESP32 Firmware", "Web Dashboard", "PCB Design Files", "AWS IoT Integration Guide"],
   },
   {
     slug: "ai-smart-garbage-sorter",
