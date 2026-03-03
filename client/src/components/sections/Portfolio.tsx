@@ -472,6 +472,7 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
 export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: string; initialCategory?: string } = {}) {
   const [, setLocation] = useLocation();
   const [activeCategory, setActiveCategory] = useState(initialCategory || "all");
+  const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(() => {
     if (initialSlug) {
       const idx = projects.findIndex((p) => p.slug === initialSlug);
@@ -506,6 +507,7 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
 
   const handleCategoryChange = (slug: string) => {
     setActiveCategory(slug);
+    setVisibleCount(6);
     if (slug === "all") {
       setLocation("/");
     } else {
@@ -588,7 +590,7 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project, idx) => {
+          {filteredProjects.slice(0, visibleCount).map((project, idx) => {
             const Icon = project.icon;
             return (
               <div
@@ -659,6 +661,20 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
             );
           })}
         </div>
+
+        {filteredProjects.length > visibleCount && (
+          <div className="flex justify-center mt-10">
+            <Button
+              variant="outline"
+              className="font-mono text-sm border-primary/40 text-primary gap-2 hover:bg-primary/10"
+              onClick={() => setVisibleCount((prev) => prev + 6)}
+              data-testid="button-show-more"
+            >
+              <ChevronDown className="w-4 h-4" />
+              Show More ({filteredProjects.length - visibleCount} remaining)
+            </Button>
+          </div>
+        )}
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
