@@ -857,8 +857,8 @@ function CardVideo({ item, fallbackSrc }: { item: MediaItem; fallbackSrc?: strin
         <source src={item.src} type="video/mp4" />
       </video>
       <div className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"}`}>
-        <div className="rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 w-10 h-10">
-          <Play className="text-primary-foreground ml-0.5 w-4 h-4" />
+        <div className="rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30 w-10 h-10">
+          <Play className="text-white ml-0.5 w-4 h-4" />
         </div>
       </div>
     </div>
