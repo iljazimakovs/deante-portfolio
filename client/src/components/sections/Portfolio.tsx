@@ -40,6 +40,11 @@ import kbImg2 from "@assets/image_1772516265969.png";
 import kbImg3 from "@assets/image_1772516268993.png";
 import kbImg4 from "@assets/image_1772516272177.png";
 import kbImg5 from "@assets/image_1772516276487.png";
+import tuneImg1 from "@assets/image_1772516558647.png";
+import tuneImg2 from "@assets/image_1772516561953.png";
+import tuneImg3 from "@assets/image_1772516565558.png";
+import tuneImg4 from "@assets/image_1772516569652.png";
+import tuneImg5 from "@assets/image_1772516573546.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -212,6 +217,27 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "tuneshine-album-art-display",
+    title: "Tuneshine Album Art Display",
+    category: "Consumer Electronics",
+    filterSlugs: ["iot-connected-devices", "pcb-hardware", "embedded-firmware"],
+    description:
+      "Wi-Fi enabled live album art display that syncs with music streaming services. BLE provisioning, real-time artwork rendering on LED matrix, and CE-compliant PCB designed for production in Autodesk Eagle.",
+    longDescription:
+      "Designed and developed Tuneshine™, a Wi-Fi enabled live album art display that syncs with users' music streaming services. The device connects via Bluetooth for initial provisioning, allowing users to configure Wi-Fi and link streaming accounts through a mobile app. Once set up, it automatically displays real-time album artwork from music played on any device. The PCB was engineered for reliable wireless connectivity, optimized power management, and CE compliance, ensuring stable performance and production readiness.",
+    tags: ["Autodesk Eagle", "Wi-Fi", "BLE", "LED Matrix", "Power Management", "CE Compliance", "Embedded Systems"],
+    icon: MonitorSmartphone,
+    highlight: "Live music sync",
+    media: [
+      { type: "image", src: tuneImg1 },
+      { type: "image", src: tuneImg2 },
+      { type: "image", src: tuneImg3 },
+      { type: "image", src: tuneImg4 },
+      { type: "image", src: tuneImg5 },
+    ],
+    deliverables: ["Eagle PCB + Schematic", "BOM & Gerber Files", "Firmware Source", "CE Compliance Docs"],
   },
   {
     slug: "nomad-rgb-mechanical-keyboard",
