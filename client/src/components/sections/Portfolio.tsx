@@ -9,7 +9,6 @@ interface MediaItem {
   type: "image" | "video";
   src: string;
   poster?: string;
-  fit?: "cover" | "contain";
 }
 
 interface FilterCategory {
@@ -191,7 +190,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Cloud AI sorting",
     media: [
-      { type: "image", src: garbageSorterImg, fit: "contain" },
+      { type: "image", src: garbageSorterImg },
     ],
     deliverables: ["ESP32 Firmware", "AWS Lambda Functions", "3D Mechanical Design", "System Integration Guide"],
   },
@@ -318,7 +317,7 @@ function MediaSlider({ media, className, isModal }: { media: MediaItem[]; classN
         <img
           src={current.src}
           alt=""
-          className={`w-full h-full ${current.fit === "contain" ? "object-contain bg-black/40" : "object-cover"}`}
+          className={`w-full ${isModal ? "object-contain" : "h-full object-cover"}`}
           loading="lazy"
         />
       )}
@@ -396,8 +395,8 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
         className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl bg-card border border-border/50 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-56 md:h-80 overflow-hidden rounded-t-xl">
-          <MediaSlider key={project.title} media={project.media} className="w-full h-full" isModal />
+        <div className="relative overflow-hidden rounded-t-xl">
+          <MediaSlider key={project.title} media={project.media} className="w-full" isModal />
 
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
 
