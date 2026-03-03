@@ -35,6 +35,11 @@ import lorawanGwImg1 from "@assets/image_1772516000947.png";
 import lorawanGwImg2 from "@assets/image_1772516005151.png";
 import lorawanGwImg3 from "@assets/image_1772516009642.png";
 import lorawanGwImg4 from "@assets/image_1772516014589.png";
+import kbImg1 from "@assets/image_1772516262337.png";
+import kbImg2 from "@assets/image_1772516265969.png";
+import kbImg3 from "@assets/image_1772516268993.png";
+import kbImg4 from "@assets/image_1772516272177.png";
+import kbImg5 from "@assets/image_1772516276487.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -207,6 +212,27 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "nomad-rgb-mechanical-keyboard",
+    title: "Nomad RGB Mechanical Keyboard",
+    category: "Consumer Electronics",
+    filterSlugs: ["pcb-hardware", "embedded-firmware"],
+    description:
+      "Premium RGB mechanical keyboard with ANSI/ISO layouts, multi-device Bluetooth, hot-swappable switches, 1.9\" display, rotary encoders, and integrated battery charging — designed for mass production in Autodesk Eagle.",
+    longDescription:
+      "Engineered a premium RGB mechanical keyboard supporting ANSI and ISO layouts with multi-device Bluetooth connectivity. Features include hot-swappable switches, a 1.9-inch display, rotary encoders, advanced power management, and integrated battery charging. Schematics and PCB were designed in Autodesk Eagle following high-speed and mass-production standards, ensuring signal integrity, reliability, and cost-effective manufacturing for large-scale deployment.",
+    tags: ["Autodesk Eagle", "Bluetooth", "Wi-Fi", "RGB LED Drivers", "Power Management", "Li-ion Charging", "Keyboard Matrix", "Mass Production"],
+    icon: CircuitBoard,
+    highlight: "ANSI + ISO layouts",
+    media: [
+      { type: "image", src: kbImg1 },
+      { type: "image", src: kbImg2 },
+      { type: "image", src: kbImg3 },
+      { type: "image", src: kbImg4 },
+      { type: "image", src: kbImg5 },
+    ],
+    deliverables: ["Eagle PCB + Schematic", "BOM & Gerber Files", "Firmware Source", "Production Assembly Guide"],
   },
   {
     slug: "esp32-lorawan-gateway-v1",
