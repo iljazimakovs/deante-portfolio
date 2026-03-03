@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone, ImageIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import garbageSorterImg from "@assets/image_1772512279505.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -175,6 +176,23 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "ai-smart-garbage-sorter",
+    title: "AI-Based Smart Garbage Sorter",
+    category: "IoT / AI & Automation",
+    filterSlugs: ["iot-connected-devices", "embedded-firmware"],
+    description:
+      "ESP32-based smart waste sorting system that automates garbage classification using cloud AI. Captures images via ESP32-CAM, processes them through AWS Rekognition, and directs waste to the correct bin using motors and a linear actuator.",
+    longDescription:
+      "Developed an ESP32-based smart waste sorting system that automates garbage classification to improve recycling efficiency. The system captures images using an ESP32-CAM and uploads them to AWS S3, where a Lambda function processes them via Rekognition for category detection. Based on the result, motors and a linear actuator direct waste to the correct bin, while LEDs indicate the identified type. The design integrates embedded control, cloud-based AI processing, and a stable 3D mechanical structure for reliable operation.",
+    tags: ["ESP32", "ESP32-CAM", "AWS S3", "AWS Lambda", "AWS Rekognition", "C++", "Arduino", "Wi-Fi", "I2C", "GPIO", "Altium", "IoT"],
+    icon: Cpu,
+    highlight: "Cloud AI sorting",
+    media: [
+      { type: "image", src: garbageSorterImg },
+    ],
+    deliverables: ["ESP32 Firmware", "AWS Lambda Functions", "3D Mechanical Design", "System Integration Guide"],
   },
   {
     slug: "custom-embedded-linux-sbc",
