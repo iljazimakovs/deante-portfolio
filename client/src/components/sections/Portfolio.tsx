@@ -92,6 +92,10 @@ const clarecoImg1 = "/images/image_1772543017538.png";
 const clarecoImg2 = "/images/image_1772543024387.png";
 const clarecoClinicImg1 = "/images/image_1772543264738.png";
 const usbcPcbVideo = "/images/project-usbc-pcb-panel.mp4";
+const psuVideo = "/images/project-power-supply.mp4";
+const psuImg1 = "/images/image_1772543835349.png";
+const psuImg2 = "/images/image_1772543842115.png";
+const psuImg3 = "/images/image_1772543847124.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -145,6 +149,26 @@ const projects: Project[] = [
       { type: "image", src: clarecoImg2 },
     ],
     deliverables: ["Flutter App Source", "Cloud API Integration", "Speech Processing Pipeline", "Multilingual NLP Module"],
+  },
+  {
+    slug: "miniature-regulated-power-supply",
+    title: "Miniature Regulated Power Supply",
+    category: "PCB & Hardware",
+    filterSlugs: ["pcb-hardware", "embedded-firmware"],
+    description:
+      "Compact regulated power supply PCB with adjustable output voltage and real-time monitoring. ADC/DAC feedback loop controlled by STM8 microcontroller with seven-segment display output.",
+    longDescription:
+      "Designed a compact regulated power supply PCB with adjustable output voltage and real-time monitoring. Integrated an ADC to measure input, output, and reference voltages for precise feedback control. Output regulation is achieved through a DAC-driven feedback loop, dynamically maintaining stability under varying loads. Controlled by an STM8 microcontroller, the system executes efficient voltage regulation algorithms. A three-digit seven-segment display provides clear operational feedback, demonstrating robust hardware architecture and precision PCB layout design.",
+    tags: ["STM8", "ADC", "DAC", "Embedded C", "Power Electronics", "Signal Integrity", "PCB Design"],
+    icon: Battery,
+    highlight: "DAC feedback control",
+    media: [
+      { type: "video", src: psuVideo, poster: psuImg1 },
+      { type: "image", src: psuImg1 },
+      { type: "image", src: psuImg2 },
+      { type: "image", src: psuImg3 },
+    ],
+    deliverables: ["PCB Layout + Schematic", "STM8 Firmware", "BOM & Gerber Files", "Test & Validation Report"],
   },
   {
     slug: "usb-c-pcb-panelization-design",
