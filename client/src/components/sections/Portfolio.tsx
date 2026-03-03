@@ -492,6 +492,9 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
   useEffect(() => {
     if (initialCategory) {
       setActiveCategory(initialCategory);
+      setTimeout(() => {
+        document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
   }, [initialCategory]);
 
