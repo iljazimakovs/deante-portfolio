@@ -91,6 +91,7 @@ const predMaintImg4 = "/images/image_1772518235099.png";
 const clarecoImg1 = "/images/image_1772543017538.png";
 const clarecoImg2 = "/images/image_1772543024387.png";
 const clarecoClinicImg1 = "/images/image_1772543264738.png";
+const usbcPcbVideo = "/images/project-usbc-pcb-panel.mp4";
 
 interface MediaItem {
   type: "image" | "video";
@@ -144,6 +145,23 @@ const projects: Project[] = [
       { type: "image", src: clarecoImg2 },
     ],
     deliverables: ["Flutter App Source", "Cloud API Integration", "Speech Processing Pipeline", "Multilingual NLP Module"],
+  },
+  {
+    slug: "usb-c-pcb-panelization-design",
+    title: "USB-C PCB Panelization Design",
+    category: "PCB & Hardware",
+    filterSlugs: ["pcb-hardware"],
+    description:
+      "Custom USB-C PCB with panelization for six male–female connector pairs, optimized for manufacturing. V-cut segmentation, fresering techniques, and specialized soldering windows for factory assembly.",
+    longDescription:
+      "Designed a custom USB-C PCB featuring panelization for six male–female connector pairs, optimized for efficient manufacturing and assembly. Implemented a distinctive V-cut segmentation strategy and advanced fresering techniques to improve structural stability and production throughput. Developed specialized soldering windows to ensure precise connector alignment and reliable factory soldering. The project covered full schematic and layout design in KiCad 8, along with detailed 3D visualization and animation in Blender 4.3 for technical presentation.",
+    tags: ["KiCad 8", "USB-C", "PCB Panelization", "V-Cut", "DFM Optimization", "Blender 4.3", "3D Visualization"],
+    icon: CircuitBoard,
+    highlight: "DFM optimized",
+    media: [
+      { type: "video", src: usbcPcbVideo },
+    ],
+    deliverables: ["KiCad PCB + Schematic", "Panelization Layout", "Gerber & BOM Files", "3D Blender Visualization"],
   },
   {
     slug: "clareco-clinic-healthcare-platform",
