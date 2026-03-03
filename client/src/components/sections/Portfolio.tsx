@@ -26,6 +26,11 @@ import nrf5340Img2 from "@assets/image_1772515763033.png";
 import nrf5340Img3 from "@assets/image_1772515767252.png";
 import nrf5340Img4 from "@assets/image_1772515771234.png";
 import nrf5340Img5 from "@assets/image_1772515774949.png";
+import jetsonImg1 from "@assets/image_1772515895194.png";
+import jetsonImg2 from "@assets/image_1772515899432.png";
+import jetsonImg3 from "@assets/image_1772515903228.png";
+import jetsonImg4 from "@assets/image_1772515906659.png";
+import jetsonImg5 from "@assets/image_1772515910441.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -198,6 +203,27 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "jetson-tx2-nx-expansion-board",
+    title: "Jetson TX2 NX Expansion Board",
+    category: "AI & Edge Computing",
+    filterSlugs: ["pcb-hardware", "embedded-linux-bsp"],
+    description:
+      "High-performance expansion board for NVIDIA Jetson TX2 NX with dual MIPI-CSI cameras, LVDS input, HDMI, Gigabit Ethernet, USB 3.0, CAN bus, and 60V/6S Li-ion power support for robotics and AI edge applications.",
+    longDescription:
+      "Designed a high-performance expansion board for the NVIDIA Jetson TX2 NX, extending its capabilities for robotics and AI edge applications. The board integrates dual MIPI-CSI camera connectors, LVDS camera input (Sony FCB 9500-L), HDMI, RJ45 Ethernet, USB 3.0 Type-C, USB 2.0, and Micro SD storage. It supports up to 60V power input with a 6S Li-ion battery interface and RTC backup. Additional interfaces include GPIO, UART, I2C, and CAN, with optimized layout for signal integrity and robust power management.",
+    tags: ["Jetson TX2 NX", "MIPI-CSI", "LVDS", "HDMI", "Gigabit Ethernet", "USB 3.0", "CAN Bus", "Li-ion 6S BMS", "Altium"],
+    icon: Cpu,
+    highlight: "60V AI edge platform",
+    media: [
+      { type: "image", src: jetsonImg1 },
+      { type: "image", src: jetsonImg2 },
+      { type: "image", src: jetsonImg3 },
+      { type: "image", src: jetsonImg4 },
+      { type: "image", src: jetsonImg5 },
+    ],
+    deliverables: ["Altium PCB + Schematic", "Block Diagram", "BOM & Gerber Files", "Power Management Docs"],
   },
   {
     slug: "nrf5340-lora-gnss-iot-board",
