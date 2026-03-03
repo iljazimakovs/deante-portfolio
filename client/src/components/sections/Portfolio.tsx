@@ -61,6 +61,9 @@ import laneImg2 from "@assets/image_1772517783099.png";
 import laneImg3 from "@assets/image_1772517788291.png";
 import laneImg4 from "@assets/image_1772517794283.png";
 import laneImg5 from "@assets/image_1772517801026.png";
+import roboArmImg1 from "@assets/image_1772517950140.png";
+import roboArmImg2 from "@assets/image_1772517954562.png";
+import roboArmImg3 from "@assets/image_1772517961091.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -233,6 +236,25 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "ai-robotic-arm-simulink",
+    title: "AI Robotic Arm in Simulink",
+    category: "Autonomous Systems",
+    filterSlugs: ["embedded-firmware", "embedded-linux-bsp"],
+    description:
+      "AI-driven 6-DOF robotic arm simulation in MATLAB/Simulink for autonomous pick-and-place tasks. CNN-based object detection, ML policy for joint commands, and custom Embedded C S-Function for deterministic low-latency control.",
+    longDescription:
+      "Developed an AI-driven robotic arm simulation in MATLAB/Simulink for autonomous pick-and-place tasks. Integrated a CNN-based vision block for object detection, an ML policy for mapping object pose to joint commands, and a custom Embedded C S-Function for deterministic low-latency control. Modeled a 6-DOF manipulator in Simscape Multibody with realistic dynamics, torque limits, and collision detection. Delivered a full simulation-to-deployment package validated for real-time adaptive grasping.",
+    tags: ["MATLAB", "Simulink", "Simscape Multibody", "Embedded C", "S-Function", "ONNX", "6-DOF Kinematics", "Python"],
+    icon: Server,
+    highlight: "Adaptive grasping",
+    media: [
+      { type: "image", src: roboArmImg1 },
+      { type: "image", src: roboArmImg2 },
+      { type: "image", src: roboArmImg3 },
+    ],
+    deliverables: ["Simulink Model + S-Function", "CNN ONNX Model", "Simscape Multibody Config", "Deployment Package"],
   },
   {
     slug: "ai-ml-lane-following-simulink",
