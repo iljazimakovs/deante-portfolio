@@ -945,11 +945,24 @@ function MediaSlider({
               </>
             ) : (
               <div className="relative w-full h-full">
-                <img
-                  src={item.poster || media.find(m => m.type === "image")?.src || ""}
-                  alt=""
-                  className="w-full h-full object-cover"
-                />
+                {(item.poster || media.find(m => m.type === "image")?.src) ? (
+                  <img
+                    src={item.poster || media.find(m => m.type === "image")?.src || ""}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <video
+                    className="w-full h-full object-cover"
+                    muted
+                    playsInline
+                    autoPlay
+                    loop
+                    preload="auto"
+                  >
+                    <source src={item.src} type="video/mp4" />
+                  </video>
+                )}
                 <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
                   <div className="rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 w-10 h-10">
                     <Play className="text-primary-foreground ml-0.5 w-4 h-4" />
