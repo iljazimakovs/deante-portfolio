@@ -7,6 +7,10 @@ import garbageSorterImg from "@assets/image_1772512279505.png";
 import smartAcImg1 from "@assets/image_1772513484469.png";
 import smartAcImg2 from "@assets/image_1772513491486.png";
 import smartAcImg3 from "@assets/image_1772513498323.png";
+import cm5IoImg1 from "@assets/image_1772514654396.png";
+import cm5IoImg2 from "@assets/image_1772514659035.png";
+import cm5IoImg3 from "@assets/image_1772514663029.png";
+import cm5IoImg4 from "@assets/image_1772514687391.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -179,6 +183,26 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "cm5-io-board-usb-otg",
+    title: "CM5 IO Board with USB 2.0 OTG",
+    category: "Embedded Linux / Hardware",
+    filterSlugs: ["pcb-hardware", "embedded-linux-bsp"],
+    description:
+      "Custom Raspberry Pi CM5 IO board with dual USB 2.0 ports, USB hub IC, path switch, and Type-C interface. Compatible with CM4/CM5 via DNP resistors, with DPDT slide switch for BOOT and OTG_ID control.",
+    longDescription:
+      "Designed a custom Raspberry Pi CM5 IO board with dual USB 2.0 ports, integrating a USB hub IC and USB path switch for host functionality. The design ensures compatibility with both CM4 and CM5 by adding DNP resistors for optional 5.1K CC configuration. Implemented a USB Type-C interface using CM5 CC pins and a 5A-rated ideal diode for external power support. Replaced automatic OTG switching with a DPDT slide switch to manage BOOT and OTG_ID control, optimizing usability and reliability.",
+    tags: ["Raspberry Pi CM4/CM5", "Altium", "USB 2.0 Hub IC", "USB Type-C", "High-Speed PCB", "Mass Production"],
+    icon: CircuitBoard,
+    highlight: "CM4/CM5 compatible",
+    media: [
+      { type: "image", src: cm5IoImg1 },
+      { type: "image", src: cm5IoImg2 },
+      { type: "image", src: cm5IoImg3 },
+      { type: "image", src: cm5IoImg4 },
+    ],
+    deliverables: ["Altium PCB + Schematic", "BOM & Gerber Files", "USB Architecture Docs", "Production Test Guide"],
   },
   {
     slug: "iot-smart-ac-controller",
