@@ -90,6 +90,7 @@ const predMaintImg3 = "/images/image_1772518228852.png";
 const predMaintImg4 = "/images/image_1772518235099.png";
 const clarecoImg1 = "/images/image_1772543017538.png";
 const clarecoImg2 = "/images/image_1772543024387.png";
+const clarecoClinicImg1 = "/images/image_1772543264738.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -143,6 +144,23 @@ const projects: Project[] = [
       { type: "image", src: clarecoImg2 },
     ],
     deliverables: ["Flutter App Source", "Cloud API Integration", "Speech Processing Pipeline", "Multilingual NLP Module"],
+  },
+  {
+    slug: "clareco-clinic-healthcare-platform",
+    title: "Clareco Clinic Healthcare Platform",
+    category: "AI / Mobile App",
+    filterSlugs: ["iot-connected-devices", "embedded-firmware"],
+    description:
+      "Digital healthcare platform enabling appointment scheduling, AI digital assistant conversations, and proactive patient–doctor communication. Built with Flutter for seamless mobile experience.",
+    longDescription:
+      "Developed Clareco Clinic, a digital healthcare platform designed to streamline doctor–patient interaction and appointment management. The mobile app enables patients to schedule and receive appointment notifications, communicate with a digital assistant, and discuss medical concerns directly from their smartphone. Doctors gain early access to patient inputs, medical insights, and assistant conversations, enabling proactive and personalized care. The platform enhances engagement, accessibility, and operational efficiency in modern healthcare environments.",
+    tags: ["Flutter", "Dart", "REST APIs", "Push Notifications", "Secure Messaging", "AI Digital Assistant", "Cloud Backend"],
+    icon: MonitorSmartphone,
+    highlight: "Digital health assistant",
+    media: [
+      { type: "image", src: clarecoClinicImg1 },
+    ],
+    deliverables: ["Flutter App Source", "REST API Backend", "Push Notification System", "AI Assistant Integration"],
   },
   {
     slug: "ai-predictive-maintenance-digital-twin",
