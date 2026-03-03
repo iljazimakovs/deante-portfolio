@@ -1,6 +1,26 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation } from "wouter";
-import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone, ImageIcon, Zap } from "lucide-react";
+import {
+  Cpu,
+  Wifi,
+  CircuitBoard,
+  Server,
+  Battery,
+  Radio,
+  ArrowRight,
+  X,
+  ChevronLeft,
+  ChevronRight,
+  Play,
+  Pause,
+  Volume2,
+  VolumeX,
+  ChevronDown,
+  Antenna,
+  MonitorSmartphone,
+  ImageIcon,
+  Zap,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import garbageSorterImg from "@assets/image_1772512279505.png";
@@ -105,143 +125,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    slug: "industrial-iot-gateway",
-    title: "Industrial IoT Gateway",
-    category: "Embedded Linux / IoT",
-    filterSlugs: ["embedded-linux-bsp", "iot-connected-devices"],
-    description:
-      "Designed and developed a Yocto-based Linux gateway for industrial sensor aggregation. Features OTA firmware updates, MQTT-based telemetry, and secure TLS provisioning for 200+ field devices.",
-    longDescription:
-      "This project involved building a production-grade IoT gateway from the ground up. The gateway aggregates data from 200+ industrial sensors over Modbus and MQTT, processes it locally, and pushes telemetry to the cloud via secure TLS channels. Built on a custom Yocto Linux image with a tailored Device Tree for the i.MX8 SoC, it includes robust OTA firmware update capabilities, watchdog recovery, and remote diagnostics. The system has been deployed across multiple factory floors with zero unplanned downtime.",
-    tags: ["Yocto", "MQTT", "TLS", "Device Tree", "Python", "C"],
-    icon: Server,
-    highlight: "200+ devices managed",
-    media: [
-      { type: "image", src: "/images/project-iot-gateway.png" },
-    ],
-    deliverables: ["Custom Yocto BSP Image", "OTA Update Server", "MQTT Broker Config", "Production Deployment Guide"],
-  },
-  {
-    slug: "ble-wearable-fitness-tracker",
-    title: "BLE Wearable Fitness Tracker",
-    category: "Consumer Electronics",
-    filterSlugs: ["embedded-firmware", "iot-connected-devices"],
-    description:
-      "End-to-end firmware for an ARM Cortex-M4 wearable. Implemented BLE stack on Zephyr RTOS, low-power sensor fusion pipeline, and companion mobile app data sync with OTA update support.",
-    longDescription:
-      "Developed complete firmware for a consumer wearable fitness tracker powered by an nRF52840 (Cortex-M4). The Zephyr RTOS-based firmware handles BLE communication with a companion mobile app, real-time sensor fusion from an accelerometer/gyroscope/heart-rate sensor suite, and aggressive power management achieving 18-month battery life on a CR2032 coin cell. The PCB was designed in KiCad with DFM considerations for mass production. OTA DFU updates allow seamless field upgrades.",
-    tags: ["Zephyr RTOS", "BLE", "Cortex-M4", "OTA", "KiCad"],
-    icon: Radio,
-    highlight: "18-month battery life",
-    media: [
-      { type: "image", src: "/images/project-ble-wearable.png" },
-    ],
-    deliverables: ["Zephyr Firmware", "BLE Profile Spec", "KiCad PCB Files", "Power Analysis Report"],
-  },
-  {
-    slug: "smart-energy-bms-controller",
-    title: "Smart Energy BMS Controller",
-    category: "Power & Energy Systems",
-    filterSlugs: ["embedded-firmware", "pcb-hardware"],
-    description:
-      "Battery management system for a 48V LiFePO4 pack. Custom PCB with cell balancing, SoC estimation, CAN bus communication, and safety cutoff logic — designed for solar storage applications.",
-    longDescription:
-      "Engineered a complete battery management system for a 16S LiFePO4 battery pack rated at 48V / 100A. The custom 4-layer PCB includes precision cell voltage monitoring, passive cell balancing, coulomb counting for SoC estimation, temperature monitoring across all cells, and redundant safety cutoff circuits. Communication is handled via CAN bus for integration with solar inverters. The firmware runs on FreeRTOS with a state machine architecture ensuring safe operation under all fault conditions.",
-    tags: ["Embedded C", "CAN Bus", "Altium", "BMS", "FreeRTOS"],
-    icon: Battery,
-    highlight: "48V / 100A rated",
-    media: [
-      { type: "image", src: "/images/project-bms-controller.png" },
-    ],
-    deliverables: ["Altium PCB + Schematic", "BMS Firmware", "Gerber/BOM/PnP Files", "Safety Test Report"],
-  },
-  {
-    slug: "factory-test-flash-station",
-    title: "Factory Test & Flash Station",
-    category: "Manufacturing & Production",
-    filterSlugs: ["hardware-debugging"],
-    description:
-      "Automated production test fixture with JTAG/SWD flash programming, boundary scan, and functional validation. Reduced manufacturing test time by 60% and eliminated manual flashing errors.",
-    longDescription:
-      "Built a fully automated production test and programming station for a high-volume electronics manufacturer. The system uses a custom bed-of-nails fixture with pogo pins for reliable contact, automated JTAG/SWD flash programming, boundary scan testing, and functional validation including power supply sequencing, communication bus checks, and sensor calibration. A Python-based test orchestrator manages the entire workflow with pass/fail reporting and traceability logging. Reduced per-unit test time from 5 minutes to under 2 minutes.",
-    tags: ["JTAG", "SWD", "Python", "Test Automation", "Fixture Design"],
-    icon: Cpu,
-    highlight: "60% faster test cycle",
-    media: [
-      { type: "video", src: "/images/project-test-station.mp4", poster: "/images/project-test-station.png" },
-      { type: "image", src: "/images/project-test-station.png" },
-    ],
-    deliverables: ["Test Fixture Design", "Flash Programming Scripts", "Test Orchestrator Software", "Validation Report"],
-  },
-  {
-    slug: "wifi-connected-thermostat",
-    title: "Wi-Fi Connected Thermostat",
-    category: "Smart Home / IoT",
-    filterSlugs: ["embedded-firmware", "iot-connected-devices"],
-    description:
-      "Production-ready smart thermostat running FreeRTOS on ESP32. Cloud-connected via MQTT with REST API integration, secure boot chain, and scheduled OTA update windows.",
-    longDescription:
-      "Developed a production-ready smart thermostat from concept to manufacturing. The device runs FreeRTOS on an ESP32-S3, connects to the cloud via MQTT for remote control and telemetry, and exposes a local REST API for direct integration with home automation systems. Security features include a full secure boot chain, encrypted flash storage, and TLS 1.3 for all communications. OTA updates are scheduled during low-usage windows to ensure uninterrupted operation. The enclosure and PCB were designed for injection molding and SMT assembly.",
-    tags: ["ESP32", "FreeRTOS", "MQTT", "REST", "Secure Boot"],
-    icon: Wifi,
-    highlight: "Cloud-connected OTA",
-    media: [
-      { type: "image", src: "/images/project-thermostat.png" },
-    ],
-    deliverables: ["ESP32 Firmware", "Cloud Backend Config", "PCB Production Files", "UL Compliance Docs"],
-  },
-  {
-    slug: "motor-control-pcb-robotics",
-    title: "Motor Control PCB for Robotics",
-    category: "Industrial Automation",
-    filterSlugs: ["embedded-firmware", "pcb-hardware"],
-    description:
-      "High-performance BLDC motor controller board with FOC algorithm implementation. 4-layer PCB with current sensing, encoder feedback, and CAN-based command interface.",
-    longDescription:
-      "Designed a high-performance BLDC motor controller for an industrial robotics application. The 4-layer PCB features a Cortex-M7 MCU running Field-Oriented Control (FOC) algorithms at sub-millisecond loop rates, three-phase gate driver with bootstrap supply, inline current sensing using shunt resistors, and absolute encoder feedback via SSI interface. The CAN bus command interface allows integration with multi-axis motion controllers. The board handles up to 48V / 30A continuous with thermal management via copper pours and optional heatsink mounting.",
-    tags: ["FOC", "BLDC", "Altium", "CAN Bus", "Cortex-M7", "C++"],
-    icon: CircuitBoard,
-    highlight: "Sub-ms control loop",
-    media: [
-      { type: "image", src: "/images/project-motor-control.png" },
-    ],
-    deliverables: ["Altium PCB Layout", "FOC Firmware", "CAN Protocol Spec", "Thermal Analysis Report"],
-  },
-  {
-    slug: "lora-environmental-sensor-network",
-    title: "LoRa Environmental Sensor Network",
-    category: "IoT / Wireless Sensing",
-    filterSlugs: ["iot-connected-devices", "embedded-firmware"],
-    description:
-      "Solar-powered LoRa sensor nodes for long-range environmental monitoring. Custom low-power firmware with mesh networking, deployed across 5km agricultural sites.",
-    longDescription:
-      "Designed and deployed a network of solar-powered LoRa sensor nodes for precision agriculture environmental monitoring. Each node features a custom PCB with temperature, humidity, soil moisture, and light sensors, powered by a small solar panel with LiPo backup. The ultra-low-power firmware on an STM32L4 achieves years of operation with minimal maintenance. Nodes communicate over LoRaWAN to a central gateway with 5km+ range, and data is pushed to a cloud dashboard for real-time monitoring and alerting. The system supports over-the-air configuration updates and automatic mesh rerouting.",
-    tags: ["LoRa", "STM32", "Low Power", "Solar", "Mesh Network", "C"],
-    icon: Antenna,
-    highlight: "5km+ range",
-    media: [
-      { type: "image", src: "/images/project-lora-sensor.png" },
-    ],
-    deliverables: ["Node Firmware", "Gateway Software", "PCB Design Files", "Deployment Guide"],
-  },
-  {
-    slug: "automotive-can-bus-diagnostic-tool",
-    title: "Automotive CAN Bus Diagnostic Tool",
-    category: "Automotive / Diagnostics",
-    filterSlugs: ["hardware-debugging", "embedded-firmware"],
-    description:
-      "Handheld CAN bus analyzer with OLED display, OBD-II interface, and real-time packet decoding. Supports standard and extended CAN frames with DBC file parsing.",
-    longDescription:
-      "Built a portable CAN bus diagnostic tool for automotive and industrial use. The handheld device features a Cortex-M4 MCU with dual CAN transceivers, an OLED display for real-time packet visualization, and USB connectivity for PC-based analysis. The firmware supports standard (11-bit) and extended (29-bit) CAN frames, OBD-II PID decoding, DBC file import for signal-level interpretation, and data logging to SD card. A companion desktop application provides advanced filtering, graphing, and export capabilities. Used by field engineers for vehicle ECU diagnostics and industrial CAN network troubleshooting.",
-    tags: ["CAN Bus", "OBD-II", "Cortex-M4", "USB", "OLED", "Embedded C"],
-    icon: MonitorSmartphone,
-    highlight: "Dual CAN channels",
-    media: [
-      { type: "image", src: "/images/project-can-diagnostic.png" },
-    ],
-    deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
-  },
-  {
     slug: "ai-predictive-maintenance-digital-twin",
     title: "AI Predictive Maintenance Digital Twin",
     category: "Embedded Linux & BSP",
@@ -250,7 +133,16 @@ const projects: Project[] = [
       "AI-driven predictive maintenance system combining edge AI inference with a Simulink-based digital twin. Hybrid LSTM-Autoencoder achieving 95% early fault detection, optimized C for ARM Linux with <20ms latency and 14-day advance failure warnings.",
     longDescription:
       "Developed an AI-driven predictive maintenance system combining edge AI inference with a Simulink-based digital twin. Implemented a hybrid LSTM-Autoencoder trained on NASA CMAPSS and vibration datasets, achieving 95% early fault detection precision. Converted the model to optimized C for ARM Linux gateways with <20ms latency. Built a Simscape Electrical motor model to simulate bearing degradation and validate repair strategies. Automated retraining and simulation workflows using Bash and TCL scripts, enabling 14-day advance failure warnings.",
-    tags: ["MATLAB", "Simulink", "LSTM Autoencoder", "ONNX", "ARM Linux", "Edge AI", "Vibration Analysis", "Python"],
+    tags: [
+      "MATLAB",
+      "Simulink",
+      "LSTM Autoencoder",
+      "ONNX",
+      "ARM Linux",
+      "Edge AI",
+      "Vibration Analysis",
+      "Python",
+    ],
     icon: Server,
     highlight: "95% fault detection",
     media: [
@@ -259,7 +151,12 @@ const projects: Project[] = [
       { type: "image", src: predMaintImg3 },
       { type: "image", src: predMaintImg4 },
     ],
-    deliverables: ["Simulink Digital Twin Model", "LSTM-Autoencoder ONNX", "ARM Linux Edge Firmware", "Retraining Pipeline Scripts"],
+    deliverables: [
+      "Simulink Digital Twin Model",
+      "LSTM-Autoencoder ONNX",
+      "ARM Linux Edge Firmware",
+      "Retraining Pipeline Scripts",
+    ],
   },
   {
     slug: "ai-robotic-arm-simulink",
@@ -270,7 +167,16 @@ const projects: Project[] = [
       "AI-driven 6-DOF robotic arm simulation in MATLAB/Simulink for autonomous pick-and-place tasks. CNN-based object detection, ML policy for joint commands, and custom Embedded C S-Function for deterministic low-latency control.",
     longDescription:
       "Developed an AI-driven robotic arm simulation in MATLAB/Simulink for autonomous pick-and-place tasks. Integrated a CNN-based vision block for object detection, an ML policy for mapping object pose to joint commands, and a custom Embedded C S-Function for deterministic low-latency control. Modeled a 6-DOF manipulator in Simscape Multibody with realistic dynamics, torque limits, and collision detection. Delivered a full simulation-to-deployment package validated for real-time adaptive grasping.",
-    tags: ["MATLAB", "Simulink", "Simscape Multibody", "Embedded C", "S-Function", "ONNX", "6-DOF Kinematics", "Python"],
+    tags: [
+      "MATLAB",
+      "Simulink",
+      "Simscape Multibody",
+      "Embedded C",
+      "S-Function",
+      "ONNX",
+      "6-DOF Kinematics",
+      "Python",
+    ],
     icon: Server,
     highlight: "Adaptive grasping",
     media: [
@@ -278,7 +184,12 @@ const projects: Project[] = [
       { type: "image", src: roboArmImg2 },
       { type: "image", src: roboArmImg3 },
     ],
-    deliverables: ["Simulink Model + S-Function", "CNN ONNX Model", "Simscape Multibody Config", "Deployment Package"],
+    deliverables: [
+      "Simulink Model + S-Function",
+      "CNN ONNX Model",
+      "Simscape Multibody Config",
+      "Deployment Package",
+    ],
   },
   {
     slug: "ai-ml-lane-following-simulink",
@@ -289,7 +200,16 @@ const projects: Project[] = [
       "Production-grade AI/ML lane-following system in MATLAB/Simulink for a 1:10 scale autonomous vehicle. Fine-tuned YOLOv8n for real-time lane segmentation with ML-enhanced MPC controller. Achieved 22 FPS on Jetson Nano with 92% accuracy.",
     longDescription:
       "Developed a production-grade AI/ML lane-following system in MATLAB/Simulink for a 1:10 scale autonomous vehicle. Integrated a fine-tuned YOLOv8n model (trained on BDD100K and KITTI) for real-time lane segmentation and curvature estimation. Implemented an ML-enhanced MPC controller for smooth steering and reduced oscillations. Built a 2-DOF bicycle model in Simscape for realistic closed-loop simulation. Achieved 22 FPS on Jetson Nano with 92% lane-keeping accuracy under varied conditions.",
-    tags: ["MATLAB", "Simulink", "YOLOv8n", "ONNX", "MPC", "Jetson Nano", "Deep Learning", "Python"],
+    tags: [
+      "MATLAB",
+      "Simulink",
+      "YOLOv8n",
+      "ONNX",
+      "MPC",
+      "Jetson Nano",
+      "Deep Learning",
+      "Python",
+    ],
     icon: Cpu,
     highlight: "92% lane accuracy",
     media: [
@@ -299,7 +219,12 @@ const projects: Project[] = [
       { type: "image", src: laneImg4 },
       { type: "image", src: laneImg5 },
     ],
-    deliverables: ["Simulink Model", "YOLOv8n ONNX Model", "MPC Controller Config", "Simulation Results & Report"],
+    deliverables: [
+      "Simulink Model",
+      "YOLOv8n ONNX Model",
+      "MPC Controller Config",
+      "Simulation Results & Report",
+    ],
   },
   {
     slug: "iot-environmental-imaging-system",
@@ -310,13 +235,25 @@ const projects: Project[] = [
       "Self-contained IoT device using ESP32-CAM and BME680 for remote environmental monitoring and imaging. Scheduled image capture, sensor data logging to SD card, and secure cloud transmission via MQTT over TLS.",
     longDescription:
       "Developed a self-contained IoT device for remote environmental monitoring and imaging. The system uses ESP32-CAM to capture images at scheduled intervals and a BME680 sensor to measure temperature, humidity, pressure, and air quality. Data and images are stored locally on an SD card and securely transmitted to a cloud server using MQTT over TLS. Designed with reliable power management and secure connectivity, the device enables centralized monitoring of environmental conditions and visual inspection of remote sites.",
-    tags: ["ESP32-CAM", "BME680", "MQTT over TLS", "Wi-Fi", "SD Card", "Embedded C", "PCB Design", "IoT Cloud"],
+    tags: [
+      "ESP32-CAM",
+      "BME680",
+      "MQTT over TLS",
+      "Wi-Fi",
+      "SD Card",
+      "Embedded C",
+      "PCB Design",
+      "IoT Cloud",
+    ],
     icon: Wifi,
     highlight: "Remote site imaging",
-    media: [
-      { type: "image", src: envImagingImg1 },
+    media: [{ type: "image", src: envImagingImg1 }],
+    deliverables: [
+      "ESP32 Firmware",
+      "PCB Layout + Schematic",
+      "Enclosure CAD Files",
+      "Cloud Integration Docs",
     ],
-    deliverables: ["ESP32 Firmware", "PCB Layout + Schematic", "Enclosure CAD Files", "Cloud Integration Docs"],
   },
   {
     slug: "android-digital-door-lock",
@@ -327,13 +264,24 @@ const projects: Project[] = [
       "Android-controlled digital door lock using Arduino Uno and HC-06 Bluetooth for secure wireless access. Dual authentication via mobile app or 4x4 keypad with LCD status display and relay-based actuation.",
     longDescription:
       "Developed an Android-controlled digital door lock system using Arduino Uno and HC-06 Bluetooth module for secure wireless access. The system integrates a 4x4 keypad and 16x2 LCD for local password entry and status display, along with a 5V relay module to control the door locking mechanism. Users can authenticate via a mobile app or keypad, while the microcontroller manages password verification and access control. Designed with secure communication, user feedback display, and reliable relay-based actuation.",
-    tags: ["Arduino Uno", "HC-06 Bluetooth", "Embedded C", "Android App", "UART", "GPIO", "Relay Module"],
+    tags: [
+      "Arduino Uno",
+      "HC-06 Bluetooth",
+      "Embedded C",
+      "Android App",
+      "UART",
+      "GPIO",
+      "Relay Module",
+    ],
     icon: Cpu,
     highlight: "Bluetooth door control",
-    media: [
-      { type: "image", src: doorLockImg1 },
+    media: [{ type: "image", src: doorLockImg1 }],
+    deliverables: [
+      "Arduino Firmware",
+      "Android App Source",
+      "Wiring Diagram",
+      "System Documentation",
     ],
-    deliverables: ["Arduino Firmware", "Android App Source", "Wiring Diagram", "System Documentation"],
   },
   {
     slug: "gsm-smart-energy-meter",
@@ -344,7 +292,15 @@ const projects: Project[] = [
       "GSM-enabled single-phase energy meter using PIC18F4520 for remote energy monitoring. Measures voltage, current, and power factor with two-way SMS communication for real-time meter readings.",
     longDescription:
       "Developed a GSM-enabled single-phase energy meter using PIC18F4520 for remote energy monitoring. The system measures voltage, current, and power factor to calculate accurate energy consumption. A GSM module enables two-way communication, allowing the utility provider to request and receive real-time meter readings via SMS. The design includes a regulated power supply section and tamper detection circuitry for enhanced reliability and security. A complete functional prototype was built and validated.",
-    tags: ["PIC18F4520", "GSM Module", "Embedded C", "UART", "Energy Metering", "Tamper Detection", "PCB Design"],
+    tags: [
+      "PIC18F4520",
+      "GSM Module",
+      "Embedded C",
+      "UART",
+      "Energy Metering",
+      "Tamper Detection",
+      "PCB Design",
+    ],
     icon: Zap,
     highlight: "Remote SMS metering",
     media: [
@@ -353,7 +309,12 @@ const projects: Project[] = [
       { type: "image", src: gsmImg3 },
       { type: "image", src: gsmImg4 },
     ],
-    deliverables: ["Embedded C Firmware", "Schematic + PCB Layout", "Simulation Files", "Prototype Validation Report"],
+    deliverables: [
+      "Embedded C Firmware",
+      "Schematic + PCB Layout",
+      "Simulation Files",
+      "Prototype Validation Report",
+    ],
   },
   {
     slug: "modular-creator-rgb-keyboard",
@@ -364,7 +325,15 @@ const projects: Project[] = [
       "Modular smart RGB keyboard with configurable independent modules, each functioning as a standalone keyboard. VIA firmware support for dynamic key remapping, inter-module communication, and mass-production-ready design.",
     longDescription:
       "Designed a modular smart RGB keyboard composed of configurable independent modules, each functioning as a standalone keyboard. The system supports dynamic layout customization through VIA firmware, enabling users to remap keys and adjust functionality based on workflow needs. Engineered with advanced PCB architecture, reliable inter-module communication, and optimized power management, the design ensures seamless expandability, premium RGB integration, and mass-production readiness for a highly customizable user experience.",
-    tags: ["Autodesk Eagle", "VIA Firmware", "RGB LED Drivers", "Bluetooth", "Wi-Fi", "Power Management", "Mass Production"],
+    tags: [
+      "Autodesk Eagle",
+      "VIA Firmware",
+      "RGB LED Drivers",
+      "Bluetooth",
+      "Wi-Fi",
+      "Power Management",
+      "Mass Production",
+    ],
     icon: CircuitBoard,
     highlight: "Modular expandable",
     media: [
@@ -374,7 +343,12 @@ const projects: Project[] = [
       { type: "image", src: modKbImg4 },
       { type: "image", src: modKbImg5 },
     ],
-    deliverables: ["Eagle PCB + Schematic", "VIA Firmware Config", "BOM & Gerber Files", "Module Interface Spec"],
+    deliverables: [
+      "Eagle PCB + Schematic",
+      "VIA Firmware Config",
+      "BOM & Gerber Files",
+      "Module Interface Spec",
+    ],
   },
   {
     slug: "tuneshine-album-art-display",
@@ -385,7 +359,15 @@ const projects: Project[] = [
       "Wi-Fi enabled live album art display that syncs with music streaming services. BLE provisioning, real-time artwork rendering on LED matrix, and CE-compliant PCB designed for production in Autodesk Eagle.",
     longDescription:
       "Designed and developed Tuneshine™, a Wi-Fi enabled live album art display that syncs with users' music streaming services. The device connects via Bluetooth for initial provisioning, allowing users to configure Wi-Fi and link streaming accounts through a mobile app. Once set up, it automatically displays real-time album artwork from music played on any device. The PCB was engineered for reliable wireless connectivity, optimized power management, and CE compliance, ensuring stable performance and production readiness.",
-    tags: ["Autodesk Eagle", "Wi-Fi", "BLE", "LED Matrix", "Power Management", "CE Compliance", "Embedded Systems"],
+    tags: [
+      "Autodesk Eagle",
+      "Wi-Fi",
+      "BLE",
+      "LED Matrix",
+      "Power Management",
+      "CE Compliance",
+      "Embedded Systems",
+    ],
     icon: MonitorSmartphone,
     highlight: "Live music sync",
     media: [
@@ -395,7 +377,12 @@ const projects: Project[] = [
       { type: "image", src: tuneImg4 },
       { type: "image", src: tuneImg5 },
     ],
-    deliverables: ["Eagle PCB + Schematic", "BOM & Gerber Files", "Firmware Source", "CE Compliance Docs"],
+    deliverables: [
+      "Eagle PCB + Schematic",
+      "BOM & Gerber Files",
+      "Firmware Source",
+      "CE Compliance Docs",
+    ],
   },
   {
     slug: "nomad-rgb-mechanical-keyboard",
@@ -403,10 +390,19 @@ const projects: Project[] = [
     category: "Consumer Electronics",
     filterSlugs: ["pcb-hardware", "embedded-firmware"],
     description:
-      "Premium RGB mechanical keyboard with ANSI/ISO layouts, multi-device Bluetooth, hot-swappable switches, 1.9\" display, rotary encoders, and integrated battery charging — designed for mass production in Autodesk Eagle.",
+      'Premium RGB mechanical keyboard with ANSI/ISO layouts, multi-device Bluetooth, hot-swappable switches, 1.9" display, rotary encoders, and integrated battery charging — designed for mass production in Autodesk Eagle.',
     longDescription:
       "Engineered a premium RGB mechanical keyboard supporting ANSI and ISO layouts with multi-device Bluetooth connectivity. Features include hot-swappable switches, a 1.9-inch display, rotary encoders, advanced power management, and integrated battery charging. Schematics and PCB were designed in Autodesk Eagle following high-speed and mass-production standards, ensuring signal integrity, reliability, and cost-effective manufacturing for large-scale deployment.",
-    tags: ["Autodesk Eagle", "Bluetooth", "Wi-Fi", "RGB LED Drivers", "Power Management", "Li-ion Charging", "Keyboard Matrix", "Mass Production"],
+    tags: [
+      "Autodesk Eagle",
+      "Bluetooth",
+      "Wi-Fi",
+      "RGB LED Drivers",
+      "Power Management",
+      "Li-ion Charging",
+      "Keyboard Matrix",
+      "Mass Production",
+    ],
     icon: CircuitBoard,
     highlight: "ANSI + ISO layouts",
     media: [
@@ -416,7 +412,12 @@ const projects: Project[] = [
       { type: "image", src: kbImg4 },
       { type: "image", src: kbImg5 },
     ],
-    deliverables: ["Eagle PCB + Schematic", "BOM & Gerber Files", "Firmware Source", "Production Assembly Guide"],
+    deliverables: [
+      "Eagle PCB + Schematic",
+      "BOM & Gerber Files",
+      "Firmware Source",
+      "Production Assembly Guide",
+    ],
   },
   {
     slug: "esp32-lorawan-gateway-v1",
@@ -427,7 +428,18 @@ const projects: Project[] = [
       "Single-channel LoRaWAN gateway based on ESP32 with SX1276/78 LoRa, Ethernet, isolated RS485, WiFi, BLE, NOR flash, SD card, and RTC — supporting 96–264VAC input and optional battery backup for industrial IoT.",
     longDescription:
       "Developed a single-channel LoRaWAN gateway based on ESP32 dual-core MCU for versatile IoT deployments. The system integrates SX1276/78 LoRa modules (433/925MHz), Ethernet, RS485 (isolated 1Mbps), WiFi, and BLE connectivity. It features onboard W25Q64 NOR flash, SD card storage, DS3231M high-accuracy RTC with backup battery, and USB debug interface. Designed with expandable I2C, LTE, and IO modules, wide 96–264VAC or DC input support, and optional battery backup, enabling reliable industrial and smart infrastructure applications.",
-    tags: ["ESP32", "SX1276/SX1278", "LoRaWAN", "W25Q64 NOR Flash", "DS3231M RTC", "Ethernet", "RS485", "WiFi", "BLE", "4G-LTE"],
+    tags: [
+      "ESP32",
+      "SX1276/SX1278",
+      "LoRaWAN",
+      "W25Q64 NOR Flash",
+      "DS3231M RTC",
+      "Ethernet",
+      "RS485",
+      "WiFi",
+      "BLE",
+      "4G-LTE",
+    ],
     icon: Antenna,
     highlight: "Multi-protocol gateway",
     media: [
@@ -436,7 +448,12 @@ const projects: Project[] = [
       { type: "image", src: lorawanGwImg3 },
       { type: "image", src: lorawanGwImg4 },
     ],
-    deliverables: ["ESP32 Firmware", "PCB Design Files", "Network Architecture Docs", "Production Test Guide"],
+    deliverables: [
+      "ESP32 Firmware",
+      "PCB Design Files",
+      "Network Architecture Docs",
+      "Production Test Guide",
+    ],
   },
   {
     slug: "jetson-tx2-nx-expansion-board",
@@ -447,7 +464,17 @@ const projects: Project[] = [
       "High-performance expansion board for NVIDIA Jetson TX2 NX with dual MIPI-CSI cameras, LVDS input, HDMI, Gigabit Ethernet, USB 3.0, CAN bus, and 60V/6S Li-ion power support for robotics and AI edge applications.",
     longDescription:
       "Designed a high-performance expansion board for the NVIDIA Jetson TX2 NX, extending its capabilities for robotics and AI edge applications. The board integrates dual MIPI-CSI camera connectors, LVDS camera input (Sony FCB 9500-L), HDMI, RJ45 Ethernet, USB 3.0 Type-C, USB 2.0, and Micro SD storage. It supports up to 60V power input with a 6S Li-ion battery interface and RTC backup. Additional interfaces include GPIO, UART, I2C, and CAN, with optimized layout for signal integrity and robust power management.",
-    tags: ["Jetson TX2 NX", "MIPI-CSI", "LVDS", "HDMI", "Gigabit Ethernet", "USB 3.0", "CAN Bus", "Li-ion 6S BMS", "Altium"],
+    tags: [
+      "Jetson TX2 NX",
+      "MIPI-CSI",
+      "LVDS",
+      "HDMI",
+      "Gigabit Ethernet",
+      "USB 3.0",
+      "CAN Bus",
+      "Li-ion 6S BMS",
+      "Altium",
+    ],
     icon: Cpu,
     highlight: "60V AI edge platform",
     media: [
@@ -457,7 +484,12 @@ const projects: Project[] = [
       { type: "image", src: jetsonImg4 },
       { type: "image", src: jetsonImg5 },
     ],
-    deliverables: ["Altium PCB + Schematic", "Block Diagram", "BOM & Gerber Files", "Power Management Docs"],
+    deliverables: [
+      "Altium PCB + Schematic",
+      "Block Diagram",
+      "BOM & Gerber Files",
+      "Power Management Docs",
+    ],
   },
   {
     slug: "nrf5340-lora-gnss-iot-board",
@@ -468,7 +500,17 @@ const projects: Project[] = [
       "Multi-communication IoT board with Nordic nRF5340 SoC, Semtech SX1302 LoRa, Quectel L96 GNSS, 256Mbit SPI flash, and multiple sensors — designed for asset tracking and environmental monitoring.",
     longDescription:
       "Designed a multi-communication IoT board based on Nordic nRF5340 dual-core SoC with BLE support. The system integrates a Semtech SX1302 LoRa module for long-range connectivity and a Quectel L96 GNSS module for precise positioning. It features 256Mbit external NOR flash via SPI and multiple sensors including DHT20, LSM6DSOX 6-axis IMU, and OPT3001 light sensor. The board supports JTAG, I2C, UART, and GPIO interfaces, enabling scalable applications in asset tracking and environmental monitoring.",
-    tags: ["nRF5340", "SX1302 LoRa", "Quectel L96 GNSS", "BLE", "SPI Flash", "DHT20", "LSM6DSOX", "OPT3001", "High-Speed PCB"],
+    tags: [
+      "nRF5340",
+      "SX1302 LoRa",
+      "Quectel L96 GNSS",
+      "BLE",
+      "SPI Flash",
+      "DHT20",
+      "LSM6DSOX",
+      "OPT3001",
+      "High-Speed PCB",
+    ],
     icon: Antenna,
     highlight: "BLE + LoRa + GNSS",
     media: [
@@ -478,18 +520,36 @@ const projects: Project[] = [
       { type: "image", src: nrf5340Img4 },
       { type: "image", src: nrf5340Img5 },
     ],
-    deliverables: ["Altium PCB + Schematic", "Block Diagram", "BOM & Gerber Files", "Sensor Integration Guide"],
+    deliverables: [
+      "Altium PCB + Schematic",
+      "Block Diagram",
+      "BOM & Gerber Files",
+      "Sensor Integration Guide",
+    ],
   },
   {
     slug: "cm4-5g-wifi6-embedded-board",
     title: "CM4 5G & WiFi 6 Embedded Board",
     category: "Embedded Linux / Hardware",
-    filterSlugs: ["pcb-hardware", "embedded-linux-bsp", "iot-connected-devices"],
+    filterSlugs: [
+      "pcb-hardware",
+      "embedded-linux-bsp",
+      "iot-connected-devices",
+    ],
     description:
       "Highly integrated CM4-based board with 5G RM520N module, Wi-Fi 6 AX200, Micro SD, USB hub, and PoE support — designed for IoT, smart infrastructure, and edge computing with high-bandwidth connectivity.",
     longDescription:
       "Developed a highly integrated custom circuit board based on Raspberry Pi CM4 for advanced embedded and edge applications. The design integrates a 5G RM520N module and Wi-Fi 6 AX200 card for high-speed connectivity, Micro SD storage expansion, and multiple USB interfaces controlled by a USB4056 hub. Optimized PCB layout ensures signal integrity and efficient power management. The board supports IoT, smart infrastructure, and edge computing deployments requiring reliable, high-bandwidth communication.",
-    tags: ["Raspberry Pi CM4", "RM520N 5G", "Intel AX200 Wi-Fi 6", "USB4056 Hub", "High-Speed PCB", "Altium", "USB", "Micro SD"],
+    tags: [
+      "Raspberry Pi CM4",
+      "RM520N 5G",
+      "Intel AX200 Wi-Fi 6",
+      "USB4056 Hub",
+      "High-Speed PCB",
+      "Altium",
+      "USB",
+      "Micro SD",
+    ],
     icon: Server,
     highlight: "5G + Wi-Fi 6",
     media: [
@@ -499,7 +559,12 @@ const projects: Project[] = [
       { type: "image", src: cm4_5gImg4 },
       { type: "image", src: cm4_5gImg5 },
     ],
-    deliverables: ["Altium PCB + Schematic", "Block Diagram", "BOM & Gerber Files", "Signal Integrity Report"],
+    deliverables: [
+      "Altium PCB + Schematic",
+      "Block Diagram",
+      "BOM & Gerber Files",
+      "Signal Integrity Report",
+    ],
   },
   {
     slug: "imx8-som-custom-base-board",
@@ -510,7 +575,16 @@ const projects: Project[] = [
       "Custom base PCB for Computelab UCM-iMX8M-Mini SoM with CSI camera, I2S audio codec, Class-D amplifier, Ha-Low Wi-Fi, waterproof USB-C, and 1S Li-Po BMS — optimized for low power and mass production.",
     longDescription:
       "Designed a custom base PCB for the Computelab UCM-iMX8M-Mini SoM, optimized for low power and compact embedded applications. The board integrates a 2-lane CSI camera interface, I2S audio codec (WM8904), Class-D amplifier with 1W speaker, Ha-Low Wi-Fi module, waterproof USB Type-C, UART debug port, and a 20-pin GPIO header. It includes a 1S Li-Po BMS power design for portable use, focusing on hardware architecture, EMI considerations, and mass production readiness.",
-    tags: ["NXP iMX8M Mini", "Altium", "High-Speed PCB", "I2S", "USB Type-C", "Li-Po BMS", "Ha-Low Wi-Fi", "Mass Production"],
+    tags: [
+      "NXP iMX8M Mini",
+      "Altium",
+      "High-Speed PCB",
+      "I2S",
+      "USB Type-C",
+      "Li-Po BMS",
+      "Ha-Low Wi-Fi",
+      "Mass Production",
+    ],
     icon: CircuitBoard,
     highlight: "Compact low-power SoM",
     media: [
@@ -520,7 +594,12 @@ const projects: Project[] = [
       { type: "image", src: imx8Img4 },
       { type: "image", src: imx8Img5 },
     ],
-    deliverables: ["Altium PCB + Schematic", "BOM & Gerber Files", "Power Design Docs", "EMI Compliance Report"],
+    deliverables: [
+      "Altium PCB + Schematic",
+      "BOM & Gerber Files",
+      "Power Design Docs",
+      "EMI Compliance Report",
+    ],
   },
   {
     slug: "cm5-io-board-usb-otg",
@@ -531,7 +610,14 @@ const projects: Project[] = [
       "Custom Raspberry Pi CM5 IO board with dual USB 2.0 ports, USB hub IC, path switch, and Type-C interface. Compatible with CM4/CM5 via DNP resistors, with DPDT slide switch for BOOT and OTG_ID control.",
     longDescription:
       "Designed a custom Raspberry Pi CM5 IO board with dual USB 2.0 ports, integrating a USB hub IC and USB path switch for host functionality. The design ensures compatibility with both CM4 and CM5 by adding DNP resistors for optional 5.1K CC configuration. Implemented a USB Type-C interface using CM5 CC pins and a 5A-rated ideal diode for external power support. Replaced automatic OTG switching with a DPDT slide switch to manage BOOT and OTG_ID control, optimizing usability and reliability.",
-    tags: ["Raspberry Pi CM4/CM5", "Altium", "USB 2.0 Hub IC", "USB Type-C", "High-Speed PCB", "Mass Production"],
+    tags: [
+      "Raspberry Pi CM4/CM5",
+      "Altium",
+      "USB 2.0 Hub IC",
+      "USB Type-C",
+      "High-Speed PCB",
+      "Mass Production",
+    ],
     icon: CircuitBoard,
     highlight: "CM4/CM5 compatible",
     media: [
@@ -540,7 +626,12 @@ const projects: Project[] = [
       { type: "image", src: cm5IoImg3 },
       { type: "image", src: cm5IoImg4 },
     ],
-    deliverables: ["Altium PCB + Schematic", "BOM & Gerber Files", "USB Architecture Docs", "Production Test Guide"],
+    deliverables: [
+      "Altium PCB + Schematic",
+      "BOM & Gerber Files",
+      "USB Architecture Docs",
+      "Production Test Guide",
+    ],
   },
   {
     slug: "iot-smart-ac-controller",
@@ -551,16 +642,36 @@ const projects: Project[] = [
       "ESP32-based IR AC controller enabling remote control and monitoring via smartphone and web dashboard. Supports 100+ AC brands with remote cloning, BLE provisioning, and secure OTA updates.",
     longDescription:
       "Designed and developed an ESP32-based IR AC controller enabling remote control and monitoring via smartphone and web dashboard. The system interfaces with IR transmitters and receivers, supporting over 100 AC brands with a remote cloning feature for unsupported models. It monitors temperature and humidity and sends data to AWS IoT Core. Features include BLE-based provisioning for easy setup and secure firmware OTA updates for continuous improvement.",
-    tags: ["ESP32", "C", "Arduino", "IR Communication", "AWS IoT Core", "Wi-Fi", "BLE", "I2C", "PCB Design", "IoT"],
+    tags: [
+      "ESP32",
+      "C",
+      "Arduino",
+      "IR Communication",
+      "AWS IoT Core",
+      "Wi-Fi",
+      "BLE",
+      "I2C",
+      "PCB Design",
+      "IoT",
+    ],
     icon: Wifi,
     highlight: "100+ AC brands",
     media: [
       { type: "image", src: smartAcImg1 },
       { type: "image", src: smartAcImg2 },
       { type: "image", src: smartAcImg3 },
-      { type: "video", src: "/images/project-smart-ac-demo.mp4", poster: smartAcImg2 },
+      {
+        type: "video",
+        src: "/images/project-smart-ac-demo.mp4",
+        poster: smartAcImg2,
+      },
     ],
-    deliverables: ["ESP32 Firmware", "Web Dashboard", "PCB Design Files", "AWS IoT Integration Guide"],
+    deliverables: [
+      "ESP32 Firmware",
+      "Web Dashboard",
+      "PCB Design Files",
+      "AWS IoT Integration Guide",
+    ],
   },
   {
     slug: "ai-smart-garbage-sorter",
@@ -571,13 +682,29 @@ const projects: Project[] = [
       "ESP32-based smart waste sorting system that automates garbage classification using cloud AI. Captures images via ESP32-CAM, processes them through AWS Rekognition, and directs waste to the correct bin using motors and a linear actuator.",
     longDescription:
       "Developed an ESP32-based smart waste sorting system that automates garbage classification to improve recycling efficiency. The system captures images using an ESP32-CAM and uploads them to AWS S3, where a Lambda function processes them via Rekognition for category detection. Based on the result, motors and a linear actuator direct waste to the correct bin, while LEDs indicate the identified type. The design integrates embedded control, cloud-based AI processing, and a stable 3D mechanical structure for reliable operation.",
-    tags: ["ESP32", "ESP32-CAM", "AWS S3", "AWS Lambda", "AWS Rekognition", "C++", "Arduino", "Wi-Fi", "I2C", "GPIO", "Altium", "IoT"],
+    tags: [
+      "ESP32",
+      "ESP32-CAM",
+      "AWS S3",
+      "AWS Lambda",
+      "AWS Rekognition",
+      "C++",
+      "Arduino",
+      "Wi-Fi",
+      "I2C",
+      "GPIO",
+      "Altium",
+      "IoT",
+    ],
     icon: Cpu,
     highlight: "Cloud AI sorting",
-    media: [
-      { type: "image", src: garbageSorterImg },
+    media: [{ type: "image", src: garbageSorterImg }],
+    deliverables: [
+      "ESP32 Firmware",
+      "AWS Lambda Functions",
+      "3D Mechanical Design",
+      "System Integration Guide",
     ],
-    deliverables: ["ESP32 Firmware", "AWS Lambda Functions", "3D Mechanical Design", "System Integration Guide"],
   },
   {
     slug: "custom-embedded-linux-sbc",
@@ -591,10 +718,13 @@ const projects: Project[] = [
     tags: ["i.MX6", "Yocto", "DDR3", "Secure Boot", "PCB Design", "Linux"],
     icon: Cpu,
     highlight: "Industrial -40 to 85C",
-    media: [
-      { type: "image", src: "/images/project-custom-sbc.png" },
+    media: [{ type: "image", src: "/images/project-custom-sbc.png" }],
+    deliverables: [
+      "Yocto BSP Image",
+      "6-Layer PCB Files",
+      "Hardware Test Report",
+      "FCC/CE Certification Docs",
     ],
-    deliverables: ["Yocto BSP Image", "6-Layer PCB Files", "Hardware Test Report", "FCC/CE Certification Docs"],
   },
 ];
 
@@ -602,7 +732,15 @@ export { projects };
 
 const INITIAL_COUNT = 6;
 
-function MediaSlider({ media, className, isModal }: { media: MediaItem[]; className?: string; isModal?: boolean }) {
+function MediaSlider({
+  media,
+  className,
+  isModal,
+}: {
+  media: MediaItem[];
+  className?: string;
+  isModal?: boolean;
+}) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -625,33 +763,45 @@ function MediaSlider({ media, className, isModal }: { media: MediaItem[]; classN
     setCurrentIndex(index);
   }, []);
 
-  const goPrev = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    goTo(safeIndex === 0 ? media.length - 1 : safeIndex - 1);
-  }, [safeIndex, media.length, goTo]);
+  const goPrev = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      goTo(safeIndex === 0 ? media.length - 1 : safeIndex - 1);
+    },
+    [safeIndex, media.length, goTo],
+  );
 
-  const goNext = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    goTo(safeIndex === media.length - 1 ? 0 : safeIndex + 1);
-  }, [safeIndex, media.length, goTo]);
+  const goNext = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      goTo(safeIndex === media.length - 1 ? 0 : safeIndex + 1);
+    },
+    [safeIndex, media.length, goTo],
+  );
 
-  const togglePlay = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  }, [isPlaying]);
+  const togglePlay = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (!videoRef.current) return;
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    },
+    [isPlaying],
+  );
 
-  const toggleMute = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(!isMuted);
-  }, [isMuted]);
+  const toggleMute = useCallback(
+    (e: React.MouseEvent) => {
+      e.stopPropagation();
+      if (!videoRef.current) return;
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(!isMuted);
+    },
+    [isMuted],
+  );
 
   return (
     <div className={`relative overflow-hidden ${className || ""}`}>
@@ -675,8 +825,12 @@ function MediaSlider({ media, className, isModal }: { media: MediaItem[]; classN
               onClick={togglePlay}
               data-testid="button-play-video"
             >
-              <div className={`rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 transition-transform hover:scale-110 ${isModal ? "w-16 h-16" : "w-12 h-12"}`}>
-                <Play className={`text-primary-foreground ml-0.5 ${isModal ? "w-7 h-7" : "w-5 h-5"}`} />
+              <div
+                className={`rounded-full bg-primary/90 flex items-center justify-center backdrop-blur-sm border border-primary/50 transition-transform hover:scale-110 ${isModal ? "w-16 h-16" : "w-12 h-12"}`}
+              >
+                <Play
+                  className={`text-primary-foreground ml-0.5 ${isModal ? "w-7 h-7" : "w-5 h-5"}`}
+                />
               </div>
             </div>
           )}
@@ -689,7 +843,11 @@ function MediaSlider({ media, className, isModal }: { media: MediaItem[]; classN
                 onClick={toggleMute}
                 data-testid="button-toggle-mute"
               >
-                {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                {isMuted ? (
+                  <VolumeX className="w-5 h-5" />
+                ) : (
+                  <Volume2 className="w-5 h-5" />
+                )}
               </Button>
               <Button
                 size="icon"
@@ -765,7 +923,12 @@ function MediaSlider({ media, className, isModal }: { media: MediaItem[]; classN
   );
 }
 
-function ProjectModal({ project, onClose, onPrev, onNext }: {
+function ProjectModal({
+  project,
+  onClose,
+  onPrev,
+  onNext,
+}: {
   project: Project;
   onClose: () => void;
   onPrev: () => void;
@@ -786,7 +949,12 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative overflow-hidden rounded-t-xl">
-          <MediaSlider key={project.title} media={project.media} className="w-full" isModal />
+          <MediaSlider
+            key={project.title}
+            media={project.media}
+            className="w-full"
+            isModal
+          />
 
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent pointer-events-none" />
 
@@ -815,8 +983,12 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
         <div className="p-6 md:p-8 space-y-6">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-xs font-mono text-primary/70 mb-1 tracking-wider uppercase">{project.category}</p>
-              <h3 className="text-2xl md:text-3xl font-display font-bold">{project.title}</h3>
+              <p className="text-xs font-mono text-primary/70 mb-1 tracking-wider uppercase">
+                {project.category}
+              </p>
+              <h3 className="text-2xl md:text-3xl font-display font-bold">
+                {project.title}
+              </h3>
             </div>
             <div className="flex items-center gap-1 shrink-0 mt-1">
               <Button
@@ -840,10 +1012,14 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
             </div>
           </div>
 
-          <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
+          <p className="text-muted-foreground leading-relaxed">
+            {project.longDescription}
+          </p>
 
           <div>
-            <h4 className="text-sm font-mono text-muted-foreground mb-3 uppercase tracking-wider">Tech Stack</h4>
+            <h4 className="text-sm font-mono text-muted-foreground mb-3 uppercase tracking-wider">
+              Tech Stack
+            </h4>
             <div className="flex flex-wrap gap-2">
               {project.tags.map((tag) => (
                 <Badge
@@ -858,7 +1034,9 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
           </div>
 
           <div>
-            <h4 className="text-sm font-mono text-muted-foreground mb-3 uppercase tracking-wider">Deliverables</h4>
+            <h4 className="text-sm font-mono text-muted-foreground mb-3 uppercase tracking-wider">
+              Deliverables
+            </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {project.deliverables.map((item) => (
                 <div
@@ -877,9 +1055,14 @@ function ProjectModal({ project, onClose, onPrev, onNext }: {
   );
 }
 
-export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: string; initialCategory?: string } = {}) {
+export function Portfolio({
+  initialSlug,
+  initialCategory,
+}: { initialSlug?: string; initialCategory?: string } = {}) {
   const [, setLocation] = useLocation();
-  const [activeCategory, setActiveCategory] = useState(initialCategory || "all");
+  const [activeCategory, setActiveCategory] = useState(
+    initialCategory || "all",
+  );
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(() => {
     if (initialSlug) {
@@ -902,16 +1085,20 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
     if (initialCategory) {
       setActiveCategory(initialCategory);
       setTimeout(() => {
-        document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+        document
+          .getElementById("portfolio")
+          ?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
   }, [initialCategory]);
 
-  const filteredProjects = activeCategory === "all"
-    ? projects
-    : projects.filter((p) => p.filterSlugs.includes(activeCategory));
+  const filteredProjects =
+    activeCategory === "all"
+      ? projects
+      : projects.filter((p) => p.filterSlugs.includes(activeCategory));
 
-  const categoryBaseUrl = activeCategory === "all" ? "/" : `/category/${activeCategory}`;
+  const categoryBaseUrl =
+    activeCategory === "all" ? "/" : `/category/${activeCategory}`;
 
   const handleCategoryChange = (slug: string) => {
     setActiveCategory(slug);
@@ -937,8 +1124,13 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
 
   const handlePrev = () => {
     if (selectedIndex !== null) {
-      const currentInFiltered = filteredProjects.findIndex((p) => p === projects[selectedIndex]);
-      const newFilteredIndex = currentInFiltered <= 0 ? filteredProjects.length - 1 : currentInFiltered - 1;
+      const currentInFiltered = filteredProjects.findIndex(
+        (p) => p === projects[selectedIndex],
+      );
+      const newFilteredIndex =
+        currentInFiltered <= 0
+          ? filteredProjects.length - 1
+          : currentInFiltered - 1;
       const newProject = filteredProjects[newFilteredIndex];
       const newGlobalIndex = projects.indexOf(newProject);
       setSelectedIndex(newGlobalIndex);
@@ -948,8 +1140,13 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
 
   const handleNext = () => {
     if (selectedIndex !== null) {
-      const currentInFiltered = filteredProjects.findIndex((p) => p === projects[selectedIndex]);
-      const newFilteredIndex = currentInFiltered >= filteredProjects.length - 1 ? 0 : currentInFiltered + 1;
+      const currentInFiltered = filteredProjects.findIndex(
+        (p) => p === projects[selectedIndex],
+      );
+      const newFilteredIndex =
+        currentInFiltered >= filteredProjects.length - 1
+          ? 0
+          : currentInFiltered + 1;
       const newProject = filteredProjects[newFilteredIndex];
       const newGlobalIndex = projects.indexOf(newProject);
       setSelectedIndex(newGlobalIndex);
@@ -957,7 +1154,9 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
     }
   };
 
-  const activeCategoryName = filterCategories.find((c) => c.slug === activeCategory)?.name || "All Projects";
+  const activeCategoryName =
+    filterCategories.find((c) => c.slug === activeCategory)?.name ||
+    "All Projects";
 
   return (
     <section id="portfolio" className="py-24 relative">
@@ -971,11 +1170,13 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
                 Featured <span className="text-primary">Projects</span>
               </h2>
               <p className="text-muted-foreground max-w-2xl text-lg">
-                A selection of production-grade embedded systems delivered end-to-end — from architecture through manufacturing.
+                A selection of production-grade embedded systems delivered
+                end-to-end — from architecture through manufacturing.
               </p>
             </div>
             <p className="text-sm font-mono text-muted-foreground">
-              {filteredProjects.length} project{filteredProjects.length !== 1 ? "s" : ""}
+              {filteredProjects.length} project
+              {filteredProjects.length !== 1 ? "s" : ""}
             </p>
           </div>
 
@@ -1008,7 +1209,10 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
                 onClick={() => openProject(idx)}
               >
                 <div className="relative h-44 overflow-hidden rounded-t-xl">
-                  <MediaSlider media={project.media} className="w-full h-full" />
+                  <MediaSlider
+                    media={project.media}
+                    className="w-full h-full"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent pointer-events-none" />
 
                   <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
@@ -1086,7 +1290,9 @@ export function Portfolio({ initialSlug, initialCategory }: { initialSlug?: stri
 
         {filteredProjects.length === 0 && (
           <div className="text-center py-16">
-            <p className="text-muted-foreground font-mono text-sm">No projects found in this category.</p>
+            <p className="text-muted-foreground font-mono text-sm">
+              No projects found in this category.
+            </p>
           </div>
         )}
       </div>
