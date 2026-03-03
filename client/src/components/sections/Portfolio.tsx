@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { useLocation } from "wouter";
-import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone, ImageIcon } from "lucide-react";
+import { Cpu, Wifi, CircuitBoard, Server, Battery, Radio, ArrowRight, X, ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, ChevronDown, Antenna, MonitorSmartphone, ImageIcon, Zap } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import garbageSorterImg from "@assets/image_1772512279505.png";
@@ -50,6 +50,10 @@ import modKbImg2 from "@assets/image_1772516760657.png";
 import modKbImg3 from "@assets/image_1772516763910.png";
 import modKbImg4 from "@assets/image_1772516767056.png";
 import modKbImg5 from "@assets/image_1772516770470.png";
+import gsmImg1 from "@assets/image_1772517196510.png";
+import gsmImg2 from "@assets/image_1772517200677.png";
+import gsmImg3 from "@assets/image_1772517204181.png";
+import gsmImg4 from "@assets/image_1772517208053.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -222,6 +226,26 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "gsm-smart-energy-meter",
+    title: "GSM-Based Smart Energy Meter",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices", "pcb-hardware"],
+    description:
+      "GSM-enabled single-phase energy meter using PIC18F4520 for remote energy monitoring. Measures voltage, current, and power factor with two-way SMS communication for real-time meter readings.",
+    longDescription:
+      "Developed a GSM-enabled single-phase energy meter using PIC18F4520 for remote energy monitoring. The system measures voltage, current, and power factor to calculate accurate energy consumption. A GSM module enables two-way communication, allowing the utility provider to request and receive real-time meter readings via SMS. The design includes a regulated power supply section and tamper detection circuitry for enhanced reliability and security. A complete functional prototype was built and validated.",
+    tags: ["PIC18F4520", "GSM Module", "Embedded C", "UART", "Energy Metering", "Tamper Detection", "PCB Design"],
+    icon: Zap,
+    highlight: "Remote SMS metering",
+    media: [
+      { type: "image", src: gsmImg1 },
+      { type: "image", src: gsmImg2 },
+      { type: "image", src: gsmImg3 },
+      { type: "image", src: gsmImg4 },
+    ],
+    deliverables: ["Embedded C Firmware", "Schematic + PCB Layout", "Simulation Files", "Prototype Validation Report"],
   },
   {
     slug: "modular-creator-rgb-keyboard",
