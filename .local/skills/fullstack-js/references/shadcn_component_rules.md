@@ -63,7 +63,7 @@ Turn any element into a toggle using the elevate system:
 
 ### Use Default Shadcn Components
 
-**Always** use the default Shadcn components from `client/src/components` when a reusable base component exists.
+**Always** use the default Shadcn components from `src/components` when a reusable base component exists.
 
 **Exception:** When the user explicitly requests something else or needs functionality not supported by base Shadcn components.
 

@@ -40,7 +40,7 @@ const style = {
 Add `SidebarProvider` and `SidebarTrigger` at the root of your application:
 
 ```tsx
-// client/src/App.tsx
+// src/App.tsx
 import { Switch, Route } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";

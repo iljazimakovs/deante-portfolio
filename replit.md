@@ -26,10 +26,10 @@ Single-page portfolio with sections (Upwork-compliant — no contact info or soc
 - Project slugs: `industrial-iot-gateway`, `ble-wearable-fitness-tracker`, `smart-energy-bms-controller`, `factory-test-flash-station`, `wifi-connected-thermostat`, `motor-control-pcb-robotics`, `lora-environmental-sensor-network`, `automotive-can-bus-diagnostic-tool`, `custom-embedded-linux-sbc`
 
 ## Key Files
-- `client/src/pages/home.tsx` — Main page composing all sections
-- `client/src/components/sections/` — All section components
-- `client/src/components/layout/Navbar.tsx` — Navigation
-- `client/src/index.css` — Theme variables, grid patterns, glow utilities
+- `src/pages/home.tsx` — Main page composing all sections
+- `src/components/sections/` — All section components
+- `src/components/layout/Navbar.tsx` — Navigation
+- `src/index.css` — Theme variables, grid patterns, glow utilities
 - `server/routes.ts` — API routes (POST /api/messages)
 - `server/storage.ts` — Database storage layer
 - `shared/schema.ts` — Drizzle schema (messages table)

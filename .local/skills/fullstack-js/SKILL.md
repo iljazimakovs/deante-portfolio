@@ -37,7 +37,7 @@ Always follow these guidelines when building a full-stack JavaScript application
 ## Frontend
 
 - Use `wouter` for routing on the frontend.
-  - If you need to add a new page, add them to the `client/src/pages` directory and register them in `client/src/App.tsx`.
+  - If you need to add a new page, add them to the `src/pages` directory and register them in `src/App.tsx`.
   - If there are multiple pages, use a sidebar for navigation. Use the `Link` component or the `useLocation` hook from `wouter` instead of modifying the window directly.
 - For forms, always use shadcn's `useForm` hook and `Form` component from `@/components/ui/form` which wraps `react-hook-form`.
   - When appropriate, use the `zodResolver` from `@hookform/resolvers/zod` to validate the form data using the appropriate insert schema from `@shared/schema.ts`.
