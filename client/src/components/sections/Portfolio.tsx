@@ -64,6 +64,10 @@ import laneImg5 from "@assets/image_1772517801026.png";
 import roboArmImg1 from "@assets/image_1772517950140.png";
 import roboArmImg2 from "@assets/image_1772517954562.png";
 import roboArmImg3 from "@assets/image_1772517961091.png";
+import predMaintImg1 from "@assets/image_1772518205107.png";
+import predMaintImg2 from "@assets/image_1772518221506.png";
+import predMaintImg3 from "@assets/image_1772518228852.png";
+import predMaintImg4 from "@assets/image_1772518235099.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -236,6 +240,26 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "ai-predictive-maintenance-digital-twin",
+    title: "AI Predictive Maintenance Digital Twin",
+    category: "Embedded Linux & BSP",
+    filterSlugs: ["embedded-linux-bsp", "embedded-firmware"],
+    description:
+      "AI-driven predictive maintenance system combining edge AI inference with a Simulink-based digital twin. Hybrid LSTM-Autoencoder achieving 95% early fault detection, optimized C for ARM Linux with <20ms latency and 14-day advance failure warnings.",
+    longDescription:
+      "Developed an AI-driven predictive maintenance system combining edge AI inference with a Simulink-based digital twin. Implemented a hybrid LSTM-Autoencoder trained on NASA CMAPSS and vibration datasets, achieving 95% early fault detection precision. Converted the model to optimized C for ARM Linux gateways with <20ms latency. Built a Simscape Electrical motor model to simulate bearing degradation and validate repair strategies. Automated retraining and simulation workflows using Bash and TCL scripts, enabling 14-day advance failure warnings.",
+    tags: ["MATLAB", "Simulink", "LSTM Autoencoder", "ONNX", "ARM Linux", "Edge AI", "Vibration Analysis", "Python"],
+    icon: Server,
+    highlight: "95% fault detection",
+    media: [
+      { type: "image", src: predMaintImg1 },
+      { type: "image", src: predMaintImg2 },
+      { type: "image", src: predMaintImg3 },
+      { type: "image", src: predMaintImg4 },
+    ],
+    deliverables: ["Simulink Digital Twin Model", "LSTM-Autoencoder ONNX", "ARM Linux Edge Firmware", "Retraining Pipeline Scripts"],
   },
   {
     slug: "ai-robotic-arm-simulink",
