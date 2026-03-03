@@ -54,6 +54,7 @@ import gsmImg1 from "@assets/image_1772517196510.png";
 import gsmImg2 from "@assets/image_1772517200677.png";
 import gsmImg3 from "@assets/image_1772517204181.png";
 import gsmImg4 from "@assets/image_1772517208053.png";
+import doorLockImg1 from "@assets/image_1772517469413.png";
 
 interface MediaItem {
   type: "image" | "video";
@@ -226,6 +227,23 @@ const projects: Project[] = [
       { type: "image", src: "/images/project-can-diagnostic.png" },
     ],
     deliverables: ["Device Firmware", "Desktop App", "PCB + Enclosure Files", "Protocol Documentation"],
+  },
+  {
+    slug: "android-digital-door-lock",
+    title: "Android-Based Digital Door Lock",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices"],
+    description:
+      "Android-controlled digital door lock using Arduino Uno and HC-06 Bluetooth for secure wireless access. Dual authentication via mobile app or 4x4 keypad with LCD status display and relay-based actuation.",
+    longDescription:
+      "Developed an Android-controlled digital door lock system using Arduino Uno and HC-06 Bluetooth module for secure wireless access. The system integrates a 4x4 keypad and 16x2 LCD for local password entry and status display, along with a 5V relay module to control the door locking mechanism. Users can authenticate via a mobile app or keypad, while the microcontroller manages password verification and access control. Designed with secure communication, user feedback display, and reliable relay-based actuation.",
+    tags: ["Arduino Uno", "HC-06 Bluetooth", "Embedded C", "Android App", "UART", "GPIO", "Relay Module"],
+    icon: Cpu,
+    highlight: "Bluetooth door control",
+    media: [
+      { type: "image", src: doorLockImg1 },
+    ],
+    deliverables: ["Arduino Firmware", "Android App Source", "Wiring Diagram", "System Documentation"],
   },
   {
     slug: "gsm-smart-energy-meter",
