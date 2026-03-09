@@ -929,7 +929,7 @@ const projects: Project[] = [
   },
   {
     slug: "k26-som-multi-boot-custom-carrier",
-    title: "Flexible Boot Architecture for Kria K26 Custom Carrier",
+    title: "Multi-Storage Boot Architecture for Embedded Linux Systems",
     category: "Embedded Linux & BSP / Hardware Bring-Up & Debugging",
     filterSlugs: [
       "embedded-linux-bsp",
