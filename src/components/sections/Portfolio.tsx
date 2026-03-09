@@ -131,6 +131,22 @@ const pi_camera_doorbell_notifications_2 = "/images/pi_camera_doorbell_notificat
 const pi_camera_doorbell_notifications_3 = "/images/pi_camera_doorbell_notifications_3.jpg"
 const pi_camera_doorbell_notifications_4 = "/images/pi_camera_doorbell_notifications_4.jpg"
 const pi_camera_doorbell_notifications_5 = "/images/pi_camera_doorbell_notifications_5.jpg"
+const kria_kv260_petalinux_bsp_1 = "/images/kria_kv260_petalinux_bsp_1.jpg"
+const kria_kv260_petalinux_bsp_2 = "/images/kria_kv260_petalinux_bsp_2.jpg"
+const kria_kv260_petalinux_bsp_3 = "/images/kria_kv260_petalinux_bsp_3.jpg"
+const k26_som_multi_boot_custom_carrier_1 = "/images/k26_som_multi_boot_custom_carrier_1.jpg"
+const k26_som_multi_boot_custom_carrier_2 = "/images/k26_som_multi_boot_custom_carrier_2.jpg"
+const zynq_mpsoc_vivado_ps_configuration_1 = "/images/zynq_mpsoc_vivado_ps_configuration_1.jpg"
+const zynq_mpsoc_vivado_ps_configuration_2 = "/images/zynq_mpsoc_vivado_ps_configuration_2.jpg"
+const zynq_mpsoc_vivado_ps_configuration_3 = "/images/zynq_mpsoc_vivado_ps_configuration_3.jpg"
+const zynq_mpsoc_vivado_ps_configuration_4 = "/images/zynq_mpsoc_vivado_ps_configuration_4.jpg"
+const versal_vitis_hardware_in_the_loop_1 = "/images/versal_vitis_hardware_in_the_loop_1.jpg"
+const kria_kv260_fir_filter_acceleration_1 = "/images/kria_kv260_fir_filter_acceleration_1.jpg"
+const kria_kv260_fir_filter_acceleration_2 = "/images/kria_kv260_fir_filter_acceleration_2.jpg"
+const kria_kv260_fir_filter_acceleration_3 = "/images/kria_kv260_fir_filter_acceleration_3.jpg"
+const kria_kv260_fir_filter_acceleration_4 = "/images/kria_kv260_fir_filter_acceleration_4.jpg"
+const kria_kv260_fir_filter_acceleration_5 = "/images/kria_kv260_fir_filter_acceleration_5.jpg"
+const kria_kv260_fir_filter_acceleration_6 = "/images/kria_kv260_fir_filter_acceleration_6.jpg"
 
 interface MediaItem {
   type: "image" | "video";
@@ -735,6 +751,48 @@ const projects: Project[] = [
     ],
   },
   {
+    slug: "kria-kv260-fir-filter-acceleration",
+    title: "KV260 FIR Filter Acceleration",
+    category: "Embedded Firmware Development / Hardware Bring-Up & Debugging",
+    filterSlugs: [
+      "embedded-firmware",
+      "hardware-debugging"
+    ],
+    description:
+      "Designed and accelerated a fully pipelined FIR filter on the AMD Kria KV260 using Vitis HLS and PYNQ, comparing floating-point and fixed-point implementations for high-throughput FPGA DSP processing.",
+    longDescription:
+      "Developed a high-performance FIR filter accelerator on the AMD Kria KV260 using Vitis HLS, Vivado, and PYNQ. The design implemented a fully pipelined and parallel filter architecture with both floating-point and fixed-point data types, optimizing latency and throughput for DSP workloads. Python was used to generate coefficients and validation data, while the FPGA design was integrated with PYNQ for runtime control and benchmarking, achieving major speedups over Python and SciPy software filtering.",
+    tags: [
+      "AMD Kria KV260",
+      "Vitis HLS",
+      "Vivado",
+      "PYNQ",
+      "FIR Filter",
+      "FPGA DSP",
+      "Fixed-Point Design",
+      "Floating-Point Design",
+      "Python",
+      "Hardware Acceleration"
+    ],
+    icon: Activity,
+    highlight: "Pipelined DSP Acceleration",
+    media: [
+      { type: "image", src: kria_kv260_fir_filter_acceleration_1 },
+      { type: "image", src: kria_kv260_fir_filter_acceleration_2 },
+      { type: "image", src: kria_kv260_fir_filter_acceleration_3 },
+      { type: "image", src: kria_kv260_fir_filter_acceleration_4 },
+      { type: "image", src: kria_kv260_fir_filter_acceleration_5 },
+      { type: "image", src: kria_kv260_fir_filter_acceleration_6 }
+    ],
+    deliverables: [
+      "Vitis HLS FIR Filter Design",
+      "Vivado Hardware Platform",
+      "PYNQ Integration Notebook",
+      "Python Coefficient Generation Scripts",
+      "Performance Benchmark Report"
+    ]
+  },
+  {
     slug: "clareco-ai-medical-copilot",
     title: "Clareco AI Medical Co-Pilot",
     category: "AI / Mobile App",
@@ -830,6 +888,81 @@ const projects: Project[] = [
       "Power Design Docs",
       "EMI Compliance Report",
     ],
+  },
+  {
+    slug: "kria-kv260-petalinux-bsp",
+    title: "KV260 Camera PetaLinux BSP Setup",
+    category: "Embedded Linux & BSP",
+    filterSlugs: [
+      "embedded-linux-bsp",
+      "iot-connected-devices"
+    ],
+    description:
+      "Configured and customized the PetaLinux 2021.1 BSP for the AMD Kria KV260 Vision AI kit, enabling Linux boot, camera support, and development workflows for embedded vision applications.",
+    longDescription:
+      "Implemented a PetaLinux 2021.1 Board Support Package setup for the AMD Kria KV260 Vision AI Starter Kit to enable Linux-based development and camera workflows. The project demonstrates BSP customization, SD image generation, boot firmware updates, and root filesystem configuration. Additional setup included SSH/SCP access, GStreamer camera pipeline testing with a USB webcam, and installing system utilities through dnf. The environment provides a foundation for embedded vision, AI acceleration, and FPGA-based Linux development.",
+    tags: [
+      "AMD Kria KV260",
+      "PetaLinux",
+      "Embedded Linux",
+      "GStreamer",
+      "Yocto",
+      "Linux BSP",
+      "Vision AI",
+      "USB Camera",
+      "FPGA SoC"
+    ],
+    icon: MonitorSmartphone,
+    highlight: "Embedded Vision BSP",
+    media: [
+      { type: "image", src: kria_kv260_petalinux_bsp_1 },
+      { type: "image", src: kria_kv260_petalinux_bsp_2 },
+      { type: "image", src: kria_kv260_petalinux_bsp_3 }
+    ],
+    deliverables: [
+      "Customized PetaLinux BSP",
+      "Bootable SD Card Image",
+      "Embedded Linux Configuration",
+      "GStreamer Camera Test Pipeline",
+      "System Setup Documentation"
+    ]
+  },
+  {
+    slug: "k26-som-multi-boot-custom-carrier",
+    title: "K26 SoM Multi-Boot Carrier Setup",
+    category: "Embedded Linux & BSP / Hardware Bring-Up & Debugging",
+    filterSlugs: [
+      "embedded-linux-bsp",
+      "hardware-debugging"
+    ],
+    description:
+      "Configured multi-boot support for AMD Kria K26 SoM on a custom carrier, enabling boot from eMMC, SD card, and USB storage using PetaLinux and U-Boot configuration.",
+    longDescription:
+      "Implemented a flexible boot workflow for AMD Kria K26 SoM on a custom carrier board, enabling system startup from eMMC, SD card, and USB storage. The project demonstrates modifying PetaLinux boot arguments, generating BOOT.BIN, updating QSPI boot firmware, and configuring U-Boot parameters for different storage devices. It also includes expanding the eMMC root filesystem and verifying active boot partitions through Linux commands, providing a practical workflow for embedded Linux bring-up on custom FPGA carrier designs.",
+    tags: [
+      "AMD Kria K26",
+      "Embedded Linux",
+      "PetaLinux",
+      "U-Boot",
+      "eMMC",
+      "SD Card Boot",
+      "USB Boot",
+      "FPGA SoC",
+      "Linux BSP"
+    ],
+    icon: Cpu,
+    highlight: "Multi-Device Boot",
+    media: [
+      { type: "image", src: k26_som_multi_boot_custom_carrier_1 },
+      { type: "image", src: k26_som_multi_boot_custom_carrier_2 }
+    ],
+    deliverables: [
+      "Multi-Boot PetaLinux Configuration",
+      "BOOT.BIN Generation and QSPI Update",
+      "U-Boot Bootargs Setup",
+      "eMMC Filesystem Expansion Guide",
+      "Custom Carrier Boot Documentation"
+    ]
   },
   {
     slug: "raspberry-pi-motor-control-hat",
@@ -995,6 +1128,45 @@ const projects: Project[] = [
     ],
   },
   {
+    slug: "zynq-mpsoc-vivado-ps-configuration",
+    title: "Zynq MPSoC Camera PS Vivado Setup",
+    category: "Hardware Bring-Up & Debugging / Embedded Firmware Development",
+    filterSlugs: [
+      "hardware-debugging",
+      "embedded-firmware"
+    ],
+    description:
+      "Created a base Vivado project to configure the Processing System of a Zynq UltraScale+ MPSoC on the MYD-CZU3EG board, enabling camera-ready Linux and software development workflows.",
+    longDescription:
+      "Built a base Vivado design for the MYIR MYD-CZU3EG Zynq UltraScale+ MPSoC board focusing on Processing System configuration. The project demonstrates configuring MIO banks, DDR4 memory, Ethernet, USB, UART, PCIe, DisplayPort, and storage interfaces in the PS block design. The setup generates a reusable PS configuration and exports the hardware platform as an XSA file, forming a foundation for embedded Linux, camera, and software development using Vitis or PetaLinux.",
+    tags: [
+      "Zynq UltraScale+ MPSoC",
+      "AMD Vivado",
+      "FPGA SoC",
+      "Embedded Linux",
+      "Processing System",
+      "DDR4 Configuration",
+      "Hardware Platform",
+      "XSA Export",
+      "Linux Development"
+    ],
+    icon: CircuitBoard,
+    highlight: "Vivado PS Platform",
+    media: [
+      { type: "image", src: zynq_mpsoc_vivado_ps_configuration_1 },
+      { type: "image", src: zynq_mpsoc_vivado_ps_configuration_2 },
+      { type: "image", src: zynq_mpsoc_vivado_ps_configuration_3 },
+      { type: "image", src: zynq_mpsoc_vivado_ps_configuration_4 }
+    ],
+    deliverables: [
+      "Vivado Block Design Project",
+      "PS Configuration TCL Preset",
+      "Generated Bitstream",
+      "Exported XSA Hardware Platform",
+      "Base FPGA Development Setup"
+    ]
+  },
+  {
     slug: "tuneshine-album-art-display",
     title: "Tuneshine Album Art Display",
     category: "Consumer Electronics",
@@ -1027,6 +1199,43 @@ const projects: Project[] = [
       "Firmware Source",
       "CE Compliance Docs",
     ],
+  },
+  {
+    slug: "versal-vitis-hardware-in-the-loop",
+    title: "Versal Vitis Hardware-in-the-Loop",
+    category: "Embedded Linux & BSP / Hardware Bring-Up & Debugging",
+    filterSlugs: [
+      "embedded-linux-bsp",
+      "hardware-debugging"
+    ],
+    description:
+      "Implemented a Vitis Hardware-in-the-Loop flow for Versal VSS designs, enabling Ethernet-based validation of AI Engine, HLS, and RTL subsystems on real hardware before full system integration.",
+    longDescription:
+      "Built a Hardware-in-the-Loop verification flow for AMD Versal Vitis Sub Systems using Vitis 2025.2. The project covers generating an HIL server SD image, booting the VCK190 target, and validating AI Engine, HLS, and RTL subsystems on hardware over Ethernet. Python host scripts generated test vectors, streamed data to the target, buffered returned channel data, and visualized spectra, enabling pre-integration verification of subsystem behavior on real hardware.",
+    tags: [
+      "AMD Vitis",
+      "Versal",
+      "Vitis Sub System",
+      "Hardware-in-the-Loop",
+      "Python",
+      "AI Engine",
+      "HLS",
+      "RTL Verification",
+      "VCK190",
+      "Ethernet"
+    ],
+    icon: Activity,
+    highlight: "Real Hardware Verification",
+    media: [
+      { type: "image", src: versal_vitis_hardware_in_the_loop_1 }
+    ],
+    deliverables: [
+      "Vitis HIL Build Flow",
+      "Bootable SD Card Image",
+      "Python Host Verification Scripts",
+      "HIL Interface Configuration",
+      "Hardware Validation Documentation"
+    ]
   },
   {
     slug: "clareco-clinic-healthcare-platform",
