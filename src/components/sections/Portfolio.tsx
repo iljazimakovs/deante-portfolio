@@ -596,35 +596,6 @@ const projects: Project[] = [
     ],
   },
   {
-    slug: "ieis",
-    title: "IoT Environmental Imaging System",
-    category: "IoT & Smart Systems",
-    filterSlugs: ["iot-connected-devices", "embedded-firmware", "pcb-hardware"],
-    description:
-      "Self-contained IoT device using ESP32-CAM and BME680 for remote environmental monitoring and imaging. Scheduled image capture, sensor data logging to SD card, and secure cloud transmission via MQTT over TLS.",
-    longDescription:
-      "Developed a self-contained IoT device for remote environmental monitoring and imaging. The system uses ESP32-CAM to capture images at scheduled intervals and a BME680 sensor to measure temperature, humidity, pressure, and air quality. Data and images are stored locally on an SD card and securely transmitted to a cloud server using MQTT over TLS. Designed with reliable power management and secure connectivity, the device enables centralized monitoring of environmental conditions and visual inspection of remote sites.",
-    tags: [
-      "ESP32-CAM",
-      "BME680",
-      "MQTT over TLS",
-      "Wi-Fi",
-      "SD Card",
-      "Embedded C",
-      "PCB Design",
-      "IoT Cloud",
-    ],
-    icon: Wifi,
-    highlight: "Remote site imaging",
-    media: [{ type: "image", src: envImagingImg1 }],
-    deliverables: [
-      "ESP32 Firmware",
-      "PCB Layout + Schematic",
-      "Enclosure CAD Files",
-      "Cloud Integration Docs",
-    ],
-  },
-  {
     slug: "csbc",
     title: "Custom Embedded Linux SBC",
     category: "Embedded Linux / Hardware",
@@ -1093,6 +1064,35 @@ const projects: Project[] = [
     ],
   },
   {
+    slug: "ieis",
+    title: "IoT Environmental Imaging System",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["iot-connected-devices", "embedded-firmware", "pcb-hardware"],
+    description:
+      "Self-contained IoT device using ESP32-CAM and BME680 for remote environmental monitoring and imaging. Scheduled image capture, sensor data logging to SD card, and secure cloud transmission via MQTT over TLS.",
+    longDescription:
+      "Developed a self-contained IoT device for remote environmental monitoring and imaging. The system uses ESP32-CAM to capture images at scheduled intervals and a BME680 sensor to measure temperature, humidity, pressure, and air quality. Data and images are stored locally on an SD card and securely transmitted to a cloud server using MQTT over TLS. Designed with reliable power management and secure connectivity, the device enables centralized monitoring of environmental conditions and visual inspection of remote sites.",
+    tags: [
+      "ESP32-CAM",
+      "BME680",
+      "MQTT over TLS",
+      "Wi-Fi",
+      "SD Card",
+      "Embedded C",
+      "PCB Design",
+      "IoT Cloud",
+    ],
+    icon: Wifi,
+    highlight: "Remote site imaging",
+    media: [{ type: "image", src: envImagingImg1 }],
+    deliverables: [
+      "ESP32 Firmware",
+      "PCB Layout + Schematic",
+      "Enclosure CAD Files",
+      "Cloud Integration Docs",
+    ],
+  },
+  {
     slug: "zpsc",
     title:
       "Foundational Vivado Platform for Zynq UltraScale+ Processing System",
@@ -1337,7 +1337,7 @@ function CardVideo({
     setHovering(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, []);
 
@@ -1359,9 +1359,8 @@ function CardVideo({
         <img
           src={posterSrc}
           alt=""
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
-            hovering ? "opacity-0" : "opacity-100"
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"
+            }`}
         />
       )}
       <video
@@ -1375,9 +1374,8 @@ function CardVideo({
         <source src={item.src} type="video/mp4" />
       </video>
       <div
-        className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${
-          hovering ? "opacity-0" : "opacity-100"
-        }`}
+        className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"
+          }`}
       >
         <div className="rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30 w-10 h-10">
           <Play className="text-white ml-0.5 w-4 h-4" />
@@ -1525,9 +1523,8 @@ function MediaSlider({
             <img
               src={item.src}
               alt=""
-              className={`w-full ${
-                isModal ? "object-contain" : "h-full object-cover"
-              }`}
+              className={`w-full ${isModal ? "object-contain" : "h-full object-cover"
+                }`}
             />
           )}
         </div>
@@ -1536,18 +1533,16 @@ function MediaSlider({
       {hasMultiple && (
         <>
           <button
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${
-              isModal ? "w-9 h-9" : "w-7 h-7"
-            }`}
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"
+              }`}
             onClick={goPrev}
             data-testid="button-media-prev"
           >
             <ChevronLeft className={isModal ? "w-5 h-5" : "w-4 h-4"} />
           </button>
           <button
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${
-              isModal ? "w-9 h-9" : "w-7 h-7"
-            }`}
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"
+              }`}
             onClick={goNext}
             data-testid="button-media-next"
           >
@@ -1558,11 +1553,10 @@ function MediaSlider({
             {media.map((item, i) => (
               <button
                 key={i}
-                className={`rounded-full transition-all ${
-                  i === safeIndex
+                className={`rounded-full transition-all ${i === safeIndex
                     ? "w-5 h-1.5 bg-primary"
                     : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
-                }`}
+                  }`}
                 onClick={(e) => goTo(i, e)}
                 data-testid={`button-media-dot-${i}`}
               />
@@ -1877,25 +1871,25 @@ export function Portfolio({
   const categoryFiltered =
     activeCategory === "recommended"
       ? Array.from(recommended)
-          .map((slug) => projects.find((p) => p.slug === slug))
-          .filter((p): p is Project => p !== undefined)
+        .map((slug) => projects.find((p) => p.slug === slug))
+        .filter((p): p is Project => p !== undefined)
       : activeCategory === "all"
-      ? projects
-      : projects.filter((p) => p.filterSlugs.includes(activeCategory));
+        ? projects
+        : projects.filter((p) => p.filterSlugs.includes(activeCategory));
 
   const filteredProjects = searchQuery.trim()
     ? categoryFiltered.filter((p) => {
-        const q = searchQuery.toLowerCase();
-        return (
-          p.title.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q) ||
-          p.longDescription.toLowerCase().includes(q) ||
-          p.highlight.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.toLowerCase().includes(q)) ||
-          p.deliverables.some((d) => d.toLowerCase().includes(q))
-        );
-      })
+      const q = searchQuery.toLowerCase();
+      return (
+        p.title.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.longDescription.toLowerCase().includes(q) ||
+        p.highlight.toLowerCase().includes(q) ||
+        p.tags.some((t) => t.toLowerCase().includes(q)) ||
+        p.deliverables.some((d) => d.toLowerCase().includes(q))
+      );
+    })
     : categoryFiltered;
 
   const categoryBaseUrl =
@@ -1904,8 +1898,8 @@ export function Portfolio({
         ? `/recommended/${Array.from(recommended).join("~")}`
         : "/"
       : activeCategory === "all"
-      ? "/"
-      : `/category/${activeCategory}`;
+        ? "/"
+        : `/category/${activeCategory}`;
 
   const handleCategoryChange = (slug: string) => {
     setActiveCategory(slug);
@@ -1982,7 +1976,7 @@ export function Portfolio({
     activeCategory === "recommended"
       ? "Suggested"
       : filterCategories.find((c) => c.slug === activeCategory)?.name ||
-        "All Projects";
+      "All Projects";
 
   return (
     <section id="portfolio" className="py-24 relative">
@@ -2012,11 +2006,10 @@ export function Portfolio({
                 key={cat.slug}
                 data-testid={`filter-${cat.slug}`}
                 onClick={() => handleCategoryChange(cat.slug)}
-                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${
-                  activeCategory === cat.slug
+                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${activeCategory === cat.slug
                     ? "bg-primary/15 text-primary border-primary/40"
                     : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
-                }`}
+                  }`}
               >
                 {cat.name}
               </button>
@@ -2027,11 +2020,10 @@ export function Portfolio({
                 <button
                   data-testid="filter-recommended"
                   onClick={() => handleCategoryChange("recommended")}
-                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${
-                    activeCategory === "recommended"
+                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "recommended"
                       ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
                       : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   Suggested ({recommended.size})
@@ -2152,16 +2144,14 @@ export function Portfolio({
                     <button
                       data-testid={`button-recommend-${idx}`}
                       onClick={(e) => toggleRecommended(project.slug, e)}
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${
-                        isRecommended
+                      className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${isRecommended
                           ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
                           : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
-                      }`}
+                        }`}
                     >
                       <ThumbsUp
-                        className={`w-3.5 h-3.5 ${
-                          isRecommended ? "fill-amber-400" : ""
-                        }`}
+                        className={`w-3.5 h-3.5 ${isRecommended ? "fill-amber-400" : ""
+                          }`}
                       />
                     </button>
                   </div>
@@ -2193,8 +2183,8 @@ export function Portfolio({
               {searchQuery.trim()
                 ? `No projects match "${searchQuery}". Try a different search term.`
                 : activeCategory === "recommended"
-                ? "No suggested projects yet. Click the thumbs-up icon on any project card to add it."
-                : "No projects found in this category."}
+                  ? "No suggested projects yet. Click the thumbs-up icon on any project card to add it."
+                  : "No projects found in this category."}
             </p>
           </div>
         )}
