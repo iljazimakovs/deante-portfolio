@@ -2159,7 +2159,7 @@ export function Portfolio({
               >
                 <div className="relative h-44 overflow-hidden rounded-t-xl">
                   <MediaSlider media={project.media} className="w-full h-full" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent dark:from-card dark:via-card/20 dark:to-transparent pointer-events-none" />
 
                   <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
                     <span className="text-[10px] font-mono text-primary bg-background/80 backdrop-blur-sm border border-primary/30 rounded-md px-2 py-1">

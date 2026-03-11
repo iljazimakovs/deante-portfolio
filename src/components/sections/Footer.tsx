@@ -17,7 +17,7 @@ export function Footer() {
           <nav className="flex items-center gap-6 flex-wrap justify-center">
             <a href="#services" className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors">Services</a>
             <a href="#skills" className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors">Skills</a>
-            <a href="#portfolio" className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors">Portfolio</a>
+            <a href="#portfolio" className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors">Projects</a>
             <a href="#industries" className="text-sm font-mono text-muted-foreground hover:text-primary transition-colors">Industries</a>
           </nav>
         </div>

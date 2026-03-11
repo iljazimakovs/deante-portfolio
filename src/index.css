@@ -6,46 +6,85 @@
 
 @layer base {
   :root {
-    /* Forcing Dark Theme for the Hardware/Tech Aesthetic */
-    --background: 240 10% 4%; /* Very dark slate/black */
-    --foreground: 0 0% 98%; /* Off-white */
-    
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
-    
-    --popover: 240 10% 4%;
-    --popover-foreground: 0 0% 98%;
-    
-    /* Primary Accent: Electric Cyan */
-    --primary: 183 100% 50%;
-    --primary-foreground: 240 10% 4%;
-    
-    /* Secondary Accent: Deep blue/purple */
-    --secondary: 224 71% 25%;
+    /* Light Mode */
+    --background: 210 20% 97%;
+    --foreground: 240 10% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 8%;
+
+    /* Primary Accent: Electric Cyan (darkened for light bg contrast) */
+    --primary: 183 100% 33%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary Accent */
+    --secondary: 224 71% 40%;
     --secondary-foreground: 0 0% 98%;
-    
-    --muted: 240 10% 12%;
-    --muted-foreground: 240 5% 65%;
-    
-    --accent: 240 10% 12%;
-    --accent-foreground: 183 100% 50%; /* Cyan accent text on hover */
-    
+
+    --muted: 210 20% 92%;
+    --muted-foreground: 240 5% 42%;
+
+    --accent: 210 20% 92%;
+    --accent-foreground: 183 100% 33%;
+
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    
-    --border: 240 10% 16%;
-    --input: 240 10% 16%;
-    --ring: 183 100% 50%; /* Cyan focus ring */
-    
+
+    --border: 240 10% 84%;
+    --input: 240 10% 84%;
+    --ring: 183 100% 33%;
+
     --radius: 0.5rem;
-    
+
     --font-sans: 'Inter', sans-serif;
     --font-display: 'Outfit', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* Custom elevations for interactive elements */
+    --elevate-1: rgba(0, 0, 0, 0.03);
+    --elevate-2: rgba(0, 0, 0, 0.06);
+
+    --grid-line-color: rgba(0, 0, 0, 0.06);
+    --grid-line-color-lg: rgba(0, 0, 0, 0.04);
+  }
+
+  .dark {
+    /* Dark Mode — Hardware/Tech Aesthetic */
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 183 100% 50%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 224 71% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 240 10% 12%;
+    --accent-foreground: 183 100% 50%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 16%;
+    --input: 240 10% 16%;
+    --ring: 183 100% 50%;
+
     --elevate-1: rgba(255, 255, 255, 0.03);
     --elevate-2: rgba(255, 255, 255, 0.08);
+
+    --grid-line-color: rgba(255, 255, 255, 0.03);
+    --grid-line-color-lg: rgba(255, 255, 255, 0.02);
   }
 }
 
@@ -68,16 +107,16 @@
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
     background-size: 32px 32px;
   }
-  
+
   .bg-grid-pattern-lg {
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-image:
+      linear-gradient(to right, var(--grid-line-color-lg) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line-color-lg) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -89,17 +128,15 @@
     box-shadow: 0 0 30px -10px hsla(var(--primary) / 0.3);
   }
 
-  /* Smooth reveal animations */
   .reveal {
     @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
   }
-  
+
   .reveal.active {
     @apply opacity-100 translate-y-0;
   }
 }
 
-/* Base custom scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }

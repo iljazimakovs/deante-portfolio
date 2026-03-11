@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
-import { Terminal, Menu, X } from "lucide-react";
+import { Terminal, Menu, X, Sun, Moon } from "lucide-react";
+import { SiGithub } from "react-icons/si";
+import { useTheme } from "@/components/ThemeProvider";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +19,7 @@ export function Navbar() {
   const navLinks = [
     { name: "Services", href: "#services" },
     { name: "Skills", href: "#skills" },
-    { name: "Portfolio", href: "#portfolio" },
+    { name: "Projects", href: "#portfolio" },
     { name: "Industries", href: "#industries" },
   ];
 
@@ -34,18 +37,33 @@ export function Navbar() {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
-          <div className="flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors font-mono"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+        <nav className="hidden md:flex items-center gap-6">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors font-mono"
+            >
+              {link.name}
+            </a>
+          ))}
+          <a
+            href="https://github.com/deantecason"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-primary transition-colors"
+            aria-label="GitHub"
+          >
+            <SiGithub className="w-5 h-5" />
+          </a>
+          <button
+            onClick={toggleTheme}
+            className="text-muted-foreground hover:text-primary transition-colors p-1 rounded-md"
+            aria-label="Toggle theme"
+            data-testid="button-toggle-theme"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
         </nav>
 
         <button
@@ -68,6 +86,24 @@ export function Navbar() {
               {link.name}
             </a>
           ))}
+          <a
+            href="https://github.com/deantecason"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-lg font-medium text-foreground hover:text-primary transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <SiGithub className="w-5 h-5" />
+            GitHub
+          </a>
+          <button
+            onClick={() => { toggleTheme(); setIsMobileMenuOpen(false); }}
+            className="flex items-center gap-2 text-lg font-medium text-foreground hover:text-primary transition-colors"
+            data-testid="button-toggle-theme-mobile"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
+          </button>
         </div>
       )}
     </header>
