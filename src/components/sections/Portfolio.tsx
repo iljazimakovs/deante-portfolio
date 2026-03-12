@@ -201,6 +201,46 @@ interface Project {
 }
 
 const projects: Project[] = [
+    {
+    slug: "c45g",
+    title: "CM4 5G & WiFi 6 Embedded Board",
+    category: "Embedded Linux / Hardware",
+    filterSlugs: [
+      "pcb-hardware",
+      "embedded-linux-bsp",
+      "iot-connected-devices",
+      "hardware-debugging",
+    ],
+    description:
+      "Highly integrated CM4-based board with 5G RM520N module, Wi-Fi 6 AX200, Micro SD, USB hub, and PoE support - designed for IoT, smart infrastructure, and edge computing with high-bandwidth connectivity.",
+    longDescription:
+      "Developed a highly integrated custom circuit board based on Raspberry Pi CM4 for advanced embedded and edge applications. The design integrates a 5G RM520N module and Wi-Fi 6 AX200 card for high-speed connectivity, Micro SD storage expansion, and multiple USB interfaces controlled by a USB4056 hub. Optimized PCB layout ensures signal integrity and efficient power management. The board supports IoT, smart infrastructure, and edge computing deployments requiring reliable, high-bandwidth communication.",
+    tags: [
+      "Raspberry Pi CM4",
+      "RM520N 5G",
+      "Intel AX200 Wi-Fi 6",
+      "USB4056 Hub",
+      "High-Speed PCB",
+      "Altium",
+      "USB",
+      "Micro SD",
+    ],
+    icon: Server,
+    highlight: "5G + Wi-Fi 6",
+    media: [
+      { type: "image", src: cm4_5gImg1 },
+      { type: "image", src: cm4_5gImg2 },
+      { type: "image", src: cm4_5gImg3 },
+      { type: "image", src: cm4_5gImg4 },
+      { type: "image", src: cm4_5gImg5 },
+    ],
+    deliverables: [
+      "Altium PCB + Schematic",
+      "Block Diagram",
+      "BOM & Gerber Files",
+      "Signal Integrity Report",
+    ],
+  },
   {
     slug: "jtx2",
     title: "Jetson TX2 NX Expansion Board",
@@ -240,46 +280,6 @@ const projects: Project[] = [
       "Block Diagram",
       "BOM & Gerber Files",
       "Power Management Docs",
-    ],
-  },
-  {
-    slug: "c45g",
-    title: "CM4 5G & WiFi 6 Embedded Board",
-    category: "Embedded Linux / Hardware",
-    filterSlugs: [
-      "pcb-hardware",
-      "embedded-linux-bsp",
-      "iot-connected-devices",
-      "hardware-debugging",
-    ],
-    description:
-      "Highly integrated CM4-based board with 5G RM520N module, Wi-Fi 6 AX200, Micro SD, USB hub, and PoE support - designed for IoT, smart infrastructure, and edge computing with high-bandwidth connectivity.",
-    longDescription:
-      "Developed a highly integrated custom circuit board based on Raspberry Pi CM4 for advanced embedded and edge applications. The design integrates a 5G RM520N module and Wi-Fi 6 AX200 card for high-speed connectivity, Micro SD storage expansion, and multiple USB interfaces controlled by a USB4056 hub. Optimized PCB layout ensures signal integrity and efficient power management. The board supports IoT, smart infrastructure, and edge computing deployments requiring reliable, high-bandwidth communication.",
-    tags: [
-      "Raspberry Pi CM4",
-      "RM520N 5G",
-      "Intel AX200 Wi-Fi 6",
-      "USB4056 Hub",
-      "High-Speed PCB",
-      "Altium",
-      "USB",
-      "Micro SD",
-    ],
-    icon: Server,
-    highlight: "5G + Wi-Fi 6",
-    media: [
-      { type: "image", src: cm4_5gImg1 },
-      { type: "image", src: cm4_5gImg2 },
-      { type: "image", src: cm4_5gImg3 },
-      { type: "image", src: cm4_5gImg4 },
-      { type: "image", src: cm4_5gImg5 },
-    ],
-    deliverables: [
-      "Altium PCB + Schematic",
-      "Block Diagram",
-      "BOM & Gerber Files",
-      "Signal Integrity Report",
     ],
   },
   {
