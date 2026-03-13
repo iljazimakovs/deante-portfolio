@@ -201,7 +201,99 @@ interface Project {
 }
 
 const projects: Project[] = [
-    {
+  {
+    slug: "usbc",
+    title: "USB-C PCB Panelization Design",
+    category: "PCB & Hardware",
+    filterSlugs: ["pcb-hardware"],
+    description:
+      "Custom USB-C PCB with panelization for six male–female connector pairs, optimized for manufacturing. V-cut segmentation, fresering techniques, and specialized soldering windows for factory assembly.",
+    longDescription:
+      "Designed a custom USB-C PCB featuring panelization for six male–female connector pairs, optimized for efficient manufacturing and assembly. Implemented a distinctive V-cut segmentation strategy and advanced fresering techniques to improve structural stability and production throughput. Developed specialized soldering windows to ensure precise connector alignment and reliable factory soldering. The project covered full schematic and layout design in KiCad 8, along with detailed 3D visualization and animation in Blender 4.3 for technical presentation.",
+    tags: [
+      "KiCad 8",
+      "USB-C",
+      "PCB Panelization",
+      "V-Cut",
+      "DFM Optimization",
+      "Blender 4.3",
+      "3D Visualization",
+    ],
+    icon: CircuitBoard,
+    highlight: "DFM optimized",
+    media: [{ type: "video", src: usbcPcbVideo }],
+    deliverables: [
+      "KiCad PCB + Schematic",
+      "Panelization Layout",
+      "Gerber & BOM Files",
+      "3D Blender Visualization",
+    ],
+  },
+  {
+    slug: "smdc",
+    title: "Smart 12V DC Motor Controller",
+    category: "PCB & Hardware",
+    filterSlugs: ["pcb-hardware", "embedded-firmware"],
+    description:
+      "12V DC motor control PCB with integrated rotation counting using STM8S003. HALL sensor for real-time speed measurement and MOSFET-based driver for efficient motor operation.",
+    longDescription:
+      "Designed a reliable 12V DC motor control PCB with integrated rotation counting using an STM8S003 microcontroller. The system utilizes a HALL sensor for precise real-time speed and rotation measurement, while a MOSFET-based driver ensures efficient and smooth motor operation. The PCB layout was optimized for noise immunity, thermal management, and long-term durability. The solution supports customizable control logic, making it suitable for automation, robotics, and industrial motor control applications.",
+    tags: [
+      "STM8S003",
+      "Embedded C",
+      "HALL Sensor",
+      "MOSFET Driver",
+      "PWM",
+      "Power Electronics",
+      "PCB Design",
+    ],
+    icon: Battery,
+    highlight: "HALL sensor feedback",
+    media: [
+      { type: "video", src: motorVideo, poster: motorImg1 },
+      { type: "image", src: motorImg1 },
+    ],
+    deliverables: [
+      "PCB Layout + Schematic",
+      "STM8 Firmware",
+      "BOM & Gerber Files",
+      "Motor Control Documentation",
+    ],
+  },
+  {
+    slug: "mpsu",
+    title: "Miniature Regulated Power Supply",
+    category: "PCB & Hardware",
+    filterSlugs: ["pcb-hardware", "embedded-firmware"],
+    description:
+      "Compact regulated power supply PCB with adjustable output voltage and real-time monitoring. ADC/DAC feedback loop controlled by STM8 microcontroller with seven-segment display output.",
+    longDescription:
+      "Designed a compact regulated power supply PCB with adjustable output voltage and real-time monitoring. Integrated an ADC to measure input, output, and reference voltages for precise feedback control. Output regulation is achieved through a DAC-driven feedback loop, dynamically maintaining stability under varying loads. Controlled by an STM8 microcontroller, the system executes efficient voltage regulation algorithms. A three-digit seven-segment display provides clear operational feedback, demonstrating robust hardware architecture and precision PCB layout design.",
+    tags: [
+      "STM8",
+      "ADC",
+      "DAC",
+      "Embedded C",
+      "Power Electronics",
+      "Signal Integrity",
+      "PCB Design",
+    ],
+    icon: Battery,
+    highlight: "DAC feedback control",
+    media: [
+      { type: "video", src: psuVideo, poster: psuImg1 },
+      { type: "image", src: psuImg1 },
+      { type: "image", src: psuImg2 },
+      { type: "image", src: psuImg3 },
+    ],
+    deliverables: [
+      "PCB Layout + Schematic",
+      "STM8 Firmware",
+      "BOM & Gerber Files",
+      "Test & Validation Report",
+    ],
+  },
+  {
     slug: "c45g",
     title: "CM4 5G & WiFi 6 Embedded Board",
     category: "Embedded Linux / Hardware",
@@ -316,39 +408,6 @@ const projects: Project[] = [
       "Middleware Upload API",
       "AI Detection Pipeline",
       "System Documentation",
-    ],
-  },
-  {
-    slug: "mpsu",
-    title: "Miniature Regulated Power Supply",
-    category: "PCB & Hardware",
-    filterSlugs: ["pcb-hardware", "embedded-firmware"],
-    description:
-      "Compact regulated power supply PCB with adjustable output voltage and real-time monitoring. ADC/DAC feedback loop controlled by STM8 microcontroller with seven-segment display output.",
-    longDescription:
-      "Designed a compact regulated power supply PCB with adjustable output voltage and real-time monitoring. Integrated an ADC to measure input, output, and reference voltages for precise feedback control. Output regulation is achieved through a DAC-driven feedback loop, dynamically maintaining stability under varying loads. Controlled by an STM8 microcontroller, the system executes efficient voltage regulation algorithms. A three-digit seven-segment display provides clear operational feedback, demonstrating robust hardware architecture and precision PCB layout design.",
-    tags: [
-      "STM8",
-      "ADC",
-      "DAC",
-      "Embedded C",
-      "Power Electronics",
-      "Signal Integrity",
-      "PCB Design",
-    ],
-    icon: Battery,
-    highlight: "DAC feedback control",
-    media: [
-      { type: "video", src: psuVideo, poster: psuImg1 },
-      { type: "image", src: psuImg1 },
-      { type: "image", src: psuImg2 },
-      { type: "image", src: psuImg3 },
-    ],
-    deliverables: [
-      "PCB Layout + Schematic",
-      "STM8 Firmware",
-      "BOM & Gerber Files",
-      "Test & Validation Report",
     ],
   },
   {
@@ -568,34 +627,6 @@ const projects: Project[] = [
     ],
   },
   {
-    slug: "usbc",
-    title: "USB-C PCB Panelization Design",
-    category: "PCB & Hardware",
-    filterSlugs: ["pcb-hardware"],
-    description:
-      "Custom USB-C PCB with panelization for six male–female connector pairs, optimized for manufacturing. V-cut segmentation, fresering techniques, and specialized soldering windows for factory assembly.",
-    longDescription:
-      "Designed a custom USB-C PCB featuring panelization for six male–female connector pairs, optimized for efficient manufacturing and assembly. Implemented a distinctive V-cut segmentation strategy and advanced fresering techniques to improve structural stability and production throughput. Developed specialized soldering windows to ensure precise connector alignment and reliable factory soldering. The project covered full schematic and layout design in KiCad 8, along with detailed 3D visualization and animation in Blender 4.3 for technical presentation.",
-    tags: [
-      "KiCad 8",
-      "USB-C",
-      "PCB Panelization",
-      "V-Cut",
-      "DFM Optimization",
-      "Blender 4.3",
-      "3D Visualization",
-    ],
-    icon: CircuitBoard,
-    highlight: "DFM optimized",
-    media: [{ type: "video", src: usbcPcbVideo }],
-    deliverables: [
-      "KiCad PCB + Schematic",
-      "Panelization Layout",
-      "Gerber & BOM Files",
-      "3D Blender Visualization",
-    ],
-  },
-  {
     slug: "csbc",
     title: "Custom Embedded Linux SBC",
     category: "Embedded Linux / Hardware",
@@ -763,37 +794,6 @@ const projects: Project[] = [
       "Cloud API Integration",
       "Speech Processing Pipeline",
       "Multilingual NLP Module",
-    ],
-  },
-  {
-    slug: "smdc",
-    title: "Smart 12V DC Motor Controller",
-    category: "PCB & Hardware",
-    filterSlugs: ["pcb-hardware", "embedded-firmware"],
-    description:
-      "12V DC motor control PCB with integrated rotation counting using STM8S003. HALL sensor for real-time speed measurement and MOSFET-based driver for efficient motor operation.",
-    longDescription:
-      "Designed a reliable 12V DC motor control PCB with integrated rotation counting using an STM8S003 microcontroller. The system utilizes a HALL sensor for precise real-time speed and rotation measurement, while a MOSFET-based driver ensures efficient and smooth motor operation. The PCB layout was optimized for noise immunity, thermal management, and long-term durability. The solution supports customizable control logic, making it suitable for automation, robotics, and industrial motor control applications.",
-    tags: [
-      "STM8S003",
-      "Embedded C",
-      "HALL Sensor",
-      "MOSFET Driver",
-      "PWM",
-      "Power Electronics",
-      "PCB Design",
-    ],
-    icon: Battery,
-    highlight: "HALL sensor feedback",
-    media: [
-      { type: "video", src: motorVideo, poster: motorImg1 },
-      { type: "image", src: motorImg1 },
-    ],
-    deliverables: [
-      "PCB Layout + Schematic",
-      "STM8 Firmware",
-      "BOM & Gerber Files",
-      "Motor Control Documentation",
     ],
   },
   {
@@ -1554,8 +1554,8 @@ function MediaSlider({
               <button
                 key={i}
                 className={`rounded-full transition-all ${i === safeIndex
-                    ? "w-5 h-1.5 bg-primary"
-                    : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
+                  ? "w-5 h-1.5 bg-primary"
+                  : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
                   }`}
                 onClick={(e) => goTo(i, e)}
                 data-testid={`button-media-dot-${i}`}
@@ -2007,8 +2007,8 @@ export function Portfolio({
                 data-testid={`filter-${cat.slug}`}
                 onClick={() => handleCategoryChange(cat.slug)}
                 className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${activeCategory === cat.slug
-                    ? "bg-primary/15 text-primary border-primary/40"
-                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
+                  ? "bg-primary/15 text-primary border-primary/40"
+                  : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
                   }`}
               >
                 {cat.name}
@@ -2021,8 +2021,8 @@ export function Portfolio({
                   data-testid="filter-recommended"
                   onClick={() => handleCategoryChange("recommended")}
                   className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "recommended"
-                      ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
-                      : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
+                    ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
+                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
                     }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -2145,8 +2145,8 @@ export function Portfolio({
                       data-testid={`button-recommend-${idx}`}
                       onClick={(e) => toggleRecommended(project.slug, e)}
                       className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${isRecommended
-                          ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
-                          : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
+                        ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
+                        : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
                         }`}
                     >
                       <ThumbsUp
