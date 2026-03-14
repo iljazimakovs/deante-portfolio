@@ -103,7 +103,6 @@ const psuImg1 = "/images/image_1772543835349.jpg";
 const psuImg2 = "/images/image_1772543842115.jpg";
 const psuImg3 = "/images/image_1772543847124.jpg";
 const motorVideo = "/images/project-motor-controller.mp4";
-const motorImg1 = "/images/image_1772544748572.jpg";
 const rpiHatVideo = "/images/project-rpi-motor-hat.mp4";
 const sbcImg1 = "/images/1.jpg";
 const sbcImg2 = "/images/2.jpg";
@@ -250,8 +249,7 @@ const projects: Project[] = [
     icon: Battery,
     highlight: "HALL sensor feedback",
     media: [
-      { type: "video", src: motorVideo, poster: motorImg1 },
-      { type: "image", src: motorImg1 },
+      { type: "video", src: motorVideo },
     ],
     deliverables: [
       "PCB Layout + Schematic",
