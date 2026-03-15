@@ -147,6 +147,12 @@ const kria_kv260_fir_filter_acceleration_4 = "/images/kria_kv260_fir_filter_acce
 const kria_kv260_fir_filter_acceleration_5 = "/images/kria_kv260_fir_filter_acceleration_5.jpg";
 const kria_kv260_fir_filter_acceleration_6 = "/images/kria_kv260_fir_filter_acceleration_6.jpg";
 
+const healthMonitorImg1 = "/images/healthMonitorImg1.jpg";
+const healthMonitorImg2 = "/images/healthMonitorImg2.jpg";
+const healthMonitorImg3 = "/images/healthMonitorImg3.jpg";
+const healthMonitorImg4 = "/images/healthMonitorImg4.jpg";
+const healthMonitorImg5 = "/images/healthMonitorImg5.jpg";
+
 const ecgImg1 = "/images/ecgImg1.jpg";
 const ecgImg2 = "/images/ecgImg2.jpg";
 
@@ -607,6 +613,43 @@ const projects: Project[] = [
       "SPI Sensor Interface",
       "Real-time Visualization GUI",
       "Prototype Validation"
+    ]
+  },
+  {
+    slug: "ai-vital-signs-monitor",
+    title: "AI-Enabled Remote Vital Signs Monitoring Platform",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices", "pcb-hardware"],
+    description:
+      "Wearable multi-sensor health monitoring device using BLE and cloud connectivity to track ECG, SpO2, temperature, respiration, and activity with AI-assisted analysis.",
+    longDescription:
+      "Developed a wearable IoT-based vital signs monitoring system designed for remote patient monitoring during large-scale healthcare scenarios. The device integrates multiple biomedical sensors including ECG (ADS1292R), SpO2 and heart rate (MAX30102), temperature (TMP117), accelerometer for activity and fall detection (IIS2DLPC), and MEMS microphones for respiratory sound monitoring. Powered by the nRF52840 BLE SoC, the system streams patient data to a mobile gateway via Bluetooth 5 and securely uploads it to a cloud platform for real-time visualization and AI-assisted health analysis. The modular hardware architecture separates ECG, oximeter, and core processing boards connected through flex cables, enabling flexible wearable configurations and easier enclosure design.",
+    tags: [
+      "nRF52840",
+      "BLE 5",
+      "ECG Monitoring",
+      "SpO2",
+      "Embedded C++",
+      "Biomedical Sensors",
+      "AWS Cloud",
+      "IoT Healthcare",
+      "PCB Design"
+    ],
+    icon: Activity,
+    highlight: "AI remote health monitoring",
+    media: [
+      { type: "image", src: healthMonitorImg1 },
+      { type: "image", src: healthMonitorImg2 },
+      { type: "image", src: healthMonitorImg3 },
+      { type: "image", src: healthMonitorImg4 },
+      { type: "image", src: healthMonitorImg5 }
+    ],
+    deliverables: [
+      "Embedded Firmware",
+      "Multi-Sensor Hardware Design",
+      "BLE Communication Stack",
+      "Cloud Data Streaming Integration",
+      "System Architecture Documentation"
     ]
   },
   {
