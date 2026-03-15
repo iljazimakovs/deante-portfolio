@@ -146,6 +146,11 @@ const kria_kv260_fir_filter_acceleration_3 = "/images/kria_kv260_fir_filter_acce
 const kria_kv260_fir_filter_acceleration_4 = "/images/kria_kv260_fir_filter_acceleration_4.jpg";
 const kria_kv260_fir_filter_acceleration_5 = "/images/kria_kv260_fir_filter_acceleration_5.jpg";
 const kria_kv260_fir_filter_acceleration_6 = "/images/kria_kv260_fir_filter_acceleration_6.jpg";
+const pulseRateImg1 = "/images/pulseRateImg1.jpg";
+const pulseRateImg2 = "/images/pulseRateImg2.jpg";
+const pulseRateImg3 = "/images/pulseRateImg3.jpg";
+const pulseRateImg4 = "/images/pulseRateImg4.jpg";
+const pulseRateImg5 = "/images/pulseRateImg5.jpg";
 
 const healthMonitorImg1 = "/images/healthMonitorImg1.jpg";
 const healthMonitorImg2 = "/images/healthMonitorImg2.jpg";
@@ -613,6 +618,41 @@ const projects: Project[] = [
       "SPI Sensor Interface",
       "Real-time Visualization GUI",
       "Prototype Validation"
+    ]
+  },
+  {
+    slug: "pulse-rate-monitor-arduino",
+    title: "Real-Time Pulse Tracking System with Arduino",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices"],
+    description:
+      "Arduino-based pulse monitoring system that reads real-time heart rate from a PPG pulse sensor and displays BPM values on a 16x2 LCD for simple, low-cost health tracking.",
+    longDescription:
+      "Developed a real-time pulse rate monitoring system using an Arduino Uno, a Pulse Sensor, and a 16x2 LCD display. The sensor uses photoplethysmography (PPG) to detect blood flow changes and generate an analog heartbeat waveform. The Arduino processes the signal, applies noise filtering, calculates beats per minute, and displays live BPM readings on the LCD. The project provides a simple and affordable solution for basic health monitoring, education, and biomedical prototyping.",
+    tags: [
+      "Arduino Uno",
+      "Pulse Sensor",
+      "PPG",
+      "Heart Rate Monitoring",
+      "Embedded C",
+      "16x2 LCD",
+      "Analog Signal Processing"
+    ],
+    icon: Activity,
+    highlight: "Live BPM display",
+    media: [
+      { type: "image", src: pulseRateImg1 },
+      { type: "image", src: pulseRateImg2 },
+      { type: "image", src: pulseRateImg3 },
+      { type: "image", src: pulseRateImg4 },
+      { type: "image", src: pulseRateImg5 }
+    ],
+    deliverables: [
+      "Arduino Firmware",
+      "Sensor Interface Circuit",
+      "LCD Display Integration",
+      "Signal Filtering Logic",
+      "Prototype Demonstration"
     ]
   },
   {
