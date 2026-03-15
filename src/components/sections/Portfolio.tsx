@@ -125,45 +125,30 @@ const ne101_mqtt_lte_iot_camera_5 = "/images/ne101_mqtt_lte_iot_camera_5.jpg";
 const ne101_mqtt_lte_iot_camera_6 = "/images/ne101_mqtt_lte_iot_camera_6.jpg";
 const ne101_mqtt_lte_iot_camera_7 = "/images/ne101_mqtt_lte_iot_camera_7.jpg";
 const ne101_mqtt_lte_iot_camera_8 = "/images/ne101_mqtt_lte_iot_camera_8.jpg";
-const pi_camera_doorbell_notifications_1 =
-  "/images/pi_camera_doorbell_notifications_1.jpg";
-const pi_camera_doorbell_notifications_2 =
-  "/images/pi_camera_doorbell_notifications_2.jpg";
-const pi_camera_doorbell_notifications_3 =
-  "/images/pi_camera_doorbell_notifications_3.jpg";
-const pi_camera_doorbell_notifications_4 =
-  "/images/pi_camera_doorbell_notifications_4.jpg";
-const pi_camera_doorbell_notifications_5 =
-  "/images/pi_camera_doorbell_notifications_5.jpg";
+const pi_camera_doorbell_notifications_1 = "/images/pi_camera_doorbell_notifications_1.jpg";
+const pi_camera_doorbell_notifications_2 = "/images/pi_camera_doorbell_notifications_2.jpg";
+const pi_camera_doorbell_notifications_3 = "/images/pi_camera_doorbell_notifications_3.jpg";
+const pi_camera_doorbell_notifications_4 = "/images/pi_camera_doorbell_notifications_4.jpg";
+const pi_camera_doorbell_notifications_5 = "/images/pi_camera_doorbell_notifications_5.jpg";
 const kria_kv260_petalinux_bsp_1 = "/images/kria_kv260_petalinux_bsp_1.jpg";
 const kria_kv260_petalinux_bsp_2 = "/images/kria_kv260_petalinux_bsp_2.jpg";
 const kria_kv260_petalinux_bsp_3 = "/images/kria_kv260_petalinux_bsp_3.jpg";
-const k26_som_multi_boot_custom_carrier_1 =
-  "/images/k26_som_multi_boot_custom_carrier_1.jpg";
-const k26_som_multi_boot_custom_carrier_2 =
-  "/images/k26_som_multi_boot_custom_carrier_2.jpg";
-const zynq_mpsoc_vivado_ps_configuration_1 =
-  "/images/zynq_mpsoc_vivado_ps_configuration_1.jpg";
-const zynq_mpsoc_vivado_ps_configuration_2 =
-  "/images/zynq_mpsoc_vivado_ps_configuration_2.jpg";
-const zynq_mpsoc_vivado_ps_configuration_3 =
-  "/images/zynq_mpsoc_vivado_ps_configuration_3.jpg";
-const zynq_mpsoc_vivado_ps_configuration_4 =
-  "/images/zynq_mpsoc_vivado_ps_configuration_4.jpg";
-const versal_vitis_hardware_in_the_loop_1 =
-  "/images/versal_vitis_hardware_in_the_loop_1.jpg";
-const kria_kv260_fir_filter_acceleration_1 =
-  "/images/kria_kv260_fir_filter_acceleration_1.jpg";
-const kria_kv260_fir_filter_acceleration_2 =
-  "/images/kria_kv260_fir_filter_acceleration_2.jpg";
-const kria_kv260_fir_filter_acceleration_3 =
-  "/images/kria_kv260_fir_filter_acceleration_3.jpg";
-const kria_kv260_fir_filter_acceleration_4 =
-  "/images/kria_kv260_fir_filter_acceleration_4.jpg";
-const kria_kv260_fir_filter_acceleration_5 =
-  "/images/kria_kv260_fir_filter_acceleration_5.jpg";
-const kria_kv260_fir_filter_acceleration_6 =
-  "/images/kria_kv260_fir_filter_acceleration_6.jpg";
+const k26_som_multi_boot_custom_carrier_1 = "/images/k26_som_multi_boot_custom_carrier_1.jpg";
+const k26_som_multi_boot_custom_carrier_2 = "/images/k26_som_multi_boot_custom_carrier_2.jpg";
+const zynq_mpsoc_vivado_ps_configuration_1 = "/images/zynq_mpsoc_vivado_ps_configuration_1.jpg";
+const zynq_mpsoc_vivado_ps_configuration_2 = "/images/zynq_mpsoc_vivado_ps_configuration_2.jpg";
+const zynq_mpsoc_vivado_ps_configuration_3 = "/images/zynq_mpsoc_vivado_ps_configuration_3.jpg";
+const zynq_mpsoc_vivado_ps_configuration_4 = "/images/zynq_mpsoc_vivado_ps_configuration_4.jpg";
+const versal_vitis_hardware_in_the_loop_1 = "/images/versal_vitis_hardware_in_the_loop_1.jpg";
+const kria_kv260_fir_filter_acceleration_1 = "/images/kria_kv260_fir_filter_acceleration_1.jpg";
+const kria_kv260_fir_filter_acceleration_2 = "/images/kria_kv260_fir_filter_acceleration_2.jpg";
+const kria_kv260_fir_filter_acceleration_3 = "/images/kria_kv260_fir_filter_acceleration_3.jpg";
+const kria_kv260_fir_filter_acceleration_4 = "/images/kria_kv260_fir_filter_acceleration_4.jpg";
+const kria_kv260_fir_filter_acceleration_5 = "/images/kria_kv260_fir_filter_acceleration_5.jpg";
+const kria_kv260_fir_filter_acceleration_6 = "/images/kria_kv260_fir_filter_acceleration_6.jpg";
+
+const ecgImg1 = "/images/ecgImg1.jpg";
+const ecgImg2 = "/images/ecgImg2.jpg";
 
 interface MediaItem {
   type: "image" | "video";
@@ -590,6 +575,39 @@ const projects: Project[] = [
       "ARM Linux Edge Firmware",
       "Retraining Pipeline Scripts",
     ],
+  },
+  {
+    slug: "ecg1",
+    title: "Embedded ECG Monitoring and HRV Analysis System",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices"],
+    description:
+      "Single-lead ECG monitoring system using the MAX30003 AFE and Arduino Uno to capture cardiac signals and measure heart-rate variability through real-time R-R interval detection.",
+    longDescription:
+      "Developed a single-lead ECG monitoring system using the MAX30003 analog front-end with an Arduino Uno to acquire accurate cardiac electrical signals. The system uses two electrodes connected to the chest to capture ECG data, which is transmitted to the microcontroller via SPI. The MAX30003 integrates hardware-based R-R interval detection using the Pan-Tompkins algorithm, allowing precise heart-rate variability (HRV) analysis with minimal processing overhead. The Arduino firmware streams ECG waveform data and R-R interval measurements over USB-UART, while a Processing-based GUI visualizes the signal in real time and displays instantaneous heart-rate values.",
+    tags: [
+      "MAX30003",
+      "Arduino Uno",
+      "Embedded C",
+      "SPI",
+      "ECG Monitoring",
+      "Heart Rate Variability",
+      "Biomedical Signal Processing",
+      "Processing GUI"
+    ],
+    icon: Activity,
+    highlight: "Real-time ECG monitoring",
+    media: [
+      { type: "image", src: ecgImg1 },
+      { type: "image", src: ecgImg2 }
+    ],
+    deliverables: [
+      "Embedded Firmware",
+      "ECG Signal Acquisition System",
+      "SPI Sensor Interface",
+      "Real-time Visualization GUI",
+      "Prototype Validation"
+    ]
   },
   {
     slug: "gsm1",
