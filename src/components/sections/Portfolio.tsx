@@ -156,11 +156,11 @@ const healthMonitorImg2 = "/images/healthMonitorImg2.jpg";
 const healthMonitorImg3 = "/images/healthMonitorImg3.jpg";
 const healthMonitorImg4 = "/images/healthMonitorImg4.jpg";
 const healthMonitorImg5 = "/images/healthMonitorImg5.jpg";
-const rfidTrackingImg1 = "/images/rfidTrackingImg1.jpg";
-const rfidTrackingImg2 = "/images/rfidTrackingImg2.jpg";
+const rfidTrackingImg1 = "/images/rfidTrackingImg1.png";
+const rfidTrackingImg2 = "/images/rfidTrackingImg2.png";
 const rfidTrackingImg3 = "/images/rfidTrackingImg3.jpg";
-const rfidTrackingImg4 = "/images/rfidTrackingImg4.jpg";
-const rfidTrackingImg5 = "/images/rfidTrackingImg5.jpg";
+const rfidTrackingImg4 = "/images/rfidTrackingImg4.png";
+const rfidTrackingImg5 = "/images/rfidTrackingImg5.png";
 
 const ecgImg1 = "/images/ecgImg1.jpg";
 const ecgImg2 = "/images/ecgImg2.jpg";
