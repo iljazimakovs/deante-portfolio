@@ -151,12 +151,16 @@ const pulseRateImg2 = "/images/pulseRateImg2.jpg";
 const pulseRateImg3 = "/images/pulseRateImg3.jpg";
 const pulseRateImg4 = "/images/pulseRateImg4.jpg";
 const pulseRateImg5 = "/images/pulseRateImg5.jpg";
-
 const healthMonitorImg1 = "/images/healthMonitorImg1.jpg";
 const healthMonitorImg2 = "/images/healthMonitorImg2.jpg";
 const healthMonitorImg3 = "/images/healthMonitorImg3.jpg";
 const healthMonitorImg4 = "/images/healthMonitorImg4.jpg";
 const healthMonitorImg5 = "/images/healthMonitorImg5.jpg";
+const rfidTrackingImg1 = "/images/rfidTrackingImg1.jpg";
+const rfidTrackingImg2 = "/images/rfidTrackingImg2.jpg";
+const rfidTrackingImg3 = "/images/rfidTrackingImg3.jpg";
+const rfidTrackingImg4 = "/images/rfidTrackingImg4.jpg";
+const rfidTrackingImg5 = "/images/rfidTrackingImg5.jpg";
 
 const ecgImg1 = "/images/ecgImg1.jpg";
 const ecgImg2 = "/images/ecgImg2.jpg";
@@ -1261,6 +1265,43 @@ const projects: Project[] = [
       "Firmware Source",
       "CE Compliance Docs",
     ],
+  },
+  {
+    slug: "uhf-rfid-item-tracking",
+    title: "Long-Range RFID Asset Location System",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices", "pcb-hardware"],
+    description:
+      "Long-range UHF RFID tracking system using Raspberry Pi and cloud-connected readers to monitor tagged tools and assets across rooms, providing last-known location data through a web dashboard.",
+    longDescription:
+      "Developed a low-cost UHF RFID asset tracking system for makerspaces and shared work areas using Raspberry Pi-based monitor nodes, a Cottonwood long-range RFID reader, and passive EPC Gen2 tags. Each monitor captures timestamped tag reads over UART and sends the data to a cloud-hosted Azure Web API for centralized tracking. A web dashboard allows users to register readers and tags, then view the latest known location and read time for each item. The system combines embedded scanning, cloud integration, and inventory visibility for scalable item tracking.",
+    tags: [
+      "Raspberry Pi 2",
+      "UHF RFID",
+      "EPC Gen2",
+      "UART",
+      "Microsoft Azure",
+      "Windows 10 IoT Core",
+      "ASP.NET MVC",
+      "Web API",
+      "Asset Tracking"
+    ],
+    icon: Antenna,
+    highlight: "Long-range asset tracking",
+    media: [
+      { type: "image", src: rfidTrackingImg1 },
+      { type: "image", src: rfidTrackingImg2 },
+      { type: "image", src: rfidTrackingImg3 },
+      { type: "image", src: rfidTrackingImg4 },
+      { type: "image", src: rfidTrackingImg5 }
+    ],
+    deliverables: [
+      "RFID Scanner Background App",
+      "Cloud Web API Integration",
+      "Asset Management Web Dashboard",
+      "SQL Database Schema",
+      "Monitor Node Setup Documentation"
+    ]
   },
   {
     slug: "vhil",
