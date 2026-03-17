@@ -9,7 +9,7 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home({ projectSlug, categorySlug, recommendedIds }: { projectSlug?: string; categorySlug?: string; recommendedIds?: string }) {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
       <Navbar />
 
       <main className="flex-1">
