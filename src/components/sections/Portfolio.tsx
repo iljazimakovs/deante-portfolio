@@ -473,7 +473,7 @@ const projects: Project[] = [
       { type: "image", src: ne101_mqtt_lte_iot_camera_7 },
       { type: "image", src: ne101_mqtt_lte_iot_camera_8 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Camera Firmware",
       "MQTT/MQTTS Data Integration",
@@ -511,7 +511,7 @@ const projects: Project[] = [
       { type: "image", src: pi_camera_doorbell_notifications_4 },
       { type: "image", src: pi_camera_doorbell_notifications_5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Python Doorbell Detection Script",
       "Pi Camera Capture Integration",
@@ -690,7 +690,7 @@ const projects: Project[] = [
       { type: "image", src: pulseRateImg4 },
       { type: "image", src: pulseRateImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Arduino Firmware",
       "Sensor Interface Circuit",
@@ -824,7 +824,7 @@ const projects: Project[] = [
       { type: "image", src: smartAcImg2 },
       { type: "image", src: smartAcImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "ESP32 Firmware",
       "Web Dashboard",
@@ -1069,7 +1069,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "Stackable HAT design",
     media: [{ type: "video", src: rpiHatVideo }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "KiCad PCB + Schematic",
       "Gerber & BOM Files",
@@ -1172,7 +1172,7 @@ const projects: Project[] = [
       { type: "image", src: mosfetImg2 },
       { type: "image", src: mosfetImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Circuit Schematic",
       "Simulation Results",
