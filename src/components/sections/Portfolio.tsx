@@ -26,6 +26,7 @@ import {
   Link2,
   Check,
   Camera,
+  Thermometer
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -161,6 +162,15 @@ const rfidTrackingImg2 = "/images/rfidTrackingImg2.png";
 const rfidTrackingImg3 = "/images/rfidTrackingImg3.jpg";
 const rfidTrackingImg4 = "/images/rfidTrackingImg4.png";
 const rfidTrackingImg5 = "/images/rfidTrackingImg5.png";
+const wifi_water_heater_1 = "/images/wifi_water_heater_1.png";
+const wifi_water_heater_2 = "/images/wifi_water_heater_2.png";
+const wifi_water_heater_3 = "/images/wifi_water_heater_3.jpg";
+const wifi_water_heater_4 = "/images/wifi_water_heater_4.png";
+const heatpumpImg1 = "/images/heatpumpImg1.png";
+const heatpumpImg2 = "/images/heatpumpImg2.png";
+const heatpumpImg3 = "/images/heatpumpImg3.jpg";
+const heatpumpImg4 = "/images/heatpumpImg4.png";
+const heatpumpImg5 = "/images/heatpumpImg5.png";
 
 const ecgImg1 = "/images/ecgImg1.jpg";
 const ecgImg2 = "/images/ecgImg2.jpg";
@@ -1396,6 +1406,43 @@ const projects: Project[] = [
     ],
   },
   {
+    slug: "heatpump1",
+    title: "Open-Source Heat Pump Automation Controller",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "pcb-hardware", "hardware-debugging"],
+    description:
+      "Open-source heat pump control platform with embedded firmware, relay outputs, sensor monitoring, and protection logic for automating new systems, repairing legacy units, and HVAC experimentation.",
+    longDescription:
+      "Developed an open-source heat pump controller for precise automation of newly built systems, repair of legacy units, and refrigeration experimentation. Built around an Arduino Pro Mini, the platform manages compressors, pumps, fans, crankcase heaters, pressure switches, current sensing, and up to 12 DS18B20 temperature sensors. The embedded firmware implements startup logic, safety protections, EEV support, self-tests, serial diagnostics, and remote display control. The design includes a custom PCB, relay outputs for 230V loads, and RS485/UART interfaces for monitoring and service tools.",
+    tags: [
+      "Arduino Pro Mini",
+      "Embedded C",
+      "DS18B20",
+      "Heat Pump Control",
+      "Electronic Expansion Valve",
+      "RS485",
+      "Relay Control",
+      "PCB Design",
+      "HVAC Automation"
+    ],
+    icon: Thermometer,
+    highlight: "Open-source HVAC control",
+    media: [
+      { type: "image", src: heatpumpImg1 },
+      { type: "image", src: heatpumpImg2 },
+      { type: "image", src: heatpumpImg3 },
+      { type: "image", src: heatpumpImg4 },
+      { type: "image", src: heatpumpImg5 }
+    ],
+    deliverables: [
+      "Embedded Firmware Development",
+      "Schematic + PCB Layout",
+      "Relay and Sensor Control Logic",
+      "Serial Diagnostic Interface",
+      "System Test and Validation"
+    ]
+  },
+  {
     slug: "adlk",
     title: "Android-Based Digital Door Lock",
     category: "IoT & Smart Systems",
@@ -1422,6 +1469,42 @@ const projects: Project[] = [
       "Wiring Diagram",
       "System Documentation",
     ],
+  },
+  {
+    slug: "wifi-smart-water-heater-controller",
+    title: "Smart IR-Controlled Wi-Fi Water Heater Upgrade",
+    category: "IoT & Smart Systems",
+    filterSlugs: ["embedded-firmware", "iot-connected-devices", "hardware-debugging"],
+    description:
+      "Wi-Fi-enabled smart water heater retrofit with embedded firmware, IR-based control, temperature monitoring, and web interface for remote operation and automation.",
+    longDescription:
+      "Developed a smart retrofit solution to add Wi-Fi connectivity to a traditional electric water heater using the Ai-M61-32S module. The project includes embedded firmware development for handling Wi-Fi connectivity, IR signal transmission, sensor data acquisition, and system control logic. Instead of replacing the original MCU, the system uses IR protocol capture and replay to control the heater. It integrates a DS18B20 temperature sensor for monitoring, an optocoupler for heating status detection, and a DS1302 RTC for timekeeping. The firmware implements a web server for remote control, OTA updates for maintainability, FlashDB for configuration storage, and LittleFS for data logging, providing a complete IoT-enabled smart home solution.",
+    tags: [
+      "Ai-M61-32S",
+      "Wi-Fi IoT",
+      "Embedded Firmware",
+      "IR Communication",
+      "DS18B20",
+      "OTA Update",
+      "FlashDB",
+      "LittleFS",
+      "Smart Home"
+    ],
+    icon: Wifi,
+    highlight: "IR-based smart retrofit",
+    media: [
+      { type: "image", src: wifi_water_heater_1 },
+      { type: "image", src: wifi_water_heater_2 },
+      { type: "image", src: wifi_water_heater_3 },
+      { type: "image", src: wifi_water_heater_4 }
+    ],
+    deliverables: [
+      "Embedded Firmware Development",
+      "IR Protocol Capture & Replay",
+      "Web Server Control Interface",
+      "Temperature Monitoring System",
+      "OTA Update Implementation"
+    ]
   },
   {
     slug: "ags2",
