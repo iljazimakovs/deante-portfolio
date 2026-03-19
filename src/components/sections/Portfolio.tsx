@@ -26,7 +26,7 @@ import {
   Link2,
   Check,
   Camera,
-  Thermometer
+  Thermometer,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -126,27 +126,45 @@ const ne101_mqtt_lte_iot_camera_5 = "/images/ne101_mqtt_lte_iot_camera_5.jpg";
 const ne101_mqtt_lte_iot_camera_6 = "/images/ne101_mqtt_lte_iot_camera_6.jpg";
 const ne101_mqtt_lte_iot_camera_7 = "/images/ne101_mqtt_lte_iot_camera_7.jpg";
 const ne101_mqtt_lte_iot_camera_8 = "/images/ne101_mqtt_lte_iot_camera_8.jpg";
-const pi_camera_doorbell_notifications_1 = "/images/pi_camera_doorbell_notifications_1.jpg";
-const pi_camera_doorbell_notifications_2 = "/images/pi_camera_doorbell_notifications_2.jpg";
-const pi_camera_doorbell_notifications_3 = "/images/pi_camera_doorbell_notifications_3.jpg";
-const pi_camera_doorbell_notifications_4 = "/images/pi_camera_doorbell_notifications_4.jpg";
-const pi_camera_doorbell_notifications_5 = "/images/pi_camera_doorbell_notifications_5.jpg";
+const pi_camera_doorbell_notifications_1 =
+  "/images/pi_camera_doorbell_notifications_1.jpg";
+const pi_camera_doorbell_notifications_2 =
+  "/images/pi_camera_doorbell_notifications_2.jpg";
+const pi_camera_doorbell_notifications_3 =
+  "/images/pi_camera_doorbell_notifications_3.jpg";
+const pi_camera_doorbell_notifications_4 =
+  "/images/pi_camera_doorbell_notifications_4.jpg";
+const pi_camera_doorbell_notifications_5 =
+  "/images/pi_camera_doorbell_notifications_5.jpg";
 const kria_kv260_petalinux_bsp_1 = "/images/kria_kv260_petalinux_bsp_1.jpg";
 const kria_kv260_petalinux_bsp_2 = "/images/kria_kv260_petalinux_bsp_2.jpg";
 const kria_kv260_petalinux_bsp_3 = "/images/kria_kv260_petalinux_bsp_3.jpg";
-const k26_som_multi_boot_custom_carrier_1 = "/images/k26_som_multi_boot_custom_carrier_1.jpg";
-const k26_som_multi_boot_custom_carrier_2 = "/images/k26_som_multi_boot_custom_carrier_2.jpg";
-const zynq_mpsoc_vivado_ps_configuration_1 = "/images/zynq_mpsoc_vivado_ps_configuration_1.jpg";
-const zynq_mpsoc_vivado_ps_configuration_2 = "/images/zynq_mpsoc_vivado_ps_configuration_2.jpg";
-const zynq_mpsoc_vivado_ps_configuration_3 = "/images/zynq_mpsoc_vivado_ps_configuration_3.jpg";
-const zynq_mpsoc_vivado_ps_configuration_4 = "/images/zynq_mpsoc_vivado_ps_configuration_4.jpg";
-const versal_vitis_hardware_in_the_loop_1 = "/images/versal_vitis_hardware_in_the_loop_1.jpg";
-const kria_kv260_fir_filter_acceleration_1 = "/images/kria_kv260_fir_filter_acceleration_1.jpg";
-const kria_kv260_fir_filter_acceleration_2 = "/images/kria_kv260_fir_filter_acceleration_2.jpg";
-const kria_kv260_fir_filter_acceleration_3 = "/images/kria_kv260_fir_filter_acceleration_3.jpg";
-const kria_kv260_fir_filter_acceleration_4 = "/images/kria_kv260_fir_filter_acceleration_4.jpg";
-const kria_kv260_fir_filter_acceleration_5 = "/images/kria_kv260_fir_filter_acceleration_5.jpg";
-const kria_kv260_fir_filter_acceleration_6 = "/images/kria_kv260_fir_filter_acceleration_6.jpg";
+const k26_som_multi_boot_custom_carrier_1 =
+  "/images/k26_som_multi_boot_custom_carrier_1.jpg";
+const k26_som_multi_boot_custom_carrier_2 =
+  "/images/k26_som_multi_boot_custom_carrier_2.jpg";
+const zynq_mpsoc_vivado_ps_configuration_1 =
+  "/images/zynq_mpsoc_vivado_ps_configuration_1.jpg";
+const zynq_mpsoc_vivado_ps_configuration_2 =
+  "/images/zynq_mpsoc_vivado_ps_configuration_2.jpg";
+const zynq_mpsoc_vivado_ps_configuration_3 =
+  "/images/zynq_mpsoc_vivado_ps_configuration_3.jpg";
+const zynq_mpsoc_vivado_ps_configuration_4 =
+  "/images/zynq_mpsoc_vivado_ps_configuration_4.jpg";
+const versal_vitis_hardware_in_the_loop_1 =
+  "/images/versal_vitis_hardware_in_the_loop_1.jpg";
+const kria_kv260_fir_filter_acceleration_1 =
+  "/images/kria_kv260_fir_filter_acceleration_1.jpg";
+const kria_kv260_fir_filter_acceleration_2 =
+  "/images/kria_kv260_fir_filter_acceleration_2.jpg";
+const kria_kv260_fir_filter_acceleration_3 =
+  "/images/kria_kv260_fir_filter_acceleration_3.jpg";
+const kria_kv260_fir_filter_acceleration_4 =
+  "/images/kria_kv260_fir_filter_acceleration_4.jpg";
+const kria_kv260_fir_filter_acceleration_5 =
+  "/images/kria_kv260_fir_filter_acceleration_5.jpg";
+const kria_kv260_fir_filter_acceleration_6 =
+  "/images/kria_kv260_fir_filter_acceleration_6.jpg";
 const pulseRateImg1 = "/images/pulseRateImg1.jpg";
 const pulseRateImg2 = "/images/pulseRateImg2.jpg";
 const pulseRateImg3 = "/images/pulseRateImg3.jpg";
@@ -207,6 +225,7 @@ interface Project {
   media: MediaItem[];
   deliverables: string[];
   filterSlugs: string[];
+  hidden?: boolean;
 }
 
 const projects: Project[] = [
@@ -231,6 +250,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "DFM optimized",
     media: [{ type: "video", src: usbcPcbVideo }],
+    hidden: true,
     deliverables: [
       "KiCad PCB + Schematic",
       "Panelization Layout",
@@ -258,9 +278,8 @@ const projects: Project[] = [
     ],
     icon: Battery,
     highlight: "HALL sensor feedback",
-    media: [
-      { type: "video", src: motorVideo },
-    ],
+    media: [{ type: "video", src: motorVideo }],
+    hidden: false,
     deliverables: [
       "PCB Layout + Schematic",
       "STM8 Firmware",
@@ -294,6 +313,7 @@ const projects: Project[] = [
       { type: "image", src: psuImg2 },
       { type: "image", src: psuImg3 },
     ],
+    hidden: false,
     deliverables: [
       "PCB Layout + Schematic",
       "STM8 Firmware",
@@ -334,6 +354,7 @@ const projects: Project[] = [
       { type: "image", src: cm4_5gImg4 },
       { type: "image", src: cm4_5gImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -375,6 +396,7 @@ const projects: Project[] = [
       { type: "image", src: jetsonImg4 },
       { type: "image", src: jetsonImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -410,6 +432,7 @@ const projects: Project[] = [
       { type: "image", src: netduino_cam_3 },
       { type: "image", src: netduino_cam_4 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded Firmware",
       "Camera Interface Integration",
@@ -450,6 +473,7 @@ const projects: Project[] = [
       { type: "image", src: ne101_mqtt_lte_iot_camera_7 },
       { type: "image", src: ne101_mqtt_lte_iot_camera_8 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded Camera Firmware",
       "MQTT/MQTTS Data Integration",
@@ -487,6 +511,7 @@ const projects: Project[] = [
       { type: "image", src: pi_camera_doorbell_notifications_4 },
       { type: "image", src: pi_camera_doorbell_notifications_5 },
     ],
+    hidden: false,
     deliverables: [
       "Python Doorbell Detection Script",
       "Pi Camera Capture Integration",
@@ -524,6 +549,7 @@ const projects: Project[] = [
       { type: "image", src: nrf5340Img4 },
       { type: "image", src: nrf5340Img5 },
     ],
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -560,6 +586,7 @@ const projects: Project[] = [
       { type: "image", src: lorawanGwImg3 },
       { type: "image", src: lorawanGwImg4 },
     ],
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "PCB Design Files",
@@ -594,6 +621,7 @@ const projects: Project[] = [
       { type: "image", src: predMaintImg3 },
       { type: "image", src: predMaintImg4 },
     ],
+    hidden: false,
     deliverables: [
       "Simulink Digital Twin Model",
       "LSTM-Autoencoder ONNX",
@@ -618,21 +646,22 @@ const projects: Project[] = [
       "ECG Monitoring",
       "Heart Rate Variability",
       "Biomedical Signal Processing",
-      "Processing GUI"
+      "Processing GUI",
     ],
     icon: Activity,
     highlight: "Real-time ECG monitoring",
     media: [
       { type: "image", src: ecgImg1 },
-      { type: "image", src: ecgImg2 }
+      { type: "image", src: ecgImg2 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded Firmware",
       "ECG Signal Acquisition System",
       "SPI Sensor Interface",
       "Real-time Visualization GUI",
-      "Prototype Validation"
-    ]
+      "Prototype Validation",
+    ],
   },
   {
     slug: "pulse-rate-monitor-arduino",
@@ -650,7 +679,7 @@ const projects: Project[] = [
       "Heart Rate Monitoring",
       "Embedded C",
       "16x2 LCD",
-      "Analog Signal Processing"
+      "Analog Signal Processing",
     ],
     icon: Activity,
     highlight: "Live BPM display",
@@ -659,15 +688,16 @@ const projects: Project[] = [
       { type: "image", src: pulseRateImg2 },
       { type: "image", src: pulseRateImg3 },
       { type: "image", src: pulseRateImg4 },
-      { type: "image", src: pulseRateImg5 }
+      { type: "image", src: pulseRateImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Arduino Firmware",
       "Sensor Interface Circuit",
       "LCD Display Integration",
       "Signal Filtering Logic",
-      "Prototype Demonstration"
-    ]
+      "Prototype Demonstration",
+    ],
   },
   {
     slug: "ai-vital-signs-monitor",
@@ -687,7 +717,7 @@ const projects: Project[] = [
       "Biomedical Sensors",
       "AWS Cloud",
       "IoT Healthcare",
-      "PCB Design"
+      "PCB Design",
     ],
     icon: Activity,
     highlight: "AI remote health monitoring",
@@ -696,15 +726,16 @@ const projects: Project[] = [
       { type: "image", src: healthMonitorImg2 },
       { type: "image", src: healthMonitorImg3 },
       { type: "image", src: healthMonitorImg4 },
-      { type: "image", src: healthMonitorImg5 }
+      { type: "image", src: healthMonitorImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded Firmware",
       "Multi-Sensor Hardware Design",
       "BLE Communication Stack",
       "Cloud Data Streaming Integration",
-      "System Architecture Documentation"
-    ]
+      "System Architecture Documentation",
+    ],
   },
   {
     slug: "gsm1",
@@ -732,6 +763,7 @@ const projects: Project[] = [
       { type: "image", src: gsmImg3 },
       { type: "image", src: gsmImg4 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded C Firmware",
       "Schematic + PCB Layout",
@@ -756,6 +788,7 @@ const projects: Project[] = [
       { type: "image", src: sbcImg2 },
       { type: "image", src: sbcImg3 },
     ],
+    hidden: false,
     deliverables: [
       "Yocto BSP Image",
       "6-Layer PCB Files",
@@ -791,6 +824,7 @@ const projects: Project[] = [
       { type: "image", src: smartAcImg2 },
       { type: "image", src: smartAcImg3 },
     ],
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "Web Dashboard",
@@ -826,6 +860,7 @@ const projects: Project[] = [
       { type: "image", src: laneImg4 },
       { type: "image", src: laneImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Simulink Model",
       "YOLOv8n ONNX Model",
@@ -836,8 +871,7 @@ const projects: Project[] = [
   {
     slug: "kfir",
     title: "High-Throughput FIR DSP Accelerator on KV260",
-    category:
-      "Embedded Firmware Development / Hardware Bring-Up & Debugging",
+    category: "Embedded Firmware Development / Hardware Bring-Up & Debugging",
     filterSlugs: ["embedded-firmware", "hardware-debugging"],
     description:
       "Designed and accelerated a fully pipelined FIR filter on the AMD Kria KV260 using Vitis HLS and PYNQ, comparing floating-point and fixed-point implementations for high-throughput FPGA DSP processing.",
@@ -865,6 +899,7 @@ const projects: Project[] = [
       { type: "image", src: kria_kv260_fir_filter_acceleration_5 },
       { type: "image", src: kria_kv260_fir_filter_acceleration_6 },
     ],
+    hidden: false,
     deliverables: [
       "Vitis HLS FIR Filter Design",
       "Vivado Hardware Platform",
@@ -897,6 +932,7 @@ const projects: Project[] = [
       { type: "image", src: clarecoImg1 },
       { type: "image", src: clarecoImg2 },
     ],
+    hidden: false,
     deliverables: [
       "Flutter App Source",
       "Cloud API Integration",
@@ -932,6 +968,7 @@ const projects: Project[] = [
       { type: "image", src: imx8Img4 },
       { type: "image", src: imx8Img5 },
     ],
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "BOM & Gerber Files",
@@ -966,6 +1003,7 @@ const projects: Project[] = [
       { type: "image", src: kria_kv260_petalinux_bsp_2 },
       { type: "image", src: kria_kv260_petalinux_bsp_3 },
     ],
+    hidden: false,
     deliverables: [
       "Customized PetaLinux BSP",
       "Bootable SD Card Image",
@@ -1000,6 +1038,7 @@ const projects: Project[] = [
       { type: "image", src: k26_som_multi_boot_custom_carrier_1 },
       { type: "image", src: k26_som_multi_boot_custom_carrier_2 },
     ],
+    hidden: false,
     deliverables: [
       "Multi-Boot PetaLinux Configuration",
       "BOOT.BIN Generation and QSPI Update",
@@ -1030,6 +1069,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "Stackable HAT design",
     media: [{ type: "video", src: rpiHatVideo }],
+    hidden: false,
     deliverables: [
       "KiCad PCB + Schematic",
       "Gerber & BOM Files",
@@ -1065,6 +1105,7 @@ const projects: Project[] = [
       { type: "image", src: kbImg4 },
       { type: "image", src: kbImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Eagle PCB + Schematic",
       "BOM & Gerber Files",
@@ -1098,6 +1139,7 @@ const projects: Project[] = [
       { type: "image", src: roboArmImg2 },
       { type: "image", src: roboArmImg3 },
     ],
+    hidden: false,
     deliverables: [
       "Simulink Model + S-Function",
       "CNN ONNX Model",
@@ -1130,6 +1172,7 @@ const projects: Project[] = [
       { type: "image", src: mosfetImg2 },
       { type: "image", src: mosfetImg3 },
     ],
+    hidden: false,
     deliverables: [
       "Circuit Schematic",
       "Simulation Results",
@@ -1164,6 +1207,7 @@ const projects: Project[] = [
       { type: "image", src: modKbImg4 },
       { type: "image", src: modKbImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Eagle PCB + Schematic",
       "VIA Firmware Config",
@@ -1193,6 +1237,7 @@ const projects: Project[] = [
     icon: Wifi,
     highlight: "Remote site imaging",
     media: [{ type: "image", src: envImagingImg1 }],
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "PCB Layout + Schematic",
@@ -1229,6 +1274,7 @@ const projects: Project[] = [
       { type: "image", src: zynq_mpsoc_vivado_ps_configuration_3 },
       { type: "image", src: zynq_mpsoc_vivado_ps_configuration_4 },
     ],
+    hidden: false,
     deliverables: [
       "Vivado Block Design Project",
       "PS Configuration TCL Preset",
@@ -1264,6 +1310,7 @@ const projects: Project[] = [
       { type: "image", src: tuneImg4 },
       { type: "image", src: tuneImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Eagle PCB + Schematic",
       "BOM & Gerber Files",
@@ -1289,7 +1336,7 @@ const projects: Project[] = [
       "Windows 10 IoT Core",
       "ASP.NET MVC",
       "Web API",
-      "Asset Tracking"
+      "Asset Tracking",
     ],
     icon: Antenna,
     highlight: "Long-range asset tracking",
@@ -1298,15 +1345,16 @@ const projects: Project[] = [
       { type: "image", src: rfidTrackingImg2 },
       { type: "image", src: rfidTrackingImg3 },
       { type: "image", src: rfidTrackingImg4 },
-      { type: "image", src: rfidTrackingImg5 }
+      { type: "image", src: rfidTrackingImg5 },
     ],
+    hidden: false,
     deliverables: [
       "RFID Scanner Background App",
       "Cloud Web API Integration",
       "Asset Management Web Dashboard",
       "SQL Database Schema",
-      "Monitor Node Setup Documentation"
-    ]
+      "Monitor Node Setup Documentation",
+    ],
   },
   {
     slug: "vhil",
@@ -1332,6 +1380,7 @@ const projects: Project[] = [
     icon: Activity,
     highlight: "Real Hardware Verification",
     media: [{ type: "image", src: versal_vitis_hardware_in_the_loop_1 }],
+    hidden: false,
     deliverables: [
       "Vitis HIL Build Flow",
       "Bootable SD Card Image",
@@ -1361,6 +1410,7 @@ const projects: Project[] = [
     icon: MonitorSmartphone,
     highlight: "Digital health assistant",
     media: [{ type: "image", src: clarecoClinicImg1 }],
+    hidden: false,
     deliverables: [
       "Flutter App Source",
       "REST API Backend",
@@ -1393,6 +1443,7 @@ const projects: Project[] = [
       { type: "image", src: cm5IoImg3 },
       { type: "image", src: cm5IoImg4 },
     ],
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "BOM & Gerber Files",
@@ -1418,7 +1469,7 @@ const projects: Project[] = [
       "RS485",
       "Relay Control",
       "PCB Design",
-      "HVAC Automation"
+      "HVAC Automation",
     ],
     icon: Thermometer,
     highlight: "HVAC control",
@@ -1427,15 +1478,16 @@ const projects: Project[] = [
       { type: "image", src: heatpumpImg2 },
       { type: "image", src: heatpumpImg3 },
       { type: "image", src: heatpumpImg4 },
-      { type: "image", src: heatpumpImg5 }
+      { type: "image", src: heatpumpImg5 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded Firmware Development",
       "Schematic + PCB Layout",
       "Relay and Sensor Control Logic",
       "Serial Diagnostic Interface",
-      "System Test and Validation"
-    ]
+      "System Test and Validation",
+    ],
   },
   {
     slug: "adlk",
@@ -1458,6 +1510,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Bluetooth door control",
     media: [{ type: "image", src: doorLockImg1 }],
+    hidden: false,
     deliverables: [
       "Arduino Firmware",
       "Android App Source",
@@ -1469,7 +1522,11 @@ const projects: Project[] = [
     slug: "wifi-smart-water-heater-controller",
     title: "Smart IR-Controlled Wi-Fi Water Heater Upgrade",
     category: "IoT & Smart Systems",
-    filterSlugs: ["embedded-firmware", "iot-connected-devices", "hardware-debugging"],
+    filterSlugs: [
+      "embedded-firmware",
+      "iot-connected-devices",
+      "hardware-debugging",
+    ],
     description:
       "Wi-Fi-enabled smart water heater retrofit with embedded firmware, IR-based control, temperature monitoring, and web interface for remote operation and automation.",
     longDescription:
@@ -1483,7 +1540,7 @@ const projects: Project[] = [
       "OTA Update",
       "FlashDB",
       "LittleFS",
-      "Smart Home"
+      "Smart Home",
     ],
     icon: Wifi,
     highlight: "IR-based smart retrofit",
@@ -1491,15 +1548,16 @@ const projects: Project[] = [
       { type: "image", src: wifi_water_heater_1 },
       { type: "image", src: wifi_water_heater_2 },
       { type: "image", src: wifi_water_heater_3 },
-      { type: "image", src: wifi_water_heater_4 }
+      { type: "image", src: wifi_water_heater_4 },
     ],
+    hidden: false,
     deliverables: [
       "Embedded Firmware Development",
       "IR Protocol Capture & Replay",
       "Web Server Control Interface",
       "Temperature Monitoring System",
-      "OTA Update Implementation"
-    ]
+      "OTA Update Implementation",
+    ],
   },
   {
     slug: "ags2",
@@ -1527,6 +1585,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Cloud AI sorting",
     media: [{ type: "image", src: garbageSorterImg }],
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "AWS Lambda Functions",
@@ -1555,7 +1614,7 @@ function CardVideo({
     setHovering(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => { });
+      videoRef.current.play().catch(() => {});
     }
   }, []);
 
@@ -1577,8 +1636,9 @@ function CardVideo({
         <img
           src={posterSrc}
           alt=""
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"
-            }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
+            hovering ? "opacity-0" : "opacity-100"
+          }`}
         />
       )}
       <video
@@ -1592,8 +1652,9 @@ function CardVideo({
         <source src={item.src} type="video/mp4" />
       </video>
       <div
-        className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"
-          }`}
+        className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${
+          hovering ? "opacity-0" : "opacity-100"
+        }`}
       >
         <div className="rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30 w-10 h-10">
           <Play className="text-white ml-0.5 w-4 h-4" />
@@ -1639,7 +1700,7 @@ function MediaSlider({
       e.stopPropagation();
       goTo(safeIndex === 0 ? media.length - 1 : safeIndex - 1);
     },
-    [safeIndex, media.length, goTo]
+    [safeIndex, media.length, goTo],
   );
 
   const goNext = useCallback(
@@ -1647,7 +1708,7 @@ function MediaSlider({
       e.stopPropagation();
       goTo(safeIndex === media.length - 1 ? 0 : safeIndex + 1);
     },
-    [safeIndex, media.length, goTo]
+    [safeIndex, media.length, goTo],
   );
 
   const togglePlay = useCallback(
@@ -1661,7 +1722,7 @@ function MediaSlider({
       }
       setIsPlaying(!isPlaying);
     },
-    [isPlaying]
+    [isPlaying],
   );
 
   const toggleMute = useCallback(
@@ -1671,7 +1732,7 @@ function MediaSlider({
       videoRef.current.muted = !videoRef.current.muted;
       setIsMuted(!isMuted);
     },
-    [isMuted]
+    [isMuted],
   );
 
   return (
@@ -1741,8 +1802,9 @@ function MediaSlider({
             <img
               src={item.src}
               alt=""
-              className={`w-full ${isModal ? "object-contain" : "h-full object-cover"
-                }`}
+              className={`w-full ${
+                isModal ? "object-contain" : "h-full object-cover"
+              }`}
             />
           )}
         </div>
@@ -1751,16 +1813,18 @@ function MediaSlider({
       {hasMultiple && (
         <>
           <button
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"
-              }`}
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${
+              isModal ? "w-9 h-9" : "w-7 h-7"
+            }`}
             onClick={goPrev}
             data-testid="button-media-prev"
           >
             <ChevronLeft className={isModal ? "w-5 h-5" : "w-4 h-4"} />
           </button>
           <button
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"
-              }`}
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${
+              isModal ? "w-9 h-9" : "w-7 h-7"
+            }`}
             onClick={goNext}
             data-testid="button-media-next"
           >
@@ -1771,10 +1835,11 @@ function MediaSlider({
             {media.map((item, i) => (
               <button
                 key={i}
-                className={`rounded-full transition-all ${i === safeIndex
-                  ? "w-5 h-1.5 bg-primary"
-                  : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
-                  }`}
+                className={`rounded-full transition-all ${
+                  i === safeIndex
+                    ? "w-5 h-1.5 bg-primary"
+                    : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
+                }`}
                 onClick={(e) => goTo(i, e)}
                 data-testid={`button-media-dot-${i}`}
               />
@@ -1986,7 +2051,7 @@ export function Portfolio({
   };
 
   const [recommended, setRecommended] = useState<Set<string>>(() =>
-    parseRecommendedSlugs(initialRecommendedIds)
+    parseRecommendedSlugs(initialRecommendedIds),
   );
 
   const [activeCategory, setActiveCategory] = useState(() => {
@@ -2089,25 +2154,27 @@ export function Portfolio({
   const categoryFiltered =
     activeCategory === "recommended"
       ? Array.from(recommended)
-        .map((slug) => projects.find((p) => p.slug === slug))
-        .filter((p): p is Project => p !== undefined)
+          .map((slug) => projects.find((p) => p.slug === slug))
+          .filter((p): p is Project => p !== undefined)
       : activeCategory === "all"
-        ? projects
-        : projects.filter((p) => p.filterSlugs.includes(activeCategory));
+        ? projects.filter((p) => !p.hidden)
+        : projects.filter(
+            (p) => p.filterSlugs.includes(activeCategory) && !p.hidden,
+          );
 
   const filteredProjects = searchQuery.trim()
-    ? categoryFiltered.filter((p) => {
-      const q = searchQuery.toLowerCase();
-      return (
-        p.title.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.longDescription.toLowerCase().includes(q) ||
-        p.highlight.toLowerCase().includes(q) ||
-        p.tags.some((t) => t.toLowerCase().includes(q)) ||
-        p.deliverables.some((d) => d.toLowerCase().includes(q))
-      );
-    })
+    ? projects.filter((p) => {
+        const q = searchQuery.toLowerCase();
+        return (
+          p.title.toLowerCase().includes(q) ||
+          p.category.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.longDescription.toLowerCase().includes(q) ||
+          p.highlight.toLowerCase().includes(q) ||
+          p.tags.some((t) => t.toLowerCase().includes(q)) ||
+          p.deliverables.some((d) => d.toLowerCase().includes(q))
+        );
+      })
     : categoryFiltered;
 
   const categoryBaseUrl =
@@ -2155,7 +2222,7 @@ export function Portfolio({
   const handlePrev = () => {
     if (selectedIndex !== null) {
       const currentInFiltered = filteredProjects.findIndex(
-        (p) => p === projects[selectedIndex]
+        (p) => p === projects[selectedIndex],
       );
 
       const newFilteredIndex =
@@ -2174,7 +2241,7 @@ export function Portfolio({
   const handleNext = () => {
     if (selectedIndex !== null) {
       const currentInFiltered = filteredProjects.findIndex(
-        (p) => p === projects[selectedIndex]
+        (p) => p === projects[selectedIndex],
       );
 
       const newFilteredIndex =
@@ -2194,7 +2261,7 @@ export function Portfolio({
     activeCategory === "recommended"
       ? "Suggested"
       : filterCategories.find((c) => c.slug === activeCategory)?.name ||
-      "All Projects";
+        "All Projects";
 
   return (
     <section id="portfolio" className="py-24 relative">
@@ -2212,10 +2279,12 @@ export function Portfolio({
                 end-to-end - from architecture through manufacturing.
               </p>
             </div>
-            <p className="text-sm font-mono text-muted-foreground">
-              {filteredProjects.length} project
-              {filteredProjects.length !== 1 ? "s" : ""}
-            </p>
+            <div className="text-right">
+              <p className="text-sm font-mono text-muted-foreground">
+                {filteredProjects.length} project
+                {filteredProjects.length !== 1 ? "s" : ""}
+              </p>
+            </div>
           </div>
 
           <div className="flex flex-wrap gap-2" data-testid="category-filters">
@@ -2224,10 +2293,11 @@ export function Portfolio({
                 key={cat.slug}
                 data-testid={`filter-${cat.slug}`}
                 onClick={() => handleCategoryChange(cat.slug)}
-                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${activeCategory === cat.slug
-                  ? "bg-primary/15 text-primary border-primary/40"
-                  : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
-                  }`}
+                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${
+                  activeCategory === cat.slug
+                    ? "bg-primary/15 text-primary border-primary/40"
+                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
+                }`}
               >
                 {cat.name}
               </button>
@@ -2238,10 +2308,11 @@ export function Portfolio({
                 <button
                   data-testid="filter-recommended"
                   onClick={() => handleCategoryChange("recommended")}
-                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "recommended"
-                    ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
-                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
-                    }`}
+                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${
+                    activeCategory === "recommended"
+                      ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
+                      : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
+                  }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   Suggested ({recommended.size})
@@ -2273,7 +2344,7 @@ export function Portfolio({
                 setSearchQuery(e.target.value);
                 setVisibleCount(6);
               }}
-              placeholder="Search projects by title, skills, technology..."
+              placeholder="Search all projects including hidden..."
               className="w-full md:w-80 pl-10 pr-9 py-2 rounded-lg text-sm font-mono bg-card/60 border border-border/40 text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-primary/50 transition-colors"
             />
 
@@ -2298,11 +2369,14 @@ export function Portfolio({
               <div
                 key={project.slug}
                 data-testid={`card-project-${idx}`}
-                className="group cursor-pointer rounded-xl border border-border/50 bg-card hover:border-primary/40 transition-all duration-300 relative"
+                className="group cursor-pointer rounded-xl border border-border/50 hover:border-primary/40 bg-card transition-all duration-300 relative"
                 onClick={() => openProject(idx)}
               >
                 <div className="relative h-44 overflow-hidden rounded-t-xl">
-                  <MediaSlider media={project.media} className="w-full h-full" />
+                  <MediaSlider
+                    media={project.media}
+                    className="w-full h-full"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent dark:from-card dark:via-card/20 dark:to-transparent pointer-events-none" />
 
                   <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
@@ -2359,19 +2433,23 @@ export function Portfolio({
                       <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
                     </div>
 
-                    <button
-                      data-testid={`button-recommend-${idx}`}
-                      onClick={(e) => toggleRecommended(project.slug, e)}
-                      className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${isRecommended
-                        ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
-                        : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
+                    <div className="flex items-center gap-1.5">
+                      <button
+                        data-testid={`button-recommend-${idx}`}
+                        onClick={(e) => toggleRecommended(project.slug, e)}
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${
+                          isRecommended
+                            ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
+                            : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
                         }`}
-                    >
-                      <ThumbsUp
-                        className={`w-3.5 h-3.5 ${isRecommended ? "fill-amber-400" : ""
+                      >
+                        <ThumbsUp
+                          className={`w-3.5 h-3.5 ${
+                            isRecommended ? "fill-amber-400" : ""
                           }`}
-                      />
-                    </button>
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
 
