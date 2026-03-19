@@ -249,7 +249,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "DFM optimized",
     media: [{ type: "video", src: usbcPcbVideo }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "KiCad PCB + Schematic",
       "Panelization Layout",
@@ -278,7 +278,7 @@ const projects: Project[] = [
     icon: Battery,
     highlight: "HALL sensor feedback",
     media: [{ type: "video", src: motorVideo }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "PCB Layout + Schematic",
       "STM8 Firmware",
@@ -312,7 +312,7 @@ const projects: Project[] = [
       { type: "image", src: psuImg2 },
       { type: "image", src: psuImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "PCB Layout + Schematic",
       "STM8 Firmware",
@@ -353,7 +353,7 @@ const projects: Project[] = [
       { type: "image", src: cm4_5gImg4 },
       { type: "image", src: cm4_5gImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -395,7 +395,7 @@ const projects: Project[] = [
       { type: "image", src: jetsonImg4 },
       { type: "image", src: jetsonImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -431,7 +431,7 @@ const projects: Project[] = [
       { type: "image", src: netduino_cam_3 },
       { type: "image", src: netduino_cam_4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Firmware",
       "Camera Interface Integration",
@@ -548,7 +548,7 @@ const projects: Project[] = [
       { type: "image", src: nrf5340Img4 },
       { type: "image", src: nrf5340Img5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -585,7 +585,7 @@ const projects: Project[] = [
       { type: "image", src: lorawanGwImg3 },
       { type: "image", src: lorawanGwImg4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "ESP32 Firmware",
       "PCB Design Files",
@@ -653,7 +653,7 @@ const projects: Project[] = [
       { type: "image", src: ecgImg1 },
       { type: "image", src: ecgImg2 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Firmware",
       "ECG Signal Acquisition System",
@@ -727,7 +727,7 @@ const projects: Project[] = [
       { type: "image", src: healthMonitorImg4 },
       { type: "image", src: healthMonitorImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Firmware",
       "Multi-Sensor Hardware Design",
@@ -898,7 +898,7 @@ const projects: Project[] = [
       { type: "image", src: kria_kv260_fir_filter_acceleration_5 },
       { type: "image", src: kria_kv260_fir_filter_acceleration_6 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Vitis HLS FIR Filter Design",
       "Vivado Hardware Platform",
@@ -967,7 +967,7 @@ const projects: Project[] = [
       { type: "image", src: imx8Img4 },
       { type: "image", src: imx8Img5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Altium PCB + Schematic",
       "BOM & Gerber Files",
@@ -1037,7 +1037,7 @@ const projects: Project[] = [
       { type: "image", src: k26_som_multi_boot_custom_carrier_1 },
       { type: "image", src: k26_som_multi_boot_custom_carrier_2 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Multi-Boot PetaLinux Configuration",
       "BOOT.BIN Generation and QSPI Update",
@@ -1104,7 +1104,7 @@ const projects: Project[] = [
       { type: "image", src: kbImg4 },
       { type: "image", src: kbImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Eagle PCB + Schematic",
       "BOM & Gerber Files",
@@ -1206,7 +1206,7 @@ const projects: Project[] = [
       { type: "image", src: modKbImg4 },
       { type: "image", src: modKbImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Eagle PCB + Schematic",
       "VIA Firmware Config",
@@ -1273,7 +1273,7 @@ const projects: Project[] = [
       { type: "image", src: zynq_mpsoc_vivado_ps_configuration_3 },
       { type: "image", src: zynq_mpsoc_vivado_ps_configuration_4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Vivado Block Design Project",
       "PS Configuration TCL Preset",
@@ -1346,7 +1346,7 @@ const projects: Project[] = [
       { type: "image", src: rfidTrackingImg4 },
       { type: "image", src: rfidTrackingImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "RFID Scanner Background App",
       "Cloud Web API Integration",
@@ -1379,7 +1379,7 @@ const projects: Project[] = [
     icon: Activity,
     highlight: "Real Hardware Verification",
     media: [{ type: "image", src: versal_vitis_hardware_in_the_loop_1 }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Vitis HIL Build Flow",
       "Bootable SD Card Image",
@@ -1442,7 +1442,7 @@ const projects: Project[] = [
       { type: "image", src: cm5IoImg3 },
       { type: "image", src: cm5IoImg4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Altium PCB + Schematic",
       "BOM & Gerber Files",
@@ -1479,7 +1479,7 @@ const projects: Project[] = [
       { type: "image", src: heatpumpImg4 },
       { type: "image", src: heatpumpImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Firmware Development",
       "Schematic + PCB Layout",
