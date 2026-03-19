@@ -763,7 +763,7 @@ const projects: Project[] = [
       { type: "image", src: gsmImg3 },
       { type: "image", src: gsmImg4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded C Firmware",
       "Schematic + PCB Layout",
@@ -788,7 +788,7 @@ const projects: Project[] = [
       { type: "image", src: sbcImg2 },
       { type: "image", src: sbcImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Yocto BSP Image",
       "6-Layer PCB Files",
@@ -1003,7 +1003,7 @@ const projects: Project[] = [
       { type: "image", src: kria_kv260_petalinux_bsp_2 },
       { type: "image", src: kria_kv260_petalinux_bsp_3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Customized PetaLinux BSP",
       "Bootable SD Card Image",
@@ -1550,7 +1550,7 @@ const projects: Project[] = [
       { type: "image", src: wifi_water_heater_3 },
       { type: "image", src: wifi_water_heater_4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Firmware Development",
       "IR Protocol Capture & Replay",
