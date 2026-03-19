@@ -1,5 +1,6 @@
 import { ArrowRight, Cpu, CircuitBoard, Server, Wifi, Shield, Zap, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SiGithub } from "react-icons/si";
 
 export function Hero() {
   return (
@@ -39,6 +40,17 @@ export function Hero() {
             asChild
           >
             <a href="#services">View Capabilities</a>
+          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            className="h-14 px-8 border-border font-medium text-base rounded-lg transition-all"
+            asChild
+          >
+            <a href="https://github.com/deantecason" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <SiGithub className="w-5 h-5" />
+              GitHub
+            </a>
           </Button>
         </div>
 

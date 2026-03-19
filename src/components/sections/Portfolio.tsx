@@ -2359,7 +2359,7 @@ export function Portfolio({
                 className="group cursor-pointer rounded-xl border border-border/50 hover:border-primary/40 bg-card transition-all duration-300 relative"
                 onClick={() => openProject(idx)}
               >
-                <div className="relative h-44 overflow-hidden rounded-t-xl">
+                <div className="relative h-64 overflow-hidden rounded-t-xl">
                   <MediaSlider
                     media={project.media}
                     className="w-full h-full"
