@@ -249,7 +249,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "DFM optimized",
     media: [{ type: "video", src: usbcPcbVideo }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "KiCad PCB + Schematic",
       "Panelization Layout",
@@ -278,7 +278,7 @@ const projects: Project[] = [
     icon: Battery,
     highlight: "HALL sensor feedback",
     media: [{ type: "video", src: motorVideo }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "PCB Layout + Schematic",
       "STM8 Firmware",
@@ -312,7 +312,7 @@ const projects: Project[] = [
       { type: "image", src: psuImg2 },
       { type: "image", src: psuImg3 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "PCB Layout + Schematic",
       "STM8 Firmware",
@@ -353,7 +353,7 @@ const projects: Project[] = [
       { type: "image", src: cm4_5gImg4 },
       { type: "image", src: cm4_5gImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -395,7 +395,7 @@ const projects: Project[] = [
       { type: "image", src: jetsonImg4 },
       { type: "image", src: jetsonImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -431,7 +431,7 @@ const projects: Project[] = [
       { type: "image", src: netduino_cam_3 },
       { type: "image", src: netduino_cam_4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded Firmware",
       "Camera Interface Integration",
@@ -472,7 +472,7 @@ const projects: Project[] = [
       { type: "image", src: ne101_mqtt_lte_iot_camera_7 },
       { type: "image", src: ne101_mqtt_lte_iot_camera_8 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded Camera Firmware",
       "MQTT/MQTTS Data Integration",
@@ -510,7 +510,7 @@ const projects: Project[] = [
       { type: "image", src: pi_camera_doorbell_notifications_4 },
       { type: "image", src: pi_camera_doorbell_notifications_5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Python Doorbell Detection Script",
       "Pi Camera Capture Integration",
@@ -548,7 +548,7 @@ const projects: Project[] = [
       { type: "image", src: nrf5340Img4 },
       { type: "image", src: nrf5340Img5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -585,7 +585,7 @@ const projects: Project[] = [
       { type: "image", src: lorawanGwImg3 },
       { type: "image", src: lorawanGwImg4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "PCB Design Files",
@@ -620,7 +620,7 @@ const projects: Project[] = [
       { type: "image", src: predMaintImg3 },
       { type: "image", src: predMaintImg4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Simulink Digital Twin Model",
       "LSTM-Autoencoder ONNX",
@@ -653,7 +653,7 @@ const projects: Project[] = [
       { type: "image", src: ecgImg1 },
       { type: "image", src: ecgImg2 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded Firmware",
       "ECG Signal Acquisition System",
@@ -689,7 +689,7 @@ const projects: Project[] = [
       { type: "image", src: pulseRateImg4 },
       { type: "image", src: pulseRateImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Arduino Firmware",
       "Sensor Interface Circuit",
@@ -727,7 +727,7 @@ const projects: Project[] = [
       { type: "image", src: healthMonitorImg4 },
       { type: "image", src: healthMonitorImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded Firmware",
       "Multi-Sensor Hardware Design",
@@ -762,7 +762,7 @@ const projects: Project[] = [
       { type: "image", src: gsmImg3 },
       { type: "image", src: gsmImg4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded C Firmware",
       "Schematic + PCB Layout",
@@ -787,7 +787,7 @@ const projects: Project[] = [
       { type: "image", src: sbcImg2 },
       { type: "image", src: sbcImg3 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Yocto BSP Image",
       "6-Layer PCB Files",
@@ -823,7 +823,7 @@ const projects: Project[] = [
       { type: "image", src: smartAcImg2 },
       { type: "image", src: smartAcImg3 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "Web Dashboard",
@@ -859,7 +859,7 @@ const projects: Project[] = [
       { type: "image", src: laneImg4 },
       { type: "image", src: laneImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Simulink Model",
       "YOLOv8n ONNX Model",
@@ -898,7 +898,7 @@ const projects: Project[] = [
       { type: "image", src: kria_kv260_fir_filter_acceleration_5 },
       { type: "image", src: kria_kv260_fir_filter_acceleration_6 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Vitis HLS FIR Filter Design",
       "Vivado Hardware Platform",
@@ -931,7 +931,7 @@ const projects: Project[] = [
       { type: "image", src: clarecoImg1 },
       { type: "image", src: clarecoImg2 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Flutter App Source",
       "Cloud API Integration",
@@ -967,7 +967,7 @@ const projects: Project[] = [
       { type: "image", src: imx8Img4 },
       { type: "image", src: imx8Img5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "BOM & Gerber Files",
@@ -1002,7 +1002,7 @@ const projects: Project[] = [
       { type: "image", src: kria_kv260_petalinux_bsp_2 },
       { type: "image", src: kria_kv260_petalinux_bsp_3 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Customized PetaLinux BSP",
       "Bootable SD Card Image",
@@ -1037,7 +1037,7 @@ const projects: Project[] = [
       { type: "image", src: k26_som_multi_boot_custom_carrier_1 },
       { type: "image", src: k26_som_multi_boot_custom_carrier_2 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Multi-Boot PetaLinux Configuration",
       "BOOT.BIN Generation and QSPI Update",
@@ -1068,7 +1068,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "Stackable HAT design",
     media: [{ type: "video", src: rpiHatVideo }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "KiCad PCB + Schematic",
       "Gerber & BOM Files",
@@ -1104,7 +1104,7 @@ const projects: Project[] = [
       { type: "image", src: kbImg4 },
       { type: "image", src: kbImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Eagle PCB + Schematic",
       "BOM & Gerber Files",
@@ -1138,7 +1138,7 @@ const projects: Project[] = [
       { type: "image", src: roboArmImg2 },
       { type: "image", src: roboArmImg3 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Simulink Model + S-Function",
       "CNN ONNX Model",
@@ -1171,7 +1171,7 @@ const projects: Project[] = [
       { type: "image", src: mosfetImg2 },
       { type: "image", src: mosfetImg3 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Circuit Schematic",
       "Simulation Results",
@@ -1206,7 +1206,7 @@ const projects: Project[] = [
       { type: "image", src: modKbImg4 },
       { type: "image", src: modKbImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Eagle PCB + Schematic",
       "VIA Firmware Config",
@@ -1236,7 +1236,7 @@ const projects: Project[] = [
     icon: Wifi,
     highlight: "Remote site imaging",
     media: [{ type: "image", src: envImagingImg1 }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "PCB Layout + Schematic",
@@ -1273,7 +1273,7 @@ const projects: Project[] = [
       { type: "image", src: zynq_mpsoc_vivado_ps_configuration_3 },
       { type: "image", src: zynq_mpsoc_vivado_ps_configuration_4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Vivado Block Design Project",
       "PS Configuration TCL Preset",
@@ -1309,7 +1309,7 @@ const projects: Project[] = [
       { type: "image", src: tuneImg4 },
       { type: "image", src: tuneImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Eagle PCB + Schematic",
       "BOM & Gerber Files",
@@ -1346,7 +1346,7 @@ const projects: Project[] = [
       { type: "image", src: rfidTrackingImg4 },
       { type: "image", src: rfidTrackingImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "RFID Scanner Background App",
       "Cloud Web API Integration",
@@ -1379,7 +1379,7 @@ const projects: Project[] = [
     icon: Activity,
     highlight: "Real Hardware Verification",
     media: [{ type: "image", src: versal_vitis_hardware_in_the_loop_1 }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Vitis HIL Build Flow",
       "Bootable SD Card Image",
@@ -1409,7 +1409,7 @@ const projects: Project[] = [
     icon: MonitorSmartphone,
     highlight: "Digital health assistant",
     media: [{ type: "image", src: clarecoClinicImg1 }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Flutter App Source",
       "REST API Backend",
@@ -1442,7 +1442,7 @@ const projects: Project[] = [
       { type: "image", src: cm5IoImg3 },
       { type: "image", src: cm5IoImg4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Altium PCB + Schematic",
       "BOM & Gerber Files",
@@ -1479,7 +1479,7 @@ const projects: Project[] = [
       { type: "image", src: heatpumpImg4 },
       { type: "image", src: heatpumpImg5 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded Firmware Development",
       "Schematic + PCB Layout",
@@ -1509,7 +1509,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Bluetooth door control",
     media: [{ type: "image", src: doorLockImg1 }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Arduino Firmware",
       "Android App Source",
@@ -1549,7 +1549,7 @@ const projects: Project[] = [
       { type: "image", src: wifi_water_heater_3 },
       { type: "image", src: wifi_water_heater_4 },
     ],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "Embedded Firmware Development",
       "IR Protocol Capture & Replay",
@@ -1584,7 +1584,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Cloud AI sorting",
     media: [{ type: "image", src: garbageSorterImg }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "ESP32 Firmware",
       "AWS Lambda Functions",
