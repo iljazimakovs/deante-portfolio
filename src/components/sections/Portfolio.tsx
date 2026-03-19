@@ -790,11 +790,6 @@ const projects: Project[] = [
       { type: "image", src: smartAcImg1 },
       { type: "image", src: smartAcImg2 },
       { type: "image", src: smartAcImg3 },
-      {
-        type: "video",
-        src: "/images/project-smart-ac-demo.mp4",
-        poster: smartAcImg2,
-      },
     ],
     deliverables: [
       "ESP32 Firmware",
