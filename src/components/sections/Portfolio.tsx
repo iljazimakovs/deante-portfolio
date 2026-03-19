@@ -210,7 +210,6 @@ export const filterCategories: FilterCategory[] = [
   { name: "Embedded Linux & BSP", slug: "embedded-linux-bsp" },
   { name: "IoT & Connected Devices", slug: "iot-connected-devices" },
   { name: "PCB & Hardware Engineering", slug: "pcb-hardware" },
-  { name: "Hardware Bring-Up & Debugging", slug: "hardware-debugging" },
 ];
 
 interface Project {
@@ -1855,14 +1854,6 @@ function MediaSlider({
         </>
       )}
 
-      {current.type === "video" && !hasMultiple && (
-        <div className="absolute top-2 right-2 z-10">
-          <span className="flex items-center gap-1 text-[10px] font-mono text-foreground bg-background/80 backdrop-blur-sm border border-border/50 rounded-md px-2 py-1">
-            <Play className="w-3 h-3 fill-current" />
-            VIDEO
-          </span>
-        </div>
-      )}
     </div>
   );
 }
@@ -2274,10 +2265,6 @@ export function Portfolio({
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
                 Featured <span className="text-primary">Projects</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl text-lg">
-                A selection of production-grade embedded systems delivered
-                end-to-end - from architecture through manufacturing.
-              </p>
             </div>
             <div className="text-right">
               <p className="text-sm font-mono text-muted-foreground">
