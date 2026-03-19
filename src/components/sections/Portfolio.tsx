@@ -1407,13 +1407,13 @@ const projects: Project[] = [
   },
   {
     slug: "heatpump1",
-    title: "Open-Source Heat Pump Automation Controller",
+    title: "Heat Pump Automation Controller",
     category: "IoT & Smart Systems",
     filterSlugs: ["embedded-firmware", "pcb-hardware", "hardware-debugging"],
     description:
-      "Open-source heat pump control platform with embedded firmware, relay outputs, sensor monitoring, and protection logic for automating new systems, repairing legacy units, and HVAC experimentation.",
+      "Heat pump control platform with embedded firmware, relay outputs, sensor monitoring, and protection logic for automating new systems, repairing legacy units, and HVAC experimentation.",
     longDescription:
-      "Developed an open-source heat pump controller for precise automation of newly built systems, repair of legacy units, and refrigeration experimentation. Built around an Arduino Pro Mini, the platform manages compressors, pumps, fans, crankcase heaters, pressure switches, current sensing, and up to 12 DS18B20 temperature sensors. The embedded firmware implements startup logic, safety protections, EEV support, self-tests, serial diagnostics, and remote display control. The design includes a custom PCB, relay outputs for 230V loads, and RS485/UART interfaces for monitoring and service tools.",
+      "Developed an heat pump controller for precise automation of newly built systems, repair of legacy units, and refrigeration experimentation. Built around an Arduino Pro Mini, the platform manages compressors, pumps, fans, crankcase heaters, pressure switches, current sensing, and up to 12 DS18B20 temperature sensors. The embedded firmware implements startup logic, safety protections, EEV support, self-tests, serial diagnostics, and remote display control. The design includes a custom PCB, relay outputs for 230V loads, and RS485/UART interfaces for monitoring and service tools.",
     tags: [
       "Arduino Pro Mini",
       "Embedded C",
@@ -1426,7 +1426,7 @@ const projects: Project[] = [
       "HVAC Automation"
     ],
     icon: Thermometer,
-    highlight: "Open-source HVAC control",
+    highlight: "HVAC control",
     media: [
       { type: "image", src: heatpumpImg1 },
       { type: "image", src: heatpumpImg2 },
