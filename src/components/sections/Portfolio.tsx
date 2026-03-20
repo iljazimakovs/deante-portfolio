@@ -1456,37 +1456,40 @@ const projects: Project[] = [
     category: "IoT & Smart Systems",
     filterSlugs: ["embedded-firmware", "pcb-hardware", "hardware-debugging"],
     description:
-      "Heat pump control platform with embedded firmware, relay outputs, sensor monitoring, and protection logic for automating new systems, repairing legacy units, and HVAC experimentation.",
+      "Embedded firmware-driven heat pump controller with real-time sensor monitoring, relay-based actuation, and advanced protection logic for HVAC automation and system reliability.",
     longDescription:
-      "Developed an heat pump controller for precise automation of newly built systems, repair of legacy units, and refrigeration experimentation. Built around an Arduino Pro Mini, the platform manages compressors, pumps, fans, crankcase heaters, pressure switches, current sensing, and up to 12 DS18B20 temperature sensors. The embedded firmware implements startup logic, safety protections, EEV support, self-tests, serial diagnostics, and remote display control. The design includes a custom PCB, relay outputs for 230V loads, and RS485/UART interfaces for monitoring and service tools.",
+      "Developed a heat pump automation controller with a strong focus on embedded firmware design and real-time system control. Built around an Arduino Pro Mini and a custom PCB, the system manages compressors, pumps, fans, crankcase heaters, and pressure sensors while continuously monitoring up to 12 DS18B20 temperature sensors and current signals.\n\nThe embedded firmware implements state-machine-based control logic, handling system startup, shutdown, and dynamic operation based on sensor feedback. Advanced protection mechanisms are integrated, including overheat protection, pressure fault detection, power failure recovery, and compressor safety control. The firmware also supports Electronic Expansion Valve (EEV) operation, self-test routines, and real-time diagnostics via serial communication.\n\nAdditional features include RS485/UART communication for remote display and service tools, enabling monitoring, debugging, and system tuning. The solution is designed for both new installations and legacy system retrofits, providing a reliable and flexible platform for HVAC automation and experimentation.",
     tags: [
       "Arduino Pro Mini",
+      "Embedded Firmware",
       "Embedded C",
+      "State Machine",
       "DS18B20",
       "Heat Pump Control",
       "Electronic Expansion Valve",
       "RS485",
       "Relay Control",
       "PCB Design",
-      "HVAC Automation",
+      "HVAC Automation"
     ],
     icon: Thermometer,
-    highlight: "HVAC control",
+    highlight: "Firmware-driven HVAC control",
     media: [
       { type: "image", src: heatpumpImg1 },
       { type: "image", src: heatpumpImg2 },
       { type: "image", src: heatpumpImg3 },
       { type: "image", src: heatpumpImg4 },
-      { type: "image", src: heatpumpImg5 },
+      { type: "image", src: heatpumpImg5 }
     ],
     hidden: false,
     deliverables: [
       "Embedded Firmware Development",
+      "State Machine Control Implementation",
+      "Sensor & Actuator Integration",
       "Schematic + PCB Layout",
-      "Relay and Sensor Control Logic",
-      "Serial Diagnostic Interface",
-      "System Test and Validation",
-    ],
+      "Serial Diagnostics & Debug Interface",
+      "System Testing & Validation"
+    ]
   },
   {
     slug: "adlk",
@@ -1613,7 +1616,7 @@ function CardVideo({
     setHovering(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, []);
 
@@ -1635,9 +1638,8 @@ function CardVideo({
         <img
           src={posterSrc}
           alt=""
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${
-            hovering ? "opacity-0" : "opacity-100"
-          }`}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"
+            }`}
         />
       )}
       <video
@@ -1651,9 +1653,8 @@ function CardVideo({
         <source src={item.src} type="video/mp4" />
       </video>
       <div
-        className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${
-          hovering ? "opacity-0" : "opacity-100"
-        }`}
+        className={`absolute inset-0 flex items-center justify-center z-10 pointer-events-none transition-opacity duration-200 ${hovering ? "opacity-0" : "opacity-100"
+          }`}
       >
         <div className="rounded-full bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/30 w-10 h-10">
           <Play className="text-white ml-0.5 w-4 h-4" />
@@ -1801,9 +1802,8 @@ function MediaSlider({
             <img
               src={item.src}
               alt=""
-              className={`w-full ${
-                isModal ? "object-contain" : "h-full object-cover"
-              }`}
+              className={`w-full ${isModal ? "object-contain" : "h-full object-cover"
+                }`}
             />
           )}
         </div>
@@ -1812,18 +1812,16 @@ function MediaSlider({
       {hasMultiple && (
         <>
           <button
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${
-              isModal ? "w-9 h-9" : "w-7 h-7"
-            }`}
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"
+              }`}
             onClick={goPrev}
             data-testid="button-media-prev"
           >
             <ChevronLeft className={isModal ? "w-5 h-5" : "w-4 h-4"} />
           </button>
           <button
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${
-              isModal ? "w-9 h-9" : "w-7 h-7"
-            }`}
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 rounded-full bg-background/60 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground transition-all hover:bg-background/90 ${isModal ? "w-9 h-9" : "w-7 h-7"
+              }`}
             onClick={goNext}
             data-testid="button-media-next"
           >
@@ -1834,11 +1832,10 @@ function MediaSlider({
             {media.map((item, i) => (
               <button
                 key={i}
-                className={`rounded-full transition-all ${
-                  i === safeIndex
+                className={`rounded-full transition-all ${i === safeIndex
                     ? "w-5 h-1.5 bg-primary"
                     : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
-                }`}
+                  }`}
                 onClick={(e) => goTo(i, e)}
                 data-testid={`button-media-dot-${i}`}
               />
@@ -2145,27 +2142,27 @@ export function Portfolio({
   const categoryFiltered =
     activeCategory === "recommended"
       ? Array.from(recommended)
-          .map((slug) => projects.find((p) => p.slug === slug))
-          .filter((p): p is Project => p !== undefined)
+        .map((slug) => projects.find((p) => p.slug === slug))
+        .filter((p): p is Project => p !== undefined)
       : activeCategory === "all"
         ? projects.filter((p) => !p.hidden)
         : projects.filter(
-            (p) => p.filterSlugs.includes(activeCategory) && !p.hidden,
-          );
+          (p) => p.filterSlugs.includes(activeCategory) && !p.hidden,
+        );
 
   const filteredProjects = searchQuery.trim()
     ? projects.filter((p) => {
-        const q = searchQuery.toLowerCase();
-        return (
-          p.title.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q) ||
-          p.longDescription.toLowerCase().includes(q) ||
-          p.highlight.toLowerCase().includes(q) ||
-          p.tags.some((t) => t.toLowerCase().includes(q)) ||
-          p.deliverables.some((d) => d.toLowerCase().includes(q))
-        );
-      })
+      const q = searchQuery.toLowerCase();
+      return (
+        p.title.toLowerCase().includes(q) ||
+        p.category.toLowerCase().includes(q) ||
+        p.description.toLowerCase().includes(q) ||
+        p.longDescription.toLowerCase().includes(q) ||
+        p.highlight.toLowerCase().includes(q) ||
+        p.tags.some((t) => t.toLowerCase().includes(q)) ||
+        p.deliverables.some((d) => d.toLowerCase().includes(q))
+      );
+    })
     : categoryFiltered;
 
   const categoryBaseUrl =
@@ -2252,7 +2249,7 @@ export function Portfolio({
     activeCategory === "recommended"
       ? "Suggested"
       : filterCategories.find((c) => c.slug === activeCategory)?.name ||
-        "All Projects";
+      "All Projects";
 
   return (
     <section id="portfolio" className="py-24 relative">
@@ -2280,11 +2277,10 @@ export function Portfolio({
                 key={cat.slug}
                 data-testid={`filter-${cat.slug}`}
                 onClick={() => handleCategoryChange(cat.slug)}
-                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${
-                  activeCategory === cat.slug
+                className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${activeCategory === cat.slug
                     ? "bg-primary/15 text-primary border-primary/40"
                     : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
-                }`}
+                  }`}
               >
                 {cat.name}
               </button>
@@ -2295,11 +2291,10 @@ export function Portfolio({
                 <button
                   data-testid="filter-recommended"
                   onClick={() => handleCategoryChange("recommended")}
-                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${
-                    activeCategory === "recommended"
+                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "recommended"
                       ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
                       : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                   Suggested ({recommended.size})
@@ -2424,16 +2419,14 @@ export function Portfolio({
                       <button
                         data-testid={`button-recommend-${idx}`}
                         onClick={(e) => toggleRecommended(project.slug, e)}
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${
-                          isRecommended
+                        className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${isRecommended
                             ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
                             : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
-                        }`}
+                          }`}
                       >
                         <ThumbsUp
-                          className={`w-3.5 h-3.5 ${
-                            isRecommended ? "fill-amber-400" : ""
-                          }`}
+                          className={`w-3.5 h-3.5 ${isRecommended ? "fill-amber-400" : ""
+                            }`}
                         />
                       </button>
                     </div>
