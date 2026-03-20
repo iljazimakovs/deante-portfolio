@@ -249,7 +249,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "DFM optimized",
     media: [{ type: "video", src: usbcPcbVideo }],
-    hidden: true,
+    hidden: false,
     deliverables: [
       "KiCad PCB + Schematic",
       "Panelization Layout",
