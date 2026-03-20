@@ -2367,7 +2367,7 @@ export function Portfolio({
                     </span>
                   </div>
 
-                  <div className="absolute bottom-3 left-3 z-10">
+                  <div className="absolute bottom-3 left-3 z-10" onClick={(e) => toggleRecommended(project.slug, e)}>
                     <div className="w-9 h-9 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center border border-border/50 group-hover:border-primary/50 transition-colors">
                       <Icon className="w-4 h-4 text-primary" />
                     </div>
@@ -2409,26 +2409,10 @@ export function Portfolio({
                     )}
                   </div>
 
-                  <div className="flex items-center justify-between pt-1">
+                  <div className="flex items-center pt-1">
                     <div className="flex items-center gap-1.5 text-xs font-mono text-primary/70 group-hover:text-primary transition-colors">
                       <span>View Details</span>
                       <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
-                    </div>
-
-                    <div className="flex items-center gap-1.5">
-                      <button
-                        data-testid={`button-recommend-${idx}`}
-                        onClick={(e) => toggleRecommended(project.slug, e)}
-                        className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${isRecommended
-                            ? "bg-amber-500/15 border-amber-500/50 text-amber-400"
-                            : "bg-muted/30 border-border/50 text-muted-foreground hover:border-amber-500/40 hover:text-amber-400"
-                          }`}
-                      >
-                        <ThumbsUp
-                          className={`w-3.5 h-3.5 ${isRecommended ? "fill-amber-400" : ""
-                            }`}
-                        />
-                      </button>
                     </div>
                   </div>
                 </div>
