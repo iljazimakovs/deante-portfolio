@@ -249,7 +249,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "DFM optimized",
     media: [{ type: "video", src: usbcPcbVideo }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "KiCad PCB + Schematic",
       "Panelization Layout",
@@ -2145,9 +2145,9 @@ export function Portfolio({
         .map((slug) => projects.find((p) => p.slug === slug))
         .filter((p): p is Project => p !== undefined)
       : activeCategory === "all"
-        ? projects.filter((p) => !p.hidden)
+        ? projects.filter((p) => !p.hidden || recommended.has(p.slug))
         : projects.filter(
-          (p) => p.filterSlugs.includes(activeCategory) && !p.hidden,
+          (p) => p.filterSlugs.includes(activeCategory) && (!p.hidden || recommended.has(p.slug)),
         );
 
   const filteredProjects = searchQuery.trim()
