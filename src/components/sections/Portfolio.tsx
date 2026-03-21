@@ -155,8 +155,6 @@ const versal_vitis_hardware_in_the_loop_1 =
   "/images/versal_vitis_hardware_in_the_loop_1.jpg";
 const kria_kv260_fir_filter_acceleration_1 =
   "/images/kria_kv260_fir_filter_acceleration_1.jpg";
-const kria_kv260_fir_filter_acceleration_2 =
-  "/images/kria_kv260_fir_filter_acceleration_2.jpg";
 const kria_kv260_fir_filter_acceleration_3 =
   "/images/kria_kv260_fir_filter_acceleration_3.jpg";
 const kria_kv260_fir_filter_acceleration_4 =
@@ -892,7 +890,6 @@ const projects: Project[] = [
     highlight: "Pipelined DSP Acceleration",
     media: [
       { type: "image", src: kria_kv260_fir_filter_acceleration_1 },
-      { type: "image", src: kria_kv260_fir_filter_acceleration_2 },
       { type: "image", src: kria_kv260_fir_filter_acceleration_3 },
       { type: "image", src: kria_kv260_fir_filter_acceleration_4 },
       { type: "image", src: kria_kv260_fir_filter_acceleration_5 },
