@@ -508,7 +508,7 @@ const projects: Project[] = [
       { type: "image", src: pi_camera_doorbell_notifications_4 },
       { type: "image", src: pi_camera_doorbell_notifications_5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Python Doorbell Detection Script",
       "Pi Camera Capture Integration",
@@ -618,7 +618,7 @@ const projects: Project[] = [
       { type: "image", src: predMaintImg3 },
       { type: "image", src: predMaintImg4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Simulink Digital Twin Model",
       "LSTM-Autoencoder ONNX",
@@ -760,7 +760,7 @@ const projects: Project[] = [
       { type: "image", src: gsmImg3 },
       { type: "image", src: gsmImg4 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded C Firmware",
       "Schematic + PCB Layout",
@@ -821,7 +821,7 @@ const projects: Project[] = [
       { type: "image", src: smartAcImg2 },
       { type: "image", src: smartAcImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "ESP32 Firmware",
       "Web Dashboard",
@@ -857,7 +857,7 @@ const projects: Project[] = [
       { type: "image", src: laneImg4 },
       { type: "image", src: laneImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Simulink Model",
       "YOLOv8n ONNX Model",
@@ -928,7 +928,7 @@ const projects: Project[] = [
       { type: "image", src: clarecoImg1 },
       { type: "image", src: clarecoImg2 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Flutter App Source",
       "Cloud API Integration",
@@ -1135,7 +1135,7 @@ const projects: Project[] = [
       { type: "image", src: roboArmImg2 },
       { type: "image", src: roboArmImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Simulink Model + S-Function",
       "CNN ONNX Model",
@@ -1168,7 +1168,7 @@ const projects: Project[] = [
       { type: "image", src: mosfetImg2 },
       { type: "image", src: mosfetImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Circuit Schematic",
       "Simulation Results",
@@ -1233,7 +1233,7 @@ const projects: Project[] = [
     icon: Wifi,
     highlight: "Remote site imaging",
     media: [{ type: "image", src: envImagingImg1 }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "ESP32 Firmware",
       "PCB Layout + Schematic",
@@ -1386,35 +1386,6 @@ const projects: Project[] = [
     ],
   },
   {
-    slug: "ccli",
-    title: "Clareco Clinic Healthcare Platform",
-    category: "AI / Mobile App",
-    filterSlugs: ["iot-connected-devices", "embedded-firmware"],
-    description:
-      "Digital healthcare platform enabling appointment scheduling, AI digital assistant conversations, and proactive patient–doctor communication. Built with Flutter for seamless mobile experience.",
-    longDescription:
-      "Developed Clareco Clinic, a digital healthcare platform designed to streamline doctor–patient interaction and appointment management. The mobile app enables patients to schedule and receive appointment notifications, communicate with a digital assistant, and discuss medical concerns directly from their smartphone. Doctors gain early access to patient inputs, medical insights, and assistant conversations, enabling proactive and personalized care. The platform enhances engagement, accessibility, and operational efficiency in modern healthcare environments.",
-    tags: [
-      "Flutter",
-      "Dart",
-      "REST APIs",
-      "Push Notifications",
-      "Secure Messaging",
-      "AI Digital Assistant",
-      "Cloud Backend",
-    ],
-    icon: MonitorSmartphone,
-    highlight: "Digital health assistant",
-    media: [{ type: "image", src: clarecoClinicImg1 }],
-    hidden: false,
-    deliverables: [
-      "Flutter App Source",
-      "REST API Backend",
-      "Push Notification System",
-      "AI Assistant Integration",
-    ],
-  },
-  {
     slug: "cm5i",
     title: "CM5 IO Board with USB 2.0 OTG",
     category: "Embedded Linux / Hardware",
@@ -1509,7 +1480,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Bluetooth door control",
     media: [{ type: "image", src: doorLockImg1 }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Arduino Firmware",
       "Android App Source",
@@ -1584,7 +1555,7 @@ const projects: Project[] = [
     icon: Cpu,
     highlight: "Cloud AI sorting",
     media: [{ type: "image", src: garbageSorterImg }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "ESP32 Firmware",
       "AWS Lambda Functions",
