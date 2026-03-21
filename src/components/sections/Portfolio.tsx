@@ -546,7 +546,7 @@ const projects: Project[] = [
       { type: "image", src: nrf5340Img4 },
       { type: "image", src: nrf5340Img5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Altium PCB + Schematic",
       "Block Diagram",
@@ -785,7 +785,7 @@ const projects: Project[] = [
       { type: "image", src: sbcImg2 },
       { type: "image", src: sbcImg3 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Yocto BSP Image",
       "6-Layer PCB Files",
@@ -1034,7 +1034,7 @@ const projects: Project[] = [
       { type: "image", src: k26_som_multi_boot_custom_carrier_1 },
       { type: "image", src: k26_som_multi_boot_custom_carrier_2 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Multi-Boot PetaLinux Configuration",
       "BOOT.BIN Generation and QSPI Update",
@@ -1065,7 +1065,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "Stackable HAT design",
     media: [{ type: "video", src: rpiHatVideo }],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "KiCad PCB + Schematic",
       "Gerber & BOM Files",
@@ -1306,7 +1306,7 @@ const projects: Project[] = [
       { type: "image", src: tuneImg4 },
       { type: "image", src: tuneImg5 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Eagle PCB + Schematic",
       "BOM & Gerber Files",
