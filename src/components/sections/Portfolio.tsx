@@ -470,7 +470,7 @@ const projects: Project[] = [
       { type: "image", src: ne101_mqtt_lte_iot_camera_7 },
       { type: "image", src: ne101_mqtt_lte_iot_camera_8 },
     ],
-    hidden: false,
+    hidden: true,
     deliverables: [
       "Embedded Camera Firmware",
       "MQTT/MQTTS Data Integration",
