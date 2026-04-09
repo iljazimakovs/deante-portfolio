@@ -1977,15 +1977,15 @@ function ProjectModal({
 export function Portfolio({
   initialSlug,
   initialCategory,
-  initialRecommendedIds,
+  initialSuggestedIds,
 }: {
   initialSlug?: string;
   initialCategory?: string;
-  initialRecommendedIds?: string;
+  initialSuggestedIds?: string;
 } = {}) {
   const [, setLocation] = useLocation();
 
-  const parseRecommendedSlugs = (ids?: string): Set<string> => {
+  const parseSuggestedSlugs = (ids?: string): Set<string> => {
     if (!ids) return new Set();
     const parts = ids.split("~");
     const isLegacy =
@@ -2006,14 +2006,14 @@ export function Portfolio({
     return new Set(validSlugs);
   };
 
-  const [recommended, setRecommended] = useState<Set<string>>(() =>
-    parseRecommendedSlugs(initialRecommendedIds),
+  const [suggested, setSuggested] = useState<Set<string>>(() =>
+    parseSuggestedSlugs(initialSuggestedIds),
   );
 
   const [activeCategory, setActiveCategory] = useState(() => {
-    if (initialRecommendedIds) {
-      const decoded = parseRecommendedSlugs(initialRecommendedIds);
-      return decoded.size > 0 ? "recommended" : "all";
+    if (initialSuggestedIds) {
+      const decoded = parseSuggestedSlugs(initialSuggestedIds);
+      return decoded.size > 0 ? "suggested" : "all";
     }
     return initialCategory || "all";
   });
@@ -2032,11 +2032,11 @@ export function Portfolio({
   });
 
   useEffect(() => {
-    if (initialRecommendedIds && !closingRef.current) {
-      const decoded = parseRecommendedSlugs(initialRecommendedIds);
+    if (initialSuggestedIds && !closingRef.current) {
+      const decoded = parseSuggestedSlugs(initialSuggestedIds);
       if (decoded.size > 0) {
-        setRecommended(decoded);
-        setActiveCategory("recommended");
+        setSuggested(decoded);
+        setActiveCategory("suggested");
       }
       setTimeout(() => {
         document
@@ -2044,7 +2044,7 @@ export function Portfolio({
           ?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
-  }, [initialRecommendedIds]);
+  }, [initialSuggestedIds]);
 
   useEffect(() => {
     if (initialSlug) {
@@ -2066,9 +2066,9 @@ export function Portfolio({
     }
   }, [initialCategory]);
 
-  const toggleRecommended = (slug: string, e: React.MouseEvent) => {
+  const toggleSuggested = (slug: string, e: React.MouseEvent) => {
     e.stopPropagation();
-    setRecommended((prev) => {
+    setSuggested((prev) => {
       const next = new Set(prev);
 
       if (next.has(slug)) {
@@ -2077,9 +2077,9 @@ export function Portfolio({
         next.add(slug);
       }
 
-      if (activeCategory === "recommended") {
+      if (activeCategory === "suggested") {
         if (next.size > 0) {
-          setLocation(`/recommended/${Array.from(next).join("~")}`);
+          setLocation(`/suggested/${Array.from(next).join("~")}`);
         } else {
           setActiveCategory("all");
           setLocation("/");
@@ -2090,15 +2090,15 @@ export function Portfolio({
     });
   };
 
-  const getRecommendedUrl = () => {
-    if (recommended.size === 0) return "";
-    const ids = Array.from(recommended).join("~");
+  const getSuggestedUrl = () => {
+    if (suggested.size === 0) return "";
+    const ids = Array.from(suggested).join("~");
     const base = typeof window !== "undefined" ? window.location.origin : "";
-    return `${base}/recommended/${ids}`;
+    return `${base}/suggested/${ids}`;
   };
 
-  const copyRecommendedLink = () => {
-    const url = getRecommendedUrl();
+  const copySuggestedLink = () => {
+    const url = getSuggestedUrl();
     if (url) {
       navigator.clipboard.writeText(url).then(() => {
         setCopiedLink(true);
@@ -2108,14 +2108,14 @@ export function Portfolio({
   };
 
   const categoryFiltered =
-    activeCategory === "recommended"
-      ? Array.from(recommended)
+    activeCategory === "suggested"
+      ? Array.from(suggested)
         .map((slug) => projects.find((p) => p.slug === slug))
         .filter((p): p is Project => p !== undefined)
       : activeCategory === "all"
-        ? projects.filter((p) => !p.hidden || recommended.has(p.slug))
+        ? projects.filter((p) => !p.hidden || suggested.has(p.slug))
         : projects.filter(
-          (p) => p.filterSlugs.includes(activeCategory) && (!p.hidden || recommended.has(p.slug)),
+          (p) => p.filterSlugs.includes(activeCategory) && (!p.hidden || suggested.has(p.slug)),
         );
 
   const filteredProjects = searchQuery.trim()
@@ -2134,9 +2134,9 @@ export function Portfolio({
     : categoryFiltered;
 
   const categoryBaseUrl =
-    activeCategory === "recommended"
-      ? recommended.size > 0
-        ? `/recommended/${Array.from(recommended).join("~")}`
+    activeCategory === "suggested"
+      ? suggested.size > 0
+        ? `/suggested/${Array.from(suggested).join("~")}`
         : "/"
       : activeCategory === "all"
         ? "/"
@@ -2146,9 +2146,9 @@ export function Portfolio({
     setActiveCategory(slug);
     setVisibleCount(6);
 
-    if (slug === "recommended") {
-      if (recommended.size > 0) {
-        setLocation(`/recommended/${Array.from(recommended).join("~")}`);
+    if (slug === "suggested") {
+      if (suggested.size > 0) {
+        setLocation(`/suggested/${Array.from(suggested).join("~")}`);
       } else {
         setLocation("/");
       }
@@ -2214,7 +2214,7 @@ export function Portfolio({
   };
 
   const activeCategoryName =
-    activeCategory === "recommended"
+    activeCategory === "suggested"
       ? "Suggested"
       : filterCategories.find((c) => c.slug === activeCategory)?.name ||
       "All Projects";
@@ -2254,23 +2254,23 @@ export function Portfolio({
               </button>
             ))}
 
-            {recommended.size > 0 && (
+            {suggested.size > 0 && (
               <>
                 <button
-                  data-testid="filter-recommended"
-                  onClick={() => handleCategoryChange("recommended")}
-                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "recommended"
+                  data-testid="filter-suggested"
+                  onClick={() => handleCategoryChange("suggested")}
+                  className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "suggested"
                       ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
                       : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
                     }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  Suggested ({recommended.size})
+                  Suggested ({suggested.size})
                 </button>
 
                 <button
-                  data-testid="button-copy-recommended-link"
-                  onClick={copyRecommendedLink}
+                  data-testid="button-copy-suggested-link"
+                  onClick={copySuggestedLink}
                   className="px-3 py-2 rounded-lg text-sm font-mono transition-all border bg-card/60 border-border/40 hover:border-primary/30 hover:text-foreground text-muted-foreground flex items-center gap-1.5"
                 >
                   {copiedLink ? (
@@ -2313,7 +2313,7 @@ export function Portfolio({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.slice(0, visibleCount).map((project, idx) => {
             const Icon = project.icon;
-            const isRecommended = recommended.has(project.slug);
+            const isSuggested = suggested.has(project.slug);
 
             return (
               <div
@@ -2335,7 +2335,7 @@ export function Portfolio({
                     </span>
                   </div>
 
-                  <div className="absolute bottom-3 left-3 z-10" onClick={(e) => toggleRecommended(project.slug, e)}>
+                  <div className="absolute bottom-3 left-3 z-10" onClick={(e) => toggleSuggested(project.slug, e)}>
                     <div className="w-9 h-9 rounded-lg bg-background/80 backdrop-blur-sm flex items-center justify-center border border-border/50 group-hover:border-primary/50 transition-colors">
                       <Icon className="w-4 h-4 text-primary" />
                     </div>
@@ -2410,7 +2410,7 @@ export function Portfolio({
             <p className="text-muted-foreground font-mono text-sm">
               {searchQuery.trim()
                 ? `No projects match "${searchQuery}". Try a different search term.`
-                : activeCategory === "recommended"
+                : activeCategory === "suggested"
                   ? "No suggested projects yet. Click the thumbs-up icon on any project card to add it."
                   : "No projects found in this category."}
             </p>
