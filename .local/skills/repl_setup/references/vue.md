@@ -2,7 +2,7 @@
 
 Configuration requirements for Vue.js applications in the Replit environment.
 
-## Vite-based Vue Projects (Recommended)
+## Vite-based Vue Projects (Suggested)
 
 Most modern Vue projects use Vite. Configure `vite.config.ts`:
 

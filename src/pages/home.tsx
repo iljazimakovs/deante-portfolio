@@ -7,7 +7,7 @@ import { Industries } from "@/components/sections/Industries";
 
 import { Footer } from "@/components/sections/Footer";
 
-export default function Home({ projectSlug, categorySlug, recommendedIds }: { projectSlug?: string; categorySlug?: string; recommendedIds?: string }) {
+export default function Home({ projectSlug, categorySlug, suggestedIds }: { projectSlug?: string; categorySlug?: string; suggestedIds?: string }) {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
       <Navbar />
@@ -16,7 +16,7 @@ export default function Home({ projectSlug, categorySlug, recommendedIds }: { pr
         <Hero />
         <Services />
         <Skills />
-        <Portfolio initialSlug={projectSlug} initialCategory={categorySlug} initialRecommendedIds={recommendedIds} />
+        <Portfolio initialSlug={projectSlug} initialCategory={categorySlug} initialSuggestedIds={suggestedIds} />
         <Industries />
 
       </main>

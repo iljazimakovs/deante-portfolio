@@ -66,7 +66,7 @@ const result3 = await deployConfig({
 
 Choose the appropriate deployment target based on your project type:
 
-### autoscale (Recommended Default)
+### autoscale (Suggested Default)
 
 Use for stateless websites and APIs that don't need persistent server memory.
 

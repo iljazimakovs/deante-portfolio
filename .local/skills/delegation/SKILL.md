@@ -48,7 +48,7 @@ Launch a subagent to handle a task synchronously. Blocks until the subagent comp
 
 **Usage Patterns:**
 
-**1. From Plan (Recommended when you have a session plan):**
+**1. From Plan (Suggested when you have a session plan):**
 
 ```javascript
 // Reference tasks by ID - subagent reads full context from .local/session_plan.md
@@ -81,7 +81,7 @@ Launch a subagent to handle a task asynchronously in the background. Returns imm
 
 **Usage Patterns:**
 
-**1. From Plan (Recommended when you have a session plan):**
+**1. From Plan (Suggested when you have a session plan):**
 
 ```javascript
 // Reference tasks by ID - no print needed, result comes via wait_for_background_tasks

@@ -17,8 +17,8 @@ function Router() {
       <Route path="/category/:slug">
         {(params) => <Home categorySlug={params.slug} />}
       </Route>
-      <Route path="/recommended/:ids">
-        {(params) => <Home recommendedIds={params.ids} />}
+      <Route path="/suggested/:ids">
+        {(params) => <Home suggestedIds={params.ids} />}
       </Route>
       <Route component={NotFound} />
     </Switch>

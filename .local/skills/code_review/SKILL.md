@@ -51,7 +51,7 @@ Spawn an architect subagent for analysis and planning.
 
 - **evaluate_task**: Assess completed or ongoing work against goals
 - **plan**: Create implementation plans with task decomposition and sequencing
-- **debug**: Root cause analysis, reproduction steps, and recommended fixes
+- **debug**: Root cause analysis, reproduction steps, and suggested fixes
 
 **Example:**
 
