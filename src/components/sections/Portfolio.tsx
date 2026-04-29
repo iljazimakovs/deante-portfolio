@@ -108,6 +108,7 @@ const psuImg3 = "/images/image_1772543847124.jpg";
 const irebVideo = "/images/ireb.mp4";
 const motorVideo = "/images/project-motor-controller.mp4";
 const rpiHatVideo = "/images/project-rpi-motor-hat.mp4";
+const singleLayerPcbVideo = "/images/singleLayerPcbImg.mp4";
 const sbcImg1 = "/images/1.jpg";
 const sbcImg2 = "/images/2.jpg";
 const sbcImg3 = "/images/3.jpg";
@@ -417,6 +418,37 @@ const projects: Project[] = [
       "Gerber & BOM Files",
       "3D Blender Visualization",
       "Integration Guide",
+    ],
+  },
+  {
+    slug: "sspcb",
+    title: "Single-Layer Through-Hole PCB Design",
+    category: "PCB & Hardware Engineering",
+    filterSlugs: ["pcb-hardware"],
+    description:
+      "Single-sided PCB using through-hole components, demonstrating optimized routing, structured layout, and practical mixed-signal design within strict single-layer constraints.",
+    longDescription:
+      "Designed a single-layer printed circuit board using through-hole components as a focused exercise in fundamental PCB layout principles, signal flow organization, and manufacturability under constrained routing conditions. The design integrates a range of discrete components including resistors, capacitors, inductors, relay switching elements, transistor stages, and input/output connectors.\n\nThe layout reflects a structured mixed-signal architecture, with clearly defined functional blocks such as filtering networks (LC stages), switching paths, and signal conditioning sections. Particular emphasis was placed on component grouping and logical placement to mirror circuit topology, improving readability, debug efficiency, and overall design clarity.\n\nWorking within a single-layer constraint required careful trace planning to minimize crossovers and maintain clean current return paths. Routing strategy focused on optimizing trace flow, reducing unnecessary complexity, and ensuring compatibility with low-cost fabrication processes. Power paths and switching regions were designed with appropriate trace widths to handle current requirements while maintaining reliability.\n\nBasic noise mitigation techniques were incorporated through local decoupling and filtering, demonstrating awareness of signal integrity considerations even in simplified layouts. Connectors and larger components such as relays and power inputs were positioned at board edges to support accessibility and real-world usability.\n\nThe project was developed in KiCad and visualized in Blender for realistic rendering of the assembled board. It demonstrates strong foundational understanding of PCB design constraints, component interaction, and practical hardware implementation using through-hole technology.",
+    tags: [
+      "KiCad",
+      "Single-Layer PCB",
+      "Through-Hole Design",
+      "Relay Circuits",
+      "Analog Filtering",
+      "Signal Routing",
+      "DFM",
+      "PCB Fundamentals",
+    ],
+    icon: CircuitBoard,
+    highlight: "Single-layer optimization",
+    media: [{ type: "video", src: singleLayerPcbVideo }],
+    hidden: false,
+    deliverables: [
+      "KiCad PCB + Schematic",
+      "Single-Layer Routing Strategy",
+      "Through-Hole Component Layout",
+      "BOM & Gerber Files",
+      "3D Blender Visualization",
     ],
   },
   {
