@@ -2532,7 +2532,7 @@ export function Portfolio({
             <Button
               variant="outline"
               className="font-mono text-sm border-primary/40 text-primary gap-2 hover:bg-primary/10"
-              onClick={() => setVisibleCount((prev) => prev + 6)}
+              onClick={() => setVisibleCount((prev) => prev + 3)}
               data-testid="button-show-more"
             >
               <ChevronDown className="w-4 h-4" />
