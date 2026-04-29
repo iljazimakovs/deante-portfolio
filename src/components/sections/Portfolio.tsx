@@ -352,7 +352,7 @@ const projects: Project[] = [
       "BOM & Gerber Files",
       "DFM-Ready Layout",
     ],
-  }
+  },
   {
     slug: "c45g",
     title: "CM4 5G & WiFi 6 Embedded Board",
