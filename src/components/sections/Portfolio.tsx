@@ -103,6 +103,7 @@ const psuVideo = "/images/project-power-supply.mp4";
 const psuImg1 = "/images/image_1772543835349.jpg";
 const psuImg2 = "/images/image_1772543842115.jpg";
 const psuImg3 = "/images/image_1772543847124.jpg";
+const irebVideo = "/images/ireb.mp4";
 const motorVideo = "/images/project-motor-controller.mp4";
 const rpiHatVideo = "/images/project-rpi-motor-hat.mp4";
 const sbcImg1 = "/images/1.jpg";
@@ -318,6 +319,40 @@ const projects: Project[] = [
       "Test & Validation Report",
     ],
   },
+  {
+    slug: "irb12",
+    title: "Industrial 12-Channel Relay Expansion Board",
+    category: "PCB & Hardware Engineering",
+    filterSlugs: ["pcb-hardware", "embedded-firmware"],
+    description:
+      "12-channel relay expansion board for Arduino-based systems featuring galvanic isolation, stacked PCB architecture, and integrated display interface for reliable control of external loads in industrial environments.",
+    longDescription:
+      "Designed a multi-channel industrial relay expansion board for Arduino-based control systems with a strong focus on electrical isolation, reliability, and modular architecture. The system integrates 12 relay channels for switching external loads, with dedicated driver stages and robust screw terminal interfaces for field wiring.\n\nThe hardware is implemented as a two-board stacked architecture, separating logic/control and high-power switching domains to improve signal integrity and simplify routing. Galvanic isolation is introduced between control and load domains to protect the microcontroller from voltage transients, EMI, and ground loops, making the design suitable for industrial and automation environments.\n\nA dedicated display interface is integrated via header connections, enabling real-time system monitoring, diagnostics, and channel status visualization. The PCB layout emphasizes repeatability across channels, clean signal grouping, and optimized routing for manufacturability. Designed in KiCad with DFM considerations, the board is suitable for small-batch production and scalable deployment.",
+    tags: [
+      "KiCad",
+      "Relay Control",
+      "Galvanic Isolation",
+      "Industrial Automation",
+      "Mixed-Signal PCB",
+      "EMI Mitigation",
+      "Stacked PCB Design",
+      "Driver Circuits",
+      "DFM",
+    ],
+    icon: CircuitBoard,
+    highlight: "12-channel isolated control",
+    media: [
+      { type: "video", src: irebVideo},
+    ],
+    hidden: false,
+    deliverables: [
+      "KiCad PCB + Schematic",
+      "Relay Driver Circuit Design",
+      "Stacked Board Architecture",
+      "BOM & Gerber Files",
+      "DFM-Ready Layout",
+    ],
+  }
   {
     slug: "c45g",
     title: "CM4 5G & WiFi 6 Embedded Board",
@@ -1801,8 +1836,8 @@ function MediaSlider({
               <button
                 key={i}
                 className={`rounded-full transition-all ${i === safeIndex
-                    ? "w-5 h-1.5 bg-primary"
-                    : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
+                  ? "w-5 h-1.5 bg-primary"
+                  : "w-1.5 h-1.5 bg-foreground/40 hover:bg-foreground/70"
                   }`}
                 onClick={(e) => goTo(i, e)}
                 data-testid={`button-media-dot-${i}`}
@@ -2246,8 +2281,8 @@ export function Portfolio({
                 data-testid={`filter-${cat.slug}`}
                 onClick={() => handleCategoryChange(cat.slug)}
                 className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border ${activeCategory === cat.slug
-                    ? "bg-primary/15 text-primary border-primary/40"
-                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
+                  ? "bg-primary/15 text-primary border-primary/40"
+                  : "bg-card/60 text-muted-foreground border-border/40 hover:border-primary/30 hover:text-foreground"
                   }`}
               >
                 {cat.name}
@@ -2260,8 +2295,8 @@ export function Portfolio({
                   data-testid="filter-suggested"
                   onClick={() => handleCategoryChange("suggested")}
                   className={`px-4 py-2 rounded-lg text-sm font-mono transition-all border flex items-center gap-1.5 ${activeCategory === "suggested"
-                      ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
-                      : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
+                    ? "bg-amber-500/15 text-amber-400 border-amber-500/40"
+                    : "bg-card/60 text-muted-foreground border-border/40 hover:border-amber-500/30 hover:text-foreground"
                     }`}
                 >
                   <ThumbsUp className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
