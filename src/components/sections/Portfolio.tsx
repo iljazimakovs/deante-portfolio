@@ -107,6 +107,7 @@ const psuImg2 = "/images/image_1772543842115.jpg";
 const psuImg3 = "/images/image_1772543847124.jpg";
 const irebVideo = "/images/ireb.mp4";
 const motorVideo = "/images/project-motor-controller.mp4";
+const dcdc4LayerVideo = "/images/dcdc4LayerVideo.mp4";
 const rpiHatVideo = "/images/project-rpi-motor-hat.mp4";
 const singleLayerPcbVideo = "/images/singleLayerPcbImg.mp4";
 const sbcImg1 = "/images/1.jpg";
@@ -418,6 +419,38 @@ const projects: Project[] = [
       "Gerber & BOM Files",
       "3D Blender Visualization",
       "Integration Guide",
+    ],
+  },
+  {
+    slug: "dcdc4l",
+    title: "4-Layer DC-DC Power Supply with Thermal Optimization",
+    category: "PCB & Hardware Engineering",
+    filterSlugs: ["pcb-hardware"],
+    description:
+      "Compact 4-layer DC-DC power supply designed for high efficiency and thermal performance, featuring optimized stack-up, copper pours, and via stitching for stable operation under load.",
+    longDescription:
+      "Designed a high-efficiency DC-DC power supply with a strong focus on thermal management, power integrity, and compact multi-layer PCB implementation. The design utilizes a 4-layer stack-up to improve heat dissipation, reduce impedance in power delivery paths, and enhance overall signal integrity compared to traditional 2-layer solutions.\n\nThermal performance was a primary design driver. Strategic copper pours across inner and outer layers, combined with via stitching, were implemented to distribute heat effectively and reduce localized hotspots. This approach enables reliable operation under higher current loads while maintaining component longevity and system stability.\n\nComponent selection focused on efficiency and stability, incorporating switching regulators with optimized performance characteristics and low-ESR capacitors to minimize ripple and ensure clean output. Layout decisions prioritized short current loops, controlled return paths, and proper separation of switching and sensitive nodes to reduce noise and improve overall regulation performance.\n\nThe PCB was developed in KiCad with careful consideration of layer stack-up, power plane usage, and manufacturability. The multi-layer architecture supports improved EMI behavior and robust power delivery, making the design suitable for demanding embedded and industrial applications.\n\nTo complement the engineering design, detailed 3D renders and animated visualizations were created in Blender, illustrating the internal layer structure and component layout. This combination of technical design and visual presentation enhances communication for both engineering reviews and portfolio demonstration.",
+    tags: [
+      "KiCad",
+      "DC-DC Converter",
+      "4-Layer PCB",
+      "Power Electronics",
+      "Thermal Management",
+      "Via Stitching",
+      "Low ESR Capacitors",
+      "Signal Integrity",
+      "DFM",
+    ],
+    icon: Battery,
+    highlight: "4-layer thermal design",
+    media: [{ type: "video", src: dcdc4LayerVideo }],
+    hidden: false,
+    deliverables: [
+      "KiCad PCB + Schematic",
+      "4-Layer Stack-up Design",
+      "Thermal Optimization Strategy",
+      "BOM & Gerber Files",
+      "3D Blender Visualization & Animation",
     ],
   },
   {
