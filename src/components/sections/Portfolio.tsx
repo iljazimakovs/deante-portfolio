@@ -390,6 +390,36 @@ const projects: Project[] = [
     ],
   },
   {
+    slug: "rhat",
+    title: "Raspberry Pi Motor Control HAT",
+    category: "PCB & Hardware",
+    filterSlugs: ["pcb-hardware", "embedded-firmware"],
+    description:
+      "Custom Raspberry Pi HAT for motor control and sensor integration. KiCad 9 design with motor drivers, regulated power supply, and GPIO/I2C/SPI interfaces in a stackable form factor.",
+    longDescription:
+      "Designed and developed a custom Raspberry Pi expansion board (HAT) for motor control and sensor integration in robotics and automation systems. Created in KiCad 9, the PCB integrates motor driver circuits, regulated power supply, and multiple GPIO, I2C, and SPI interfaces for analog and digital sensors. The compact stackable form factor ensures seamless integration with Raspberry Pi. Delivered complete design files, Gerbers, BOM, and 3D visualizations with Blender animations for technical presentation.",
+    tags: [
+      "KiCad 9",
+      "Raspberry Pi",
+      "GPIO",
+      "I2C",
+      "SPI",
+      "DC Motor Drivers",
+      "Power Regulation",
+      "Blender 3D",
+    ],
+    icon: CircuitBoard,
+    highlight: "Stackable HAT design",
+    media: [{ type: "video", src: rpiHatVideo }],
+    hidden: false,
+    deliverables: [
+      "KiCad PCB + Schematic",
+      "Gerber & BOM Files",
+      "3D Blender Visualization",
+      "Integration Guide",
+    ],
+  },
+  {
     slug: "c45g",
     title: "CM4 5G & WiFi 6 Embedded Board",
     category: "Embedded Linux / Hardware",
@@ -1112,36 +1142,6 @@ const projects: Project[] = [
       "U-Boot Bootargs Setup",
       "eMMC Filesystem Expansion Guide",
       "Custom Carrier Boot Documentation",
-    ],
-  },
-  {
-    slug: "rhat",
-    title: "Raspberry Pi Motor Control HAT",
-    category: "PCB & Hardware",
-    filterSlugs: ["pcb-hardware", "embedded-firmware"],
-    description:
-      "Custom Raspberry Pi HAT for motor control and sensor integration. KiCad 9 design with motor drivers, regulated power supply, and GPIO/I2C/SPI interfaces in a stackable form factor.",
-    longDescription:
-      "Designed and developed a custom Raspberry Pi expansion board (HAT) for motor control and sensor integration in robotics and automation systems. Created in KiCad 9, the PCB integrates motor driver circuits, regulated power supply, and multiple GPIO, I2C, and SPI interfaces for analog and digital sensors. The compact stackable form factor ensures seamless integration with Raspberry Pi. Delivered complete design files, Gerbers, BOM, and 3D visualizations with Blender animations for technical presentation.",
-    tags: [
-      "KiCad 9",
-      "Raspberry Pi",
-      "GPIO",
-      "I2C",
-      "SPI",
-      "DC Motor Drivers",
-      "Power Regulation",
-      "Blender 3D",
-    ],
-    icon: CircuitBoard,
-    highlight: "Stackable HAT design",
-    media: [{ type: "video", src: rpiHatVideo }],
-    hidden: true,
-    deliverables: [
-      "KiCad PCB + Schematic",
-      "Gerber & BOM Files",
-      "3D Blender Visualization",
-      "Integration Guide",
     ],
   },
   {
