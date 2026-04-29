@@ -27,6 +27,7 @@ import {
   Check,
   Camera,
   Thermometer,
+  Lightbulb
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -98,6 +99,7 @@ const predMaintImg4 = "/images/image_1772518235099.jpg";
 const clarecoImg1 = "/images/image_1772543017538.jpg";
 const clarecoImg2 = "/images/image_1772543024387.jpg";
 const clarecoClinicImg1 = "/images/image_1772543264738.jpg";
+const lightbulbVideo = "/images/lightbulbVideo.mp4";
 const usbcPcbVideo = "/images/project-usbc-pcb-panel.mp4";
 const psuVideo = "/images/project-power-supply.mp4";
 const psuImg1 = "/images/image_1772543835349.jpg";
@@ -342,7 +344,7 @@ const projects: Project[] = [
     icon: CircuitBoard,
     highlight: "12-channel isolated control",
     media: [
-      { type: "video", src: irebVideo},
+      { type: "video", src: irebVideo },
     ],
     hidden: false,
     deliverables: [
@@ -351,6 +353,40 @@ const projects: Project[] = [
       "Stacked Board Architecture",
       "BOM & Gerber Files",
       "DFM-Ready Layout",
+    ],
+  },
+  {
+    slug: "espiso",
+    title: "ESP32 Isolated LED Control Board",
+    category: "IoT & Connected Devices",
+    filterSlugs: ["pcb-hardware", "embedded-firmware", "iot-connected-devices"],
+    description:
+      "ESP32-WROOM-32E–based control board with galvanic isolation across control, analog input, and 12V LED power domains, enabling reliable mixed-signal operation and real-time LED control.",
+    longDescription:
+      "Designed an ESP32-WROOM-32E–based embedded control board for reliable operation across multiple electrical domains, with a strong focus on galvanic isolation, signal integrity, and mixed-signal robustness. The system enables real-time control of a 12V LED strip using analog input from a variable resistor, supporting dynamic adjustment such as brightness or parameter tuning.\n\nA key aspect of the design is strict domain separation between the analog input stage, ESP32 logic domain, and high-current LED power stage. Isolation techniques were implemented to protect low-voltage control electronics from switching noise, voltage transients, and ground shifts typically introduced by LED loads and other power-driven peripherals.\n\nThe LED output stage was engineered for stable 12V operation with appropriate driver circuitry, optimized current paths, and thermal-aware layout considerations. Careful grounding strategy and return path management ensure consistent system behavior under varying load conditions.\n\nPCB layout emphasizes functional partitioning and clean routing. The ESP32 module is centrally positioned with short, controlled trace lengths, while analog and power sections are physically separated to minimize interference. Clearly labeled connectors for LED output, analog input (R_VAR), UART interface, and power inputs improve usability for integration, debugging, and field deployment.\n\nDeveloped in KiCad with a focus on manufacturability, including accessible component placement, clear silkscreen labeling, and a compact, production-ready form factor. The project demonstrates a complete embedded hardware solution integrating wireless MCU control, analog signal acquisition, power electronics interfacing, and isolation techniques for reliable IoT and mixed-signal applications.",
+    tags: [
+      "ESP32-WROOM-32E",
+      "Mixed-Signal PCB",
+      "Galvanic Isolation",
+      "12V LED Control",
+      "ADC",
+      "Embedded C",
+      "Signal Integrity",
+      "Power Electronics",
+      "KiCad",
+    ],
+    icon: Lightbulb,
+    highlight: "Isolated mixed-signal control",
+    media: [
+      { type: "video", src: lightbulbVideo },
+    ],
+    hidden: false,
+    deliverables: [
+      "KiCad PCB + Schematic",
+      "ESP32 Hardware Integration",
+      "Analog Input (ADC) Interface Design",
+      "Isolated Power & Signal Architecture",
+      "BOM & Gerber Files",
     ],
   },
   {
