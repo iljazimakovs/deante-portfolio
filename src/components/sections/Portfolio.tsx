@@ -123,6 +123,13 @@ const netduino_cam_1 = "/images/netduino_cam1.jpg";
 const netduino_cam_2 = "/images/netduino_cam3.jpg";
 const netduino_cam_3 = "/images/netduino_cam4.jpg";
 const netduino_cam_4 = "/images/netduino_cam2.jpg";
+const rtpStreamImg1 = "/images/_uAjxY0GCoH.jpg";
+const rtpStreamImg2 = "/images/immagine_ancETROLU7.jpg";
+const rtpStreamImg3 = "/images/immagine_MF33OFjy3W.jpg";
+const rtpStreamImg4 = "/images/immagine_YYEbdtbgyH.jpg";
+const rtpStreamImg5 = "/images/immagine_2zc7JvV1FJ.jpg";
+const rtpStreamImg6 = "/images/immagine_9SvYu3ym9r.jpg";
+const rtpStreamImg7 = "/images/immagine_CvZbqABqnQ.jpg";
 const ne101_mqtt_lte_iot_camera_1 = "/images/ne101_mqtt_lte_iot_camera_1.jpg";
 const ne101_mqtt_lte_iot_camera_2 = "/images/ne101_mqtt_lte_iot_camera_2.jpg";
 const ne101_mqtt_lte_iot_camera_3 = "/images/ne101_mqtt_lte_iot_camera_3.jpg";
@@ -482,6 +489,46 @@ const projects: Project[] = [
       "Through-Hole Component Layout",
       "BOM & Gerber Files",
       "3D Blender Visualization",
+    ],
+  },
+  {
+    slug: "rtprpi",
+    title: "Low-Latency RTP Video Streaming System on Raspberry Pi",
+    category: "Embedded Linux / Hardware",
+    filterSlugs: ["embedded-linux-bsp", "embedded-firmware", "iot-connected-devices"],
+    description:
+      "Low-latency IP camera system using Raspberry Pi and USB camera, with a custom C++ pipeline leveraging OpenCV and FFmpeg for real-time RTP video streaming.",
+    longDescription:
+      "Developed a low-latency IP video streaming system on Raspberry Pi using a USB camera and a custom C++ pipeline. The solution captures frames via OpenCV and streams them over RTP using an FFmpeg-based encoding pipeline optimized for minimal latency.\n\nStreaming parameters such as resolution, frame rate, codec, and bitrate are configurable through an external file, enabling flexible deployment. The pipeline is tuned with low-delay settings and direct frame transfer to reduce buffering and improve real-time performance.\n\nThe project demonstrates integration across embedded Linux, video processing, and network streaming, providing a lightweight and efficient alternative for remote monitoring and edge video applications.",
+    tags: [
+      "Raspberry Pi",
+      "C++",
+      "OpenCV",
+      "FFmpeg",
+      "RTP Streaming",
+      "Low Latency Video",
+      "Embedded Linux",
+      "Video Encoding",
+      "Network Streaming",
+    ],
+    icon: Camera,
+    highlight: "Low-latency RTP streaming",
+    media: [
+      { type: "image", src: rtpStreamImg1 },
+      { type: "image", src: rtpStreamImg2 },
+      { type: "image", src: rtpStreamImg3 },
+      { type: "image", src: rtpStreamImg4 },
+      { type: "image", src: rtpStreamImg5 },
+      { type: "image", src: rtpStreamImg6 },
+      { type: "image", src: rtpStreamImg7 },
+    ],
+    hidden: false,
+    deliverables: [
+      "C++ RTP Streaming Application",
+      "OpenCV Camera Integration",
+      "FFmpeg Encoding Pipeline",
+      "Configurable Streaming System",
+      "Linux Deployment & Test Setup",
     ],
   },
   {
